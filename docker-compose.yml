@@ -1,0 +1,79 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo_secret
+      - POSTGRES_USER=odoo
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U odoo"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: always
+
+  odoo:
+    image: odoo:19.0
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo_secret
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./addons:/mnt/extra-addons
+      - ./config/odoo.conf:/etc/odoo/odoo.conf
+    restart: always
+    expose:
+      - "8069"
+      - "8072"
+    networks:
+      - default
+      - web-proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web-proxy"
+      - "traefik.http.middlewares.odoo-catastro-headers.headers.customrequestheaders.X-Forwarded-Proto=https"
+      - "traefik.http.routers.odoo-catastro.rule=Host(`catastro.local`)"
+      - "traefik.http.routers.odoo-catastro.entrypoints=web"
+      - "traefik.http.routers.odoo-catastro.service=odoo-catastro-svc"
+      - "traefik.http.routers.odoo-catastro.middlewares=odoo-catastro-headers"
+      - "traefik.http.services.odoo-catastro-svc.loadbalancer.server.port=8069"
+      - "traefik.http.routers.odoo-catastro-ws.rule=Host(`catastro.local`) && PathPrefix(`/websocket`)"
+      - "traefik.http.routers.odoo-catastro-ws.entrypoints=web"
+      - "traefik.http.routers.odoo-catastro-ws.service=odoo-catastro-ws-svc"
+      - "traefik.http.routers.odoo-catastro-ws.middlewares=odoo-catastro-headers"
+      - "traefik.http.services.odoo-catastro-ws-svc.loadbalancer.server.port=8072"
+
+  traefik:
+    image: traefik:latest
+    container_name: traefik-catastro
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.endpoint=unix:///var/run/docker.sock"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - web-proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.odoo-compress.compress=true"
+    restart: always
+
+volumes:
+  odoo-db-data:
+  odoo-web-data:
+
+networks:
+  web-proxy:
+    external: true
