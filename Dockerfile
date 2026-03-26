@@ -13,14 +13,8 @@ LABEL org.opencontainers.image.source="https://github.com/jpvargassoruco/catastr
 USER root
 
 # ── Dependencias del sistema ──────────────────────────────────────────────────
-# python3-gdal / libgdal-dev → necesario para base_geoengine (Fase 6 GIS)
-# wkhtmltopdf               → reportes PDF de Odoo
+# NOTA: GDAL/GIS se agrega en Fase 6 (base_geoengine). Por ahora solo utils.
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    # GIS / PostGIS (Fase 6)
-    python3-gdal \
-    libgdal-dev \
-    gdal-bin \
-    # Utilidades generales
     curl \
     git \
     && rm -rf /var/lib/apt/lists/*
