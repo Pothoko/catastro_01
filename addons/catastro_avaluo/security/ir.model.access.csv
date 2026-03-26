@@ -1,6 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_catastro_tabla_valor_user,catastro.tabla.valor.user,model_catastro_tabla_valor,catastro_predio.group_catastro_user,1,0,0,0
-access_catastro_tabla_valor_manager,catastro.tabla.valor.manager,model_catastro_tabla_valor,catastro_predio.group_catastro_manager,1,1,1,1
-access_catastro_avaluo_user,catastro.avaluo.user,model_catastro_avaluo,catastro_predio.group_catastro_user,1,0,0,0
-access_catastro_avaluo_manager,catastro.avaluo.manager,model_catastro_avaluo,catastro_predio.group_catastro_manager,1,1,1,1
-access_catastro_wizard_recalculo_manager,catastro.wizard.recalculo.manager,model_catastro_wizard_recalculo_masivo,catastro_predio.group_catastro_manager,1,1,1,1
+access_catastro_tabla_valor_consultor,catastro.tabla.valor.consultor,model_catastro_tabla_valor,catastro_predio.group_catastro_consultor,1,0,0,0
+access_catastro_tabla_valor_operador,catastro.tabla.valor.operador,model_catastro_tabla_valor,catastro_predio.group_catastro_operador,1,1,1,0
+access_catastro_tabla_valor_admin,catastro.tabla.valor.admin,model_catastro_tabla_valor,catastro_predio.group_catastro_admin,1,1,1,1
+access_catastro_avaluo_consultor,catastro.avaluo.consultor,model_catastro_avaluo,catastro_predio.group_catastro_consultor,1,0,0,0
+access_catastro_avaluo_operador,catastro.avaluo.operador,model_catastro_avaluo,catastro_predio.group_catastro_operador,1,1,1,0
+access_catastro_avaluo_admin,catastro.avaluo.admin,model_catastro_avaluo,catastro_predio.group_catastro_admin,1,1,1,1
+access_catastro_wizard_recalculo_admin,catastro.wizard.recalculo.admin,model_catastro_wizard_recalculo,catastro_predio.group_catastro_admin,1,1,1,1
