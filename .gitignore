@@ -9,9 +9,13 @@
 .DS_Store
 Thumbs.db
 
+# Contexto local (grandes, NO van al repo público)
+paria/
+siicat/
+antigravity-awesome-skills/
+
 # Logs
 *.log
-siicat/log/
 
 # Backups
 *.bak
