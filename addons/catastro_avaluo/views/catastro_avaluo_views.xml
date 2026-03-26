@@ -19,11 +19,7 @@
                 <field name="valor_terreno" string="Terreno (Bs)"/>
                 <field name="valor_construccion" string="Construcción (Bs)"/>
                 <field name="valor_catastral" string="Valor Catastral (Bs)" optional="show"/>
-                <field name="state" widget="badge"
-                       decoration-success="state == 'vigente'"
-                       decoration-info="state == 'aprobado'"
-                       decoration-warning="state == 'calculado'"
-                       decoration-secondary="state == 'historico'"/>
+                <field name="state" widget="badge"/>
                 <field name="fecha_calculo"/>
             </tree>
         </field>
