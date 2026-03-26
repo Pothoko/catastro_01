@@ -35,11 +35,7 @@
                             <field name="gestion"/>
                             <field name="tabla_valor_id"/>
                             <field name="valor_catastral"/>
-                            <field name="state" widget="badge"
-                                   decoration-success="state == 'vigente'"
-                                   decoration-info="state == 'aprobado'"
-                                   decoration-warning="state == 'calculado'"
-                                   decoration-secondary="state == 'historico'"/>
+                            <field name="state" widget="badge"/>
                             <field name="fecha_calculo"/>
                         </tree>
                     </field>
