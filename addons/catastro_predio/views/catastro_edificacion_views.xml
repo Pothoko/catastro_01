@@ -40,12 +40,12 @@
         </field>
     </record>
 
-    <!-- LIST VIEW — catastro.edificacion standalone -->
+    <!-- TREE VIEW — catastro.edificacion standalone -->
     <record id="view_catastro_edificacion_tree" model="ir.ui.view">
         <field name="name">catastro.edificacion.tree</field>
         <field name="model">catastro.edificacion</field>
         <field name="arch" type="xml">
-            <list string="Edificaciones">
+            <tree string="Edificaciones">
                 <field name="predio_id"/>
                 <field name="tipo_construccion"/>
                 <field name="superficie"/>
@@ -55,7 +55,7 @@
                        decoration-warning="estado_conservacion == 'regular'"
                        decoration-danger="estado_conservacion in ('malo','ruinoso')"/>
                 <field name="valor"/>
-            </list>
+            </tree>
         </field>
     </record>
 

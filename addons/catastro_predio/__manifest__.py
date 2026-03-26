@@ -31,7 +31,9 @@ Gestión completa de predios catastrales con soporte para:
         'views/catastro_edificacion_views.xml',
         'views/catastro_menu.xml',
     ],
-    'demo': [],
+    'demo': [
+        'demo/demo_predios.xml',
+    ],
     'installable': True,
     'application': True,
     'auto_install': False,

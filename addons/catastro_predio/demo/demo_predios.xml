@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             PROPIETARIOS DEMO  (res.partner)
+             ═══════════════════════════════════════════════════════════ -->
+
+        <record id="partner_mamani_juan" model="res.partner">
+            <field name="name">Juan Carlos Mamani Quispe</field>
+            <field name="is_company">False</field>
+            <field name="street">Calle Bolívar Nro. 45</field>
+            <field name="city">Paria</field>
+            <field name="country_id" ref="base.bo"/>
+        </record>
+
+        <record id="partner_quispe_maria" model="res.partner">
+            <field name="name">María Elena Quispe Flores</field>
+            <field name="is_company">False</field>
+            <field name="street">Av. Camacho Nro. 120</field>
+            <field name="city">Paria</field>
+            <field name="country_id" ref="base.bo"/>
+        </record>
+
+        <record id="partner_condori_pedro" model="res.partner">
+            <field name="name">Pedro Condori Choque</field>
+            <field name="is_company">False</field>
+            <field name="street">Calle 6 de Agosto Nro. 78</field>
+            <field name="city">Paria</field>
+            <field name="country_id" ref="base.bo"/>
+        </record>
+
+        <record id="partner_lopez_ana" model="res.partner">
+            <field name="name">Ana Rosa López Torrez</field>
+            <field name="is_company">False</field>
+            <field name="street">Calle Sucre Nro. 33</field>
+            <field name="city">Paria</field>
+            <field name="country_id" ref="base.bo"/>
+        </record>
+
+        <record id="partner_garcia_roberto" model="res.partner">
+            <field name="name">Roberto García Mendoza</field>
+            <field name="is_company">False</field>
+            <field name="street">Av. Oruro Nro. 205</field>
+            <field name="city">Paria</field>
+            <field name="country_id" ref="base.bo"/>
+        </record>
+
+        <record id="partner_flores_carmen" model="res.partner">
+            <field name="name">Carmen Flores Apaza</field>
+            <field name="is_company">False</field>
+            <field name="street">Calle Murillo Nro. 67</field>
+            <field name="city">Paria</field>
+            <field name="country_id" ref="base.bo"/>
+        </record>
+
+        <record id="partner_municipio_paria" model="res.partner">
+            <field name="name">Gobierno Autónomo Municipal de Paria</field>
+            <field name="is_company">True</field>
+            <field name="street">Plaza Principal s/n</field>
+            <field name="city">Paria</field>
+            <field name="country_id" ref="base.bo"/>
+        </record>
+
+        <record id="partner_choque_felix" model="res.partner">
+            <field name="name">Félix Choque Huanca</field>
+            <field name="is_company">False</field>
+            <field name="street">Calle Potosí Nro. 14</field>
+            <field name="city">Paria</field>
+            <field name="country_id" ref="base.bo"/>
+        </record>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             PREDIOS URBANOS  (catastro.predio)
+             Códigos basados en fotos reales: 01-UV-MAN-PRED
+             ═══════════════════════════════════════════════════════════ -->
+
+        <!-- UV=01 MAN=0008 PRED=001 -->
+        <record id="predio_010008001" model="catastro.predio">
+            <field name="clave_catastral">01-0008-001</field>
+            <field name="tipo">urbano</field>
+            <field name="state">registrado</field>
+            <field name="zona">Centro</field>
+            <field name="sector">Sector 1</field>
+            <field name="manzano">8</field>
+            <field name="lote">1</field>
+            <field name="direccion">Calle Bolívar entre Sucre y Murillo</field>
+            <field name="distrito">Distrito 1</field>
+            <field name="propietario_id" ref="partner_mamani_juan"/>
+            <field name="uso_suelo">residencial</field>
+            <field name="clasificacion_suelo">urbano</field>
+            <field name="superficie_terreno">200.00</field>
+            <field name="frente">10.00</field>
+            <field name="fondo">20.00</field>
+            <field name="valor_unitario_terreno">350.00</field>
+            <field name="notas">Predio consolidado, escritura pública. Sin gravámenes.</field>
+        </record>
+
+        <!-- UV=01 MAN=0008 PRED=013 -->
+        <record id="predio_010008013" model="catastro.predio">
+            <field name="clave_catastral">01-0008-013</field>
+            <field name="tipo">urbano</field>
+            <field name="state">registrado</field>
+            <field name="zona">Centro</field>
+            <field name="sector">Sector 1</field>
+            <field name="manzano">8</field>
+            <field name="lote">13</field>
+            <field name="direccion">Av. Camacho Nro. 120</field>
+            <field name="distrito">Distrito 1</field>
+            <field name="propietario_id" ref="partner_quispe_maria"/>
+            <field name="uso_suelo">comercial</field>
+            <field name="clasificacion_suelo">urbano</field>
+            <field name="superficie_terreno">150.00</field>
+            <field name="frente">10.00</field>
+            <field name="fondo">15.00</field>
+            <field name="valor_unitario_terreno">420.00</field>
+            <field name="notas">Local comercial en planta baja. Actividad: tienda de abarrotes.</field>
+        </record>
+
+        <!-- UV=01 MAN=0016 PRED=014 -->
+        <record id="predio_010016014" model="catastro.predio">
+            <field name="clave_catastral">01-0016-014</field>
+            <field name="tipo">urbano</field>
+            <field name="state">registrado</field>
+            <field name="zona">Norte</field>
+            <field name="sector">Sector 2</field>
+            <field name="manzano">16</field>
+            <field name="lote">14</field>
+            <field name="direccion">Calle 6 de Agosto Nro. 78</field>
+            <field name="distrito">Distrito 2</field>
+            <field name="propietario_id" ref="partner_condori_pedro"/>
+            <field name="uso_suelo">residencial</field>
+            <field name="clasificacion_suelo">urbano</field>
+            <field name="superficie_terreno">180.00</field>
+            <field name="frente">12.00</field>
+            <field name="fondo">15.00</field>
+            <field name="valor_unitario_terreno">300.00</field>
+        </record>
+
+        <!-- UV=01 MAN=0023 PRED=017 -->
+        <record id="predio_010023017" model="catastro.predio">
+            <field name="clave_catastral">01-0023-017</field>
+            <field name="tipo">urbano</field>
+            <field name="state">registrado</field>
+            <field name="zona">Norte</field>
+            <field name="sector">Sector 2</field>
+            <field name="manzano">23</field>
+            <field name="lote">17</field>
+            <field name="direccion">Calle Sucre Nro. 33</field>
+            <field name="distrito">Distrito 2</field>
+            <field name="propietario_id" ref="partner_lopez_ana"/>
+            <field name="uso_suelo">mixto</field>
+            <field name="clasificacion_suelo">urbano</field>
+            <field name="superficie_terreno">250.00</field>
+            <field name="frente">12.50</field>
+            <field name="fondo">20.00</field>
+            <field name="valor_unitario_terreno">380.00</field>
+            <field name="notas">Planta baja comercial, planta alta vivienda.</field>
+        </record>
+
+        <!-- UV=01 MAN=0036 PRED=015  (Plaza / Área Municipal) -->
+        <record id="predio_010036015" model="catastro.predio">
+            <field name="clave_catastral">01-0036-015</field>
+            <field name="tipo">urbano</field>
+            <field name="state">registrado</field>
+            <field name="zona">Centro</field>
+            <field name="sector">Sector 1</field>
+            <field name="manzano">36</field>
+            <field name="lote">15</field>
+            <field name="direccion">Plaza Principal s/n</field>
+            <field name="distrito">Distrito 1</field>
+            <field name="propietario_id" ref="partner_municipio_paria"/>
+            <field name="uso_suelo">institucional</field>
+            <field name="clasificacion_suelo">urbano</field>
+            <field name="superficie_terreno">600.00</field>
+            <field name="frente">30.00</field>
+            <field name="fondo">20.00</field>
+            <field name="valor_unitario_terreno">500.00</field>
+            <field name="notas">Edificio Municipal. Patrimonio del municipio.</field>
+        </record>
+
+        <!-- UV=01 MAN=0043 PRED=014 -->
+        <record id="predio_010043014" model="catastro.predio">
+            <field name="clave_catastral">01-0043-014</field>
+            <field name="tipo">urbano</field>
+            <field name="state">registrado</field>
+            <field name="zona">Sur</field>
+            <field name="sector">Sector 3</field>
+            <field name="manzano">43</field>
+            <field name="lote">14</field>
+            <field name="direccion">Calle Murillo Nro. 67</field>
+            <field name="distrito">Distrito 3</field>
+            <field name="propietario_id" ref="partner_flores_carmen"/>
+            <field name="uso_suelo">residencial</field>
+            <field name="clasificacion_suelo">urbano</field>
+            <field name="superficie_terreno">175.00</field>
+            <field name="frente">10.00</field>
+            <field name="fondo">17.50</field>
+            <field name="valor_unitario_terreno">280.00</field>
+        </record>
+
+        <!-- UV=01 MAN=0056 PRED=014 -->
+        <record id="predio_010056014" model="catastro.predio">
+            <field name="clave_catastral">01-0056-014</field>
+            <field name="tipo">urbano</field>
+            <field name="state">registrado</field>
+            <field name="zona">Sur</field>
+            <field name="sector">Sector 3</field>
+            <field name="manzano">56</field>
+            <field name="lote">14</field>
+            <field name="direccion">Av. Oruro Nro. 205</field>
+            <field name="distrito">Distrito 3</field>
+            <field name="propietario_id" ref="partner_garcia_roberto"/>
+            <field name="uso_suelo">comercial</field>
+            <field name="clasificacion_suelo">urbano</field>
+            <field name="superficie_terreno">220.00</field>
+            <field name="frente">11.00</field>
+            <field name="fondo">20.00</field>
+            <field name="valor_unitario_terreno">400.00</field>
+            <field name="notas">Taller mecánico. Habilitado para uso industrial ligero.</field>
+        </record>
+
+        <!-- UV=01 MAN=0125 PRED=001 -->
+        <record id="predio_010125001" model="catastro.predio">
+            <field name="clave_catastral">01-0125-001</field>
+            <field name="tipo">urbano</field>
+            <field name="state">borrador</field>
+            <field name="zona">Periferia Norte</field>
+            <field name="sector">Sector 4</field>
+            <field name="manzano">125</field>
+            <field name="lote">1</field>
+            <field name="direccion">Calle Potosí Nro. 14</field>
+            <field name="distrito">Distrito 4</field>
+            <field name="propietario_id" ref="partner_choque_felix"/>
+            <field name="uso_suelo">residencial</field>
+            <field name="clasificacion_suelo">urbanizable</field>
+            <field name="superficie_terreno">300.00</field>
+            <field name="frente">15.00</field>
+            <field name="fondo">20.00</field>
+            <field name="valor_unitario_terreno">180.00</field>
+            <field name="notas">Predio en zona de expansión. Pendiente regularización de servicios básicos.</field>
+        </record>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             PREDIOS RURALES
+             ═══════════════════════════════════════════════════════════ -->
+
+        <!-- UV=02 MAN=0574 (rural) -->
+        <record id="predio_020574001" model="catastro.predio">
+            <field name="clave_catastral">02-0574-001</field>
+            <field name="tipo">rural</field>
+            <field name="state">registrado</field>
+            <field name="zona">Comunidad Llavini</field>
+            <field name="sector">Sector Rural 1</field>
+            <field name="comunidad">Llavini</field>
+            <field name="direccion">Paraje Cerro Negro</field>
+            <field name="distrito">Distrito Rural</field>
+            <field name="propietario_id" ref="partner_mamani_juan"/>
+            <field name="uso_suelo">agricola</field>
+            <field name="clasificacion_suelo">no_urbanizable</field>
+            <field name="superficie_terreno">15000.00</field>
+            <field name="valor_unitario_terreno">5.00</field>
+            <field name="notas">Parcela agrícola. Cultivo de quinua y papa. Derecho propietario comunal.</field>
+        </record>
+
+        <!-- UV=02 MAN=0709 (rural ganadero) -->
+        <record id="predio_020709006" model="catastro.predio">
+            <field name="clave_catastral">02-0709-006</field>
+            <field name="tipo">rural</field>
+            <field name="state">registrado</field>
+            <field name="zona">Comunidad Jilata</field>
+            <field name="sector">Sector Rural 2</field>
+            <field name="comunidad">Jilata</field>
+            <field name="direccion">Paraje Pampa Grande</field>
+            <field name="distrito">Distrito Rural</field>
+            <field name="propietario_id" ref="partner_condori_pedro"/>
+            <field name="uso_suelo">ganadero</field>
+            <field name="clasificacion_suelo">no_urbanizable</field>
+            <field name="superficie_terreno">45000.00</field>
+            <field name="valor_unitario_terreno">3.50</field>
+            <field name="notas">Pastizal. Actividad: cría de ovinos y camélidos.</field>
+        </record>
+
+        <!-- UV=02 MAN=0718 (rural) -->
+        <record id="predio_020718002" model="catastro.predio">
+            <field name="clave_catastral">02-0718-002</field>
+            <field name="tipo">rural</field>
+            <field name="state">registrado</field>
+            <field name="zona">Comunidad Huancaroma</field>
+            <field name="sector">Sector Rural 3</field>
+            <field name="comunidad">Huancaroma</field>
+            <field name="direccion">Paraje Río Azul</field>
+            <field name="distrito">Distrito Rural</field>
+            <field name="propietario_id" ref="partner_quispe_maria"/>
+            <field name="uso_suelo">agricola</field>
+            <field name="clasificacion_suelo">no_urbanizable</field>
+            <field name="superficie_terreno">8500.00</field>
+            <field name="valor_unitario_terreno">6.00</field>
+            <field name="notas">Parcela con riego gravitacional. Alta productividad.</field>
+        </record>
+
+        <!-- UV=02 MAN=0754 (rural mixto) -->
+        <record id="predio_020754001" model="catastro.predio">
+            <field name="clave_catastral">02-0754-001</field>
+            <field name="tipo">rural</field>
+            <field name="state">registrado</field>
+            <field name="zona">Comunidad Paria Sud</field>
+            <field name="sector">Sector Rural 4</field>
+            <field name="comunidad">Paria Sud</field>
+            <field name="direccion">Camino a Oruro Km 12</field>
+            <field name="distrito">Distrito Rural</field>
+            <field name="propietario_id" ref="partner_garcia_roberto"/>
+            <field name="uso_suelo">mixto</field>
+            <field name="clasificacion_suelo">no_urbanizable</field>
+            <field name="superficie_terreno">22000.00</field>
+            <field name="valor_unitario_terreno">4.50</field>
+            <field name="notas">Uso mixto: agropecuario. Parte del terreno con vivienda rural.</field>
+        </record>
+
+    </data>
+</odoo>

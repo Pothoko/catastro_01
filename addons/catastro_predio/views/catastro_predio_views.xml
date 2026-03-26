@@ -96,53 +96,16 @@
                             </field>
                         </page>
 
-                        <!-- Pestaña 3: Edificaciones -->
                         <page string="Edificaciones" name="edificaciones">
-                            <field name="edificacion_ids">
-                                <list editable="bottom">
-                                    <field name="tipo_construccion"/>
-                                    <field name="descripcion"/>
-                                    <field name="superficie"/>
-                                    <field name="niveles"/>
-                                    <field name="estado_conservacion"/>
-                                    <field name="valor"/>
-                                </list>
-                            </field>
+                            <field name="edificacion_ids"
+                                   context="{'default_predio_id': active_id}"
+                                   view_mode="tree,form"/>
                         </page>
 
-                        <!-- Pestaña 4: Tradición de Dominio -->
                         <page string="Tradición de Dominio" name="tradicion">
-                            <field name="tradicion_ids">
-                                <list>
-                                    <field name="propietario_id"/>
-                                    <field name="tipo_operacion"/>
-                                    <field name="fecha_adquisicion"/>
-                                    <field name="fecha_transferencia"/>
-                                    <field name="escritura_publica"/>
-                                    <field name="notaria"/>
-                                    <field name="precio_transferencia"
-                                           optional="show"/>
-                                    <field name="es_propietario_actual"
-                                           widget="boolean_toggle"/>
-                                </list>
-                                <form>
-                                    <group>
-                                        <group>
-                                            <field name="propietario_id"/>
-                                            <field name="tipo_operacion"/>
-                                            <field name="fecha_adquisicion"/>
-                                            <field name="fecha_transferencia"/>
-                                        </group>
-                                        <group>
-                                            <field name="escritura_publica"/>
-                                            <field name="notaria"/>
-                                            <field name="currency_id" invisible="1"/>
-                                            <field name="precio_transferencia"/>
-                                        </group>
-                                    </group>
-                                    <field name="notas" placeholder="Observaciones..."/>
-                                </form>
-                            </field>
+                            <field name="tradicion_ids"
+                                   context="{'default_predio_id': active_id}"
+                                   view_mode="tree,form"/>
                         </page>
 
                         <!-- Pestaña 5: Notas -->

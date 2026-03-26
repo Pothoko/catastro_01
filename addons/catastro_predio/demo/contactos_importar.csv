@@ -1,0 +1,9 @@
+name,is_company,street,city,phone,email,comment
+Juan Mamani López,False,Calle Bolívar Nro. 45,Paria,+591 70000001,jmamani@example.com,Propietario de predios urbanos y rurales
+María Quispe Flores,False,Av. Camacho Nro. 120,Paria,+591 70000002,mquispe@example.com,Propietaria de predios urbanos y rurales
+Pedro Condori Mamani,False,Calle 6 de Agosto Nro. 78,Paria,+591 70000003,pcondori@example.com,Propietario de múltiples predios
+Roberto García Vda.,False,Av. Oruro Nro. 205,Paria,+591 70000004,rgarcia@example.com,Propietario de predios comerciales
+Carmen Flores Quispe,False,Calle Murillo Nro. 67,Paria,+591 70000005,cflores@example.com,Propietaria residente
+Ana López Torrico,False,Calle Sucre Nro. 33,Paria,+591 70000006,alopez@example.com,Propietaria de predio mixto
+Félix Choque Bernal,False,Calle Potosí Nro. 14,Paria,+591 70000007,fchoque@example.com,Propietario en zona de expansión
+Municipio de Paria,True,Plaza Principal s/n,Paria,+591 2000001,municipio@paria.gob.bo,Gobierno Autónomo Municipal - propietario institucional
