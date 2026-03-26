@@ -14,7 +14,7 @@
               parent="menu_catastro_avaluo_root"
               action="catastro_tabla_valor_action"
               sequence="10"
-              groups="catastro_predio.group_catastro_manager"/>
+              groups="catastro_predio.group_catastro_admin"/>
 
     <!-- Avalúos Catastrales -->
     <menuitem id="menu_catastro_avaluo"
@@ -29,5 +29,5 @@
               parent="menu_catastro_avaluo_root"
               action="catastro_wizard_recalculo_action"
               sequence="30"
-              groups="catastro_predio.group_catastro_manager"/>
+              groups="catastro_predio.group_catastro_admin"/>
 </odoo>
