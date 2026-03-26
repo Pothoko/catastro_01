@@ -165,7 +165,7 @@
         <field name="name">catastro.predio.tree</field>
         <field name="model">catastro.predio</field>
         <field name="arch" type="xml">
-            <list string="Predios Catastrales" decoration-muted="state == 'inactivo'">
+            <tree string="Predios Catastrales" decoration-muted="state == 'inactivo'">
                 <field name="clave_catastral"/>
                 <field name="tipo" widget="badge"
                        decoration-info="tipo == 'urbano'"
@@ -181,7 +181,7 @@
                        decoration-success="state == 'registrado'"
                        decoration-warning="state == 'borrador'"
                        decoration-danger="state == 'inactivo'"/>
-            </list>
+            </tree>
         </field>
     </record>
 

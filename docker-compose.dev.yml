@@ -1,0 +1,50 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# docker-compose.dev.yml — Ambiente de DESARROLLO LOCAL (Kali Linux)
+# Uso: docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+#
+# Diferencias vs producción (WSL catastro):
+#   - Expone puerto 8069 directamente (sin Traefik)
+#   - Monta addons desde ./addons para hot-reload
+#   - No requiere red externa web-proxy
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+  db:
+    # Sobrescribe: healthcheck más rápido en dev
+    healthcheck:
+      interval: 5s
+      retries: 3
+
+  odoo:
+    # En dev: NO usar imagen de GHCR, construir desde Dockerfile local
+    image: catastro-dev:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      # Acceso directo sin Traefik
+      - "8069:8069"
+      - "8072:8072"
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo_secret
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./addons:/mnt/extra-addons        # hot-reload de módulos
+      - ./config/odoo.conf:/etc/odoo/odoo.conf
+    # Sin Traefik labels en dev
+    labels: []
+    networks:
+      - default                            # solo red interna, sin web-proxy
+
+  # Traefik deshabilitado en dev
+  traefik:
+    profiles:
+      - disabled
+
+networks:
+  web-proxy:
+    # En dev no existe la red externa — ignorar
+    external: false
+    name: catastro_web-proxy

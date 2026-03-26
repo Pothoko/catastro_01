@@ -2,18 +2,18 @@
 <odoo>
 
     <!-- ══════════════════════════════════════════════════════════════════════
-         LIST VIEW — catastro.colindante  (embebida en predio via One2many)
+         TREE VIEW — catastro.colindante  (embebida en predio via One2many)
     ══════════════════════════════════════════════════════════════════════ -->
-    <record id="view_catastro_colindante_list" model="ir.ui.view">
-        <field name="name">catastro.colindante.list</field>
+    <record id="view_catastro_colindante_tree" model="ir.ui.view">
+        <field name="name">catastro.colindante.tree</field>
         <field name="model">catastro.colindante</field>
         <field name="arch" type="xml">
-            <list editable="bottom" string="Colindantes">
+            <tree editable="bottom" string="Colindantes">
                 <field name="orientacion"/>
                 <field name="descripcion"/>
                 <field name="medida"/>
                 <field name="referencia"/>
-            </list>
+            </tree>
         </field>
     </record>
 
