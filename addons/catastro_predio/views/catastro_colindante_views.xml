@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         LIST VIEW — catastro.colindante  (embebida en predio via One2many)
+    ══════════════════════════════════════════════════════════════════════ -->
+    <record id="view_catastro_colindante_list" model="ir.ui.view">
+        <field name="name">catastro.colindante.list</field>
+        <field name="model">catastro.colindante</field>
+        <field name="arch" type="xml">
+            <list editable="bottom" string="Colindantes">
+                <field name="orientacion"/>
+                <field name="descripcion"/>
+                <field name="medida"/>
+                <field name="referencia"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORM VIEW — catastro.colindante (popup al editar un colindante) -->
+    <record id="view_catastro_colindante_form" model="ir.ui.view">
+        <field name="name">catastro.colindante.form</field>
+        <field name="model">catastro.colindante</field>
+        <field name="arch" type="xml">
+            <form string="Colindante">
+                <sheet>
+                    <group>
+                        <field name="orientacion"/>
+                        <field name="descripcion"/>
+                        <field name="medida"/>
+                        <field name="referencia"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

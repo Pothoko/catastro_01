@@ -90,13 +90,9 @@
 
                         <!-- Pestaña 2: Colindantes -->
                         <page string="Colindantes" name="colindantes">
-                            <field name="colindante_ids">
-                                <list editable="bottom">
-                                    <field name="orientacion"/>
-                                    <field name="descripcion"/>
-                                    <field name="medida"/>
-                                    <field name="referencia"/>
-                                </list>
+                            <field name="colindante_ids"
+                                   context="{'default_predio_id': active_id}"
+                                   view_mode="list,form">
                             </field>
                         </page>
 

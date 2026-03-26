@@ -26,6 +26,7 @@ Gestión completa de predios catastrales con soporte para:
         'security/catastro_security.xml',
         'security/ir.model.access.csv',
         'data/catastro_data.xml',
+        'views/catastro_colindante_views.xml',
         'views/catastro_predio_views.xml',
         'views/catastro_edificacion_views.xml',
         'views/catastro_menu.xml',
