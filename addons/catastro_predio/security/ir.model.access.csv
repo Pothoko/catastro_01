@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_catastro_predio_consultor,catastro.predio consultor,model_catastro_predio,group_catastro_consultor,1,0,0,0
+access_catastro_predio_operador,catastro.predio operador,model_catastro_predio,group_catastro_operador,1,1,1,0
+access_catastro_predio_admin,catastro.predio admin,model_catastro_predio,group_catastro_admin,1,1,1,1
+access_catastro_colindante_consultor,catastro.colindante consultor,model_catastro_colindante,group_catastro_consultor,1,0,0,0
+access_catastro_colindante_operador,catastro.colindante operador,model_catastro_colindante,group_catastro_operador,1,1,1,0
+access_catastro_colindante_admin,catastro.colindante admin,model_catastro_colindante,group_catastro_admin,1,1,1,1
+access_catastro_tradicion_consultor,catastro.tradicion consultor,model_catastro_tradicion,group_catastro_consultor,1,0,0,0
+access_catastro_tradicion_operador,catastro.tradicion operador,model_catastro_tradicion,group_catastro_operador,1,1,1,0
+access_catastro_tradicion_admin,catastro.tradicion admin,model_catastro_tradicion,group_catastro_admin,1,1,1,1
+access_catastro_edificacion_consultor,catastro.edificacion consultor,model_catastro_edificacion,group_catastro_consultor,1,0,0,0
+access_catastro_edificacion_operador,catastro.edificacion operador,model_catastro_edificacion,group_catastro_operador,1,1,1,0
+access_catastro_edificacion_admin,catastro.edificacion admin,model_catastro_edificacion,group_catastro_admin,1,1,1,1

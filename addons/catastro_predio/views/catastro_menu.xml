@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         MENÚ PRINCIPAL — Catastro
+    ══════════════════════════════════════════════════════════════════════ -->
+    <menuitem id="menu_catastro_root"
+              name="Catastro"
+              sequence="50"
+              web_icon="catastro_predio,static/description/icon.png"
+              groups="catastro_predio.group_catastro_consultor"/>
+
+    <!-- Predios -->
+    <menuitem id="menu_catastro_predios"
+              name="Predios"
+              parent="menu_catastro_root"
+              sequence="10"/>
+
+    <menuitem id="menu_catastro_predios_registrados"
+              name="Predios Registrados"
+              parent="menu_catastro_predios"
+              action="action_catastro_predio"
+              sequence="10"/>
+
+    <menuitem id="menu_catastro_predios_todos"
+              name="Todos los Predios"
+              parent="menu_catastro_predios"
+              action="action_catastro_predio_all"
+              sequence="20"
+              groups="catastro_predio.group_catastro_admin"/>
+
+    <!-- Configuración (futuro) -->
+    <menuitem id="menu_catastro_config"
+              name="Configuración"
+              parent="menu_catastro_root"
+              sequence="90"
+              groups="catastro_predio.group_catastro_admin"/>
+
+</odoo>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         FORM VIEW — catastro.edificacion (standalone, para abrir desde
+         lista de predios o en popup)
+    ══════════════════════════════════════════════════════════════════════ -->
+    <record id="view_catastro_edificacion_form" model="ir.ui.view">
+        <field name="name">catastro.edificacion.form</field>
+        <field name="model">catastro.edificacion</field>
+        <field name="arch" type="xml">
+            <form string="Edificación">
+                <sheet>
+                    <group>
+                        <group string="Datos Generales">
+                            <field name="predio_id"/>
+                            <field name="tipo_construccion"/>
+                            <field name="descripcion"/>
+                            <field name="anio_construccion"/>
+                        </group>
+                        <group string="Superficie y Valor">
+                            <field name="superficie"/>
+                            <field name="niveles"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="valor_unitario"/>
+                            <field name="valor" class="oe_subtotal_footer_separator"/>
+                        </group>
+                    </group>
+                    <group string="Características Constructivas">
+                        <group>
+                            <field name="material_estructura"/>
+                            <field name="material_cubierta"/>
+                        </group>
+                        <group>
+                            <field name="estado_conservacion"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- LIST VIEW — catastro.edificacion standalone -->
+    <record id="view_catastro_edificacion_tree" model="ir.ui.view">
+        <field name="name">catastro.edificacion.tree</field>
+        <field name="model">catastro.edificacion</field>
+        <field name="arch" type="xml">
+            <list string="Edificaciones">
+                <field name="predio_id"/>
+                <field name="tipo_construccion"/>
+                <field name="superficie"/>
+                <field name="niveles"/>
+                <field name="estado_conservacion" widget="badge"
+                       decoration-success="estado_conservacion in ('muy_bueno','bueno')"
+                       decoration-warning="estado_conservacion == 'regular'"
+                       decoration-danger="estado_conservacion in ('malo','ruinoso')"/>
+                <field name="valor"/>
+            </list>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         SECURITY GROUPS
+    ══════════════════════════════════════════════════════════════════════ -->
+    <record id="module_catastro" model="ir.module.category">
+        <field name="name">Catastro Municipal</field>
+        <field name="description">Módulos del sistema de catastro municipal</field>
+        <field name="sequence">90</field>
+    </record>
+
+    <record id="group_catastro_consultor" model="res.groups">
+        <field name="name">Consultor</field>
+        <field name="category_id" ref="module_catastro"/>
+        <field name="comment">Acceso de solo lectura a los predios catastrales</field>
+    </record>
+
+    <record id="group_catastro_operador" model="res.groups">
+        <field name="name">Operador</field>
+        <field name="category_id" ref="module_catastro"/>
+        <field name="implied_ids" eval="[(4, ref('group_catastro_consultor'))]"/>
+        <field name="comment">Puede crear y modificar predios, colindantes, edificaciones y tradición de dominio</field>
+    </record>
+
+    <record id="group_catastro_admin" model="res.groups">
+        <field name="name">Administrador</field>
+        <field name="category_id" ref="module_catastro"/>
+        <field name="implied_ids" eval="[(4, ref('group_catastro_operador'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        <field name="comment">Acceso total incluyendo inactivar predios y configuración del módulo</field>
+    </record>
+
+</odoo>

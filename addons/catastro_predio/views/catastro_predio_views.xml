@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         FORM VIEW — catastro.predio
+    ══════════════════════════════════════════════════════════════════════ -->
+    <record id="view_catastro_predio_form" model="ir.ui.view">
+        <field name="name">catastro.predio.form</field>
+        <field name="model">catastro.predio</field>
+        <field name="arch" type="xml">
+            <form string="Predio Catastral">
+                <header>
+                    <button name="action_registrar" string="Registrar"
+                            type="object" class="oe_highlight"
+                            invisible="state != 'borrador'"
+                            groups="catastro_predio.group_catastro_operador"/>
+                    <button name="action_inactivar" string="Inactivar"
+                            type="object"
+                            invisible="state != 'registrado'"
+                            groups="catastro_predio.group_catastro_admin"
+                            confirm="¿Está seguro de inactivar este predio?"/>
+                    <button name="action_borrador" string="Volver a Borrador"
+                            type="object"
+                            invisible="state == 'borrador'"
+                            groups="catastro_predio.group_catastro_admin"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="borrador,registrado"/>
+                </header>
+
+                <sheet>
+                    <!-- Cabecera del formulario -->
+                    <div class="oe_title">
+                        <label for="clave_catastral" string="Clave Catastral"/>
+                        <h1>
+                            <field name="clave_catastral" placeholder="VG-U-001-002"/>
+                        </h1>
+                        <label for="tipo"/>
+                        <h2>
+                            <field name="tipo" widget="radio" options="{'horizontal': true}"/>
+                        </h2>
+                    </div>
+
+                    <group>
+                        <group string="Propietario">
+                            <field name="propietario_id"/>
+                            <field name="copropietario_ids" widget="many2many_tags"/>
+                        </group>
+                        <group string="Valor Catastral">
+                            <field name="currency_id" invisible="1"/>
+                            <field name="valor_terreno"/>
+                            <field name="valor_construccion"/>
+                            <field name="valor_total" class="oe_subtotal_footer_separator"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <!-- Pestaña 1: Datos de Ubicación -->
+                        <page string="Ubicación" name="ubicacion">
+                            <group>
+                                <group string="Información Catastral">
+                                    <field name="zona"/>
+                                    <field name="sector"/>
+                                    <field name="manzano"
+                                           invisible="tipo != 'urbano'"/>
+                                    <field name="lote"/>
+                                    <field name="distrito"/>
+                                    <field name="comunidad"
+                                           invisible="tipo != 'rural'"/>
+                                </group>
+                                <group string="Dirección">
+                                    <field name="direccion"/>
+                                    <field name="uso_suelo"/>
+                                    <field name="clasificacion_suelo"/>
+                                </group>
+                            </group>
+                            <group string="Superficies y Medidas">
+                                <group>
+                                    <field name="superficie_terreno"/>
+                                    <field name="frente"/>
+                                    <field name="fondo"/>
+                                </group>
+                                <group>
+                                    <field name="superficie_construida"/>
+                                </group>
+                            </group>
+                            <group string="Valores por m²">
+                                <field name="valor_unitario_terreno"/>
+                            </group>
+                        </page>
+
+                        <!-- Pestaña 2: Colindantes -->
+                        <page string="Colindantes" name="colindantes">
+                            <field name="colindante_ids">
+                                <list editable="bottom">
+                                    <field name="orientacion"/>
+                                    <field name="descripcion"/>
+                                    <field name="medida"/>
+                                    <field name="referencia"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <!-- Pestaña 3: Edificaciones -->
+                        <page string="Edificaciones" name="edificaciones">
+                            <field name="edificacion_ids">
+                                <list editable="bottom">
+                                    <field name="tipo_construccion"/>
+                                    <field name="descripcion"/>
+                                    <field name="superficie"/>
+                                    <field name="niveles"/>
+                                    <field name="estado_conservacion"/>
+                                    <field name="valor"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <!-- Pestaña 4: Tradición de Dominio -->
+                        <page string="Tradición de Dominio" name="tradicion">
+                            <field name="tradicion_ids">
+                                <list>
+                                    <field name="propietario_id"/>
+                                    <field name="tipo_operacion"/>
+                                    <field name="fecha_adquisicion"/>
+                                    <field name="fecha_transferencia"/>
+                                    <field name="escritura_publica"/>
+                                    <field name="notaria"/>
+                                    <field name="precio_transferencia"
+                                           optional="show"/>
+                                    <field name="es_propietario_actual"
+                                           widget="boolean_toggle"/>
+                                </list>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="propietario_id"/>
+                                            <field name="tipo_operacion"/>
+                                            <field name="fecha_adquisicion"/>
+                                            <field name="fecha_transferencia"/>
+                                        </group>
+                                        <group>
+                                            <field name="escritura_publica"/>
+                                            <field name="notaria"/>
+                                            <field name="currency_id" invisible="1"/>
+                                            <field name="precio_transferencia"/>
+                                        </group>
+                                    </group>
+                                    <field name="notas" placeholder="Observaciones..."/>
+                                </form>
+                            </field>
+                        </page>
+
+                        <!-- Pestaña 5: Notas -->
+                        <page string="Notas" name="notas">
+                            <field name="notas" placeholder="Observaciones generales del predio..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <!-- Chatter de auditoría -->
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         TREE VIEW — catastro.predio
+    ══════════════════════════════════════════════════════════════════════ -->
+    <record id="view_catastro_predio_tree" model="ir.ui.view">
+        <field name="name">catastro.predio.tree</field>
+        <field name="model">catastro.predio</field>
+        <field name="arch" type="xml">
+            <list string="Predios Catastrales" decoration-muted="state == 'inactivo'">
+                <field name="clave_catastral"/>
+                <field name="tipo" widget="badge"
+                       decoration-info="tipo == 'urbano'"
+                       decoration-warning="tipo == 'rural'"/>
+                <field name="propietario_id"/>
+                <field name="zona"/>
+                <field name="sector"/>
+                <field name="uso_suelo"/>
+                <field name="superficie_terreno" optional="show"/>
+                <field name="superficie_construida" optional="show"/>
+                <field name="valor_total"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'registrado'"
+                       decoration-warning="state == 'borrador'"
+                       decoration-danger="state == 'inactivo'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         SEARCH VIEW — catastro.predio
+    ══════════════════════════════════════════════════════════════════════ -->
+    <record id="view_catastro_predio_search" model="ir.ui.view">
+        <field name="name">catastro.predio.search</field>
+        <field name="model">catastro.predio</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Predios">
+                <field name="clave_catastral" string="Clave Catastral"/>
+                <field name="propietario_id" string="Propietario"/>
+                <field name="zona" string="Zona"/>
+                <field name="sector" string="Sector"/>
+                <field name="manzano" string="Manzano"/>
+                <separator/>
+                <filter name="filter_urbano" string="Urbanos"
+                        domain="[('tipo','=','urbano')]"/>
+                <filter name="filter_rural" string="Rurales"
+                        domain="[('tipo','=','rural')]"/>
+                <separator/>
+                <filter name="filter_registrado" string="Registrados"
+                        domain="[('state','=','registrado')]"/>
+                <filter name="filter_borrador" string="Borradores"
+                        domain="[('state','=','borrador')]"/>
+                <filter name="filter_inactivo" string="Inactivos"
+                        domain="[('state','=','inactivo')]"/>
+                <separator/>
+                <filter name="filter_con_gravamen" string="Con Gravamen"
+                        domain="[('tiene_gravamen','=',True)]"/>
+                <group expand="0" string="Agrupar Por">
+                    <filter name="group_zona" string="Zona"
+                            context="{'group_by': 'zona'}"/>
+                    <filter name="group_tipo" string="Tipo"
+                            context="{'group_by': 'tipo'}"/>
+                    <filter name="group_uso_suelo" string="Uso de Suelo"
+                            context="{'group_by': 'uso_suelo'}"/>
+                    <filter name="group_state" string="Estado"
+                            context="{'group_by': 'state'}"/>
+                    <filter name="group_propietario" string="Propietario"
+                            context="{'group_by': 'propietario_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         ACTION — catastro.predio
+    ══════════════════════════════════════════════════════════════════════ -->
+    <record id="action_catastro_predio" model="ir.actions.act_window">
+        <field name="name">Predios</field>
+        <field name="res_model">catastro.predio</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_catastro_predio_search"/>
+        <field name="context">{'search_default_filter_registrado': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Registre el primer predio catastral
+            </p>
+            <p>
+                Comience ingresando la clave catastral y el propietario,
+                luego complete los datos técnicos y de valor.
+            </p>
+        </field>
+    </record>
+
+    <!-- Acción con todos los predios (sin filtro por defecto) -->
+    <record id="action_catastro_predio_all" model="ir.actions.act_window">
+        <field name="name">Todos los Predios</field>
+        <field name="res_model">catastro.predio</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_catastro_predio_search"/>
+    </record>
+
+</odoo>

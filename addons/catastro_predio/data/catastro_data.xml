@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         DATOS INICIALES: Zonas catastrales predefinidas (etiquetas de uso)
+         Se pueden ampliar desde la configuración.
+    ══════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Ningún dato obligatorio en Fase 3: los valores de uso de suelo
+         y tipos son Selection fields en el modelo.
+         Este archivo es reserva para configuración inicial futura
+         (ej: plan de cuentas de impuestos, tasas por zona, etc.) -->
+
+</odoo>

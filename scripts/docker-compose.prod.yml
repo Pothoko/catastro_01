@@ -1,9 +1,10 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# docker-compose.yml — Catastro Municipal Vallegrande
-# Imagen custom: ghcr.io/jpvargassoruco/catastro:latest (construida por CI/CD)
+# docker-compose.yml — PRODUCCIÓN (WSL catastro /opt/catastro)
+# Catastro Municipal Vallegrande — Odoo 17.0 LTS
 # ─────────────────────────────────────────────────────────────────────────────
-# DESARROLLO LOCAL: los addons se montan como volumen (override del Dockerfile)
-# PRODUCCIÓN (WSL catastro): usar /opt/catastro/docker-compose.yml sin el mount
+# DIFERENCIAS vs repo (desarrollo local):
+#   - NO monta ./addons como volumen (los addons vienen en la imagen)
+#   - Usa .env para credenciales (ver .env.example)
 # ─────────────────────────────────────────────────────────────────────────────
 
 services:
@@ -11,7 +12,7 @@ services:
     image: postgres:16
     environment:
       - POSTGRES_DB=postgres
-      - POSTGRES_PASSWORD=odoo_secret
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-odoo_secret}
       - POSTGRES_USER=odoo
     volumes:
       - odoo-db-data:/var/lib/postgresql/data
@@ -23,7 +24,8 @@ services:
     restart: always
 
   odoo:
-    # ── Imagen custom desde GitHub Container Registry ─────────────────────────
+    # Imagen custom: construida por GitHub Actions → publicada en GHCR
+    # Para actualizar: bash /opt/catastro/scripts/deploy.sh
     image: ghcr.io/jpvargassoruco/catastro:latest
     depends_on:
       db:
@@ -31,12 +33,10 @@ services:
     environment:
       - HOST=db
       - USER=odoo
-      - PASSWORD=odoo_secret
+      - PASSWORD=${DB_PASSWORD:-odoo_secret}
     volumes:
       - odoo-web-data:/var/lib/odoo
-      # Desarrollo local: mount de addons (override de los del Dockerfile)
-      # Comentar este volumen en producción para usar los addons de la imagen
-      - ./addons:/mnt/extra-addons
+      # PRODUCCIÓN: NO se monta ./addons (los addons están en la imagen)
       - ./config/odoo.conf:/etc/odoo/odoo.conf
     restart: always
     expose:
