@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ═══ LIST ══════════════════════════════════════════════════════════ -->
+    <record id="catastro_avaluo_view_tree" model="ir.ui.view">
+        <field name="name">catastro.avaluo.list</field>
+        <field name="model">catastro.avaluo</field>
+        <field name="arch" type="xml">
+            <list string="Avalúos Catastrales"
+                  decoration-success="state == 'vigente'"
+                  decoration-info="state == 'aprobado'"
+                  decoration-muted="state == 'historico'">
+                <field name="name" string="Código"/>
+                <field name="gestion"/>
+                <field name="clave_catastral"/>
+                <field name="predio_id"/>
+                <field name="propietario_id"/>
+                <field name="zona"/>
+                <field name="valor_terreno" string="Terreno (Bs)"/>
+                <field name="valor_construccion" string="Construcción (Bs)"/>
+                <field name="valor_catastral" string="Valor Catastral (Bs)" optional="show"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'vigente'"
+                       decoration-info="state == 'aprobado'"
+                       decoration-warning="state == 'calculado'"
+                       decoration-secondary="state == 'historico'"/>
+                <field name="fecha_calculo"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ═══ FORM ══════════════════════════════════════════════════════════ -->
+    <record id="catastro_avaluo_view_form" model="ir.ui.view">
+        <field name="name">catastro.avaluo.form</field>
+        <field name="model">catastro.avaluo</field>
+        <field name="arch" type="xml">
+            <form string="Avalúo Catastral">
+                <header>
+                    <button name="action_aprobar" string="Aprobar"
+                            type="object" class="oe_highlight"
+                            invisible="state != 'calculado'"/>
+                    <button name="action_vigente" string="Marcar como Vigente"
+                            type="object" class="oe_highlight"
+                            invisible="state not in ('calculado', 'aprobado')"/>
+                    <button name="action_historico" string="Archivar (Histórico)"
+                            type="object"
+                            invisible="state == 'historico'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="calculado,aprobado,vigente"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                        <h3>
+                            <field name="clave_catastral" readonly="1"/>
+                        </h3>
+                    </div>
+
+                    <!-- Datos del predio -->
+                    <group string="Predio" col="4">
+                        <field name="predio_id"/>
+                        <field name="propietario_id" readonly="1"/>
+                        <field name="zona" readonly="1"/>
+                        <field name="gestion"/>
+                    </group>
+
+                    <!-- Tabla de valores -->
+                    <group string="Tabla de Valores Aplicada">
+                        <field name="tabla_valor_id"/>
+                    </group>
+
+                    <!-- Superficies y valores unitarios -->
+                    <group string="Cálculo" col="4">
+                        <group string="Terreno">
+                            <field name="superficie_terreno"/>
+                            <field name="valor_unitario_terreno"/>
+                            <field name="valor_terreno" readonly="1"/>
+                        </group>
+                        <group string="Construcción">
+                            <field name="superficie_construida"/>
+                            <field name="valor_unitario_construccion"/>
+                            <field name="factor_estado"/>
+                            <field name="valor_construccion" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <!-- Totales -->
+                    <group>
+                        <group>
+                            <field name="valor_catastral" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="fecha_calculo"/>
+                            <field name="fecha_aprobacion" invisible="not fecha_aprobacion"/>
+                        </group>
+                    </group>
+
+                    <group string="Observaciones">
+                        <field name="notas" nolabel="1"
+                               placeholder="Observaciones del valuador..."/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ═══ SEARCH ════════════════════════════════════════════════════════ -->
+    <record id="catastro_avaluo_view_search" model="ir.ui.view">
+        <field name="name">catastro.avaluo.search</field>
+        <field name="model">catastro.avaluo</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Avalúos">
+                <field name="name" string="Código"/>
+                <field name="predio_id"/>
+                <field name="clave_catastral"/>
+                <field name="propietario_id"/>
+                <field name="zona"/>
+                <field name="gestion"/>
+                <separator/>
+                <filter name="vigente" string="Vigentes" domain="[('state', '=', 'vigente')]"/>
+                <filter name="aprobado" string="Aprobados" domain="[('state', '=', 'aprobado')]"/>
+                <filter name="calculado" string="Calculados" domain="[('state', '=', 'calculado')]"/>
+                <filter name="historico" string="Históricos" domain="[('state', '=', 'historico')]"/>
+                <group expand="0" string="Agrupar por">
+                    <filter name="group_gestion" string="Gestión" domain="[]" context="{'group_by': 'gestion'}"/>
+                    <filter name="group_predio" string="Predio" domain="[]" context="{'group_by': 'predio_id'}"/>
+                    <filter name="group_zona" string="Zona" domain="[]" context="{'group_by': 'zona'}"/>
+                    <filter name="group_state" string="Estado" domain="[]" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ═══ ACTION ════════════════════════════════════════════════════════ -->
+    <record id="catastro_avaluo_action" model="ir.actions.act_window">
+        <field name="name">Avalúos Catastrales</field>
+        <field name="res_model">catastro.avaluo</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="catastro_avaluo_view_search"/>
+        <field name="context">{'search_default_vigente': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Genere el primer avalúo catastral
+            </p>
+            <p>
+                El avalúo determina el valor fiscal del predio como base del
+                Impuesto Predial Bienes Inmuebles (IPBI).
+            </p>
+        </field>
+    </record>
+
+</odoo>

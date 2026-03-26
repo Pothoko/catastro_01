@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ═══ Menú raíz (reutiliza el de catastro_predio si ya existe) ══════ -->
+
+    <!-- Submenú: Avalúo Catastral -->
+    <menuitem id="menu_catastro_avaluo_root"
+              name="Avalúo Catastral"
+              parent="catastro_predio.menu_catastro_root"
+              sequence="20"/>
+
+    <!-- Tablas de Valores Unitarios -->
+    <menuitem id="menu_catastro_tabla_valor"
+              name="Tablas de Valores"
+              parent="menu_catastro_avaluo_root"
+              action="catastro_tabla_valor_action"
+              sequence="10"
+              groups="catastro_predio.group_catastro_manager"/>
+
+    <!-- Avalúos Catastrales -->
+    <menuitem id="menu_catastro_avaluo"
+              name="Avalúos"
+              parent="menu_catastro_avaluo_root"
+              action="catastro_avaluo_action"
+              sequence="20"/>
+
+    <!-- Recálculo Masivo (solo manager) -->
+    <menuitem id="menu_catastro_wizard_recalculo"
+              name="Recálculo Masivo"
+              parent="menu_catastro_avaluo_root"
+              action="catastro_wizard_recalculo_action"
+              sequence="30"
+              groups="catastro_predio.group_catastro_manager"/>
+</odoo>

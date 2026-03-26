@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ═══ LIST ══════════════════════════════════════════════════════════ -->
+    <record id="catastro_tabla_valor_view_tree" model="ir.ui.view">
+        <field name="name">catastro.tabla.valor.list</field>
+        <field name="model">catastro.tabla.valor</field>
+        <field name="arch" type="xml">
+            <list string="Tablas de Valores Unitarios">
+                <field name="gestion"/>
+                <field name="zona"/>
+                <field name="tipo_predio"/>
+                <field name="uso_suelo"/>
+                <field name="valor_terreno" string="VU Terreno (Bs/m²)"/>
+                <field name="valor_construccion" string="VU Construcción (Bs/m²)"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ═══ FORM ══════════════════════════════════════════════════════════ -->
+    <record id="catastro_tabla_valor_view_form" model="ir.ui.view">
+        <field name="name">catastro.tabla.valor.form</field>
+        <field name="model">catastro.tabla.valor</field>
+        <field name="arch" type="xml">
+            <form string="Tabla de Valores Unitarios">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1" placeholder="Se genera automáticamente"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Clasificación">
+                            <field name="zona"/>
+                            <field name="uso_suelo"/>
+                            <field name="tipo_predio"/>
+                            <field name="gestion"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Valores Unitarios (Bs/m²)">
+                            <field name="valor_terreno"/>
+                            <field name="valor_construccion"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notas" placeholder="Fundamento legal o técnico de los valores..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ═══ SEARCH ════════════════════════════════════════════════════════ -->
+    <record id="catastro_tabla_valor_view_search" model="ir.ui.view">
+        <field name="name">catastro.tabla.valor.search</field>
+        <field name="model">catastro.tabla.valor</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Tablas de Valores">
+                <field name="zona"/>
+                <field name="gestion"/>
+                <filter name="activo" string="Activas" domain="[('active', '=', True)]"/>
+                <group expand="1" string="Agrupar por">
+                    <filter name="group_gestion" string="Gestión" domain="[]" context="{'group_by': 'gestion'}"/>
+                    <filter name="group_zona" string="Zona" domain="[]" context="{'group_by': 'zona'}"/>
+                    <filter name="group_uso" string="Uso de Suelo" domain="[]" context="{'group_by': 'uso_suelo'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ═══ ACTION ════════════════════════════════════════════════════════ -->
+    <record id="catastro_tabla_valor_action" model="ir.actions.act_window">
+        <field name="name">Tablas de Valores Unitarios</field>
+        <field name="res_model">catastro.tabla.valor</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="catastro_tabla_valor_view_search"/>
+        <field name="context">{'search_default_activo': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Registre la primera tabla de valores unitarios
+            </p>
+            <p>
+                Las tablas definen el valor unitario en Bs/m² para terreno y
+                construcción según zona, uso de suelo y gestión.
+            </p>
+        </field>
+    </record>
+
+</odoo>

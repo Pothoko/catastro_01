@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tabla de valores demo: Zona Centro, Gestión 2025 -->
+    <record id="demo_tabla_valor_centro" model="catastro.tabla.valor">
+        <field name="zona">Centro</field>
+        <field name="uso_suelo">residencial</field>
+        <field name="tipo_predio">urbano</field>
+        <field name="gestion">2025</field>
+        <field name="valor_terreno">850.00</field>
+        <field name="valor_construccion">620.00</field>
+        <field name="activo">True</field>
+        <field name="notas">Tabla aprobada por Resolución Municipal N° 001/2025</field>
+    </record>
+
+    <record id="demo_tabla_valor_periferica" model="catastro.tabla.valor">
+        <field name="zona">Periferia Norte</field>
+        <field name="uso_suelo">residencial</field>
+        <field name="tipo_predio">urbano</field>
+        <field name="gestion">2025</field>
+        <field name="valor_terreno">420.00</field>
+        <field name="valor_construccion">380.00</field>
+        <field name="activo">True</field>
+        <field name="notas">Tabla aprobada por Resolución Municipal N° 002/2025</field>
+    </record>
+
+    <record id="demo_tabla_valor_rural" model="catastro.tabla.valor">
+        <field name="zona">Área Rural</field>
+        <field name="uso_suelo">agricola</field>
+        <field name="tipo_predio">rural</field>
+        <field name="gestion">2025</field>
+        <field name="valor_terreno">45.00</field>
+        <field name="valor_construccion">180.00</field>
+        <field name="activo">True</field>
+        <field name="notas">Tabla para zona rural agrícola gestión 2025</field>
+    </record>
+</odoo>

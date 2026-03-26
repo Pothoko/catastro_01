@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="catastro_wizard_recalculo_view_form" model="ir.ui.view">
+        <field name="name">catastro.wizard.recalculo.form</field>
+        <field name="model">catastro.wizard.recalculo</field>
+        <field name="arch" type="xml">
+            <form string="Recálculo Masivo de Avalúos">
+                <sheet>
+                    <group string="Parámetros del Recálculo">
+                        <field name="gestion"/>
+                        <field name="tabla_valor_id"/>
+                    </group>
+                    <group string="Filtros Opcionales">
+                        <field name="zona" placeholder="Dejar vacío = todas las zonas"/>
+                        <field name="tipo_predio"/>
+                        <field name="solo_sin_avaluo"/>
+                    </group>
+                    <group string="Vista Previa">
+                        <field name="predios_count" readonly="1" string="Predios a procesar"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_recalcular" string="Ejecutar Recálculo"
+                            type="object" class="oe_highlight"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="catastro_wizard_recalculo_action" model="ir.actions.act_window">
+        <field name="name">Recálculo Masivo de Avalúos</field>
+        <field name="res_model">catastro.wizard.recalculo</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
