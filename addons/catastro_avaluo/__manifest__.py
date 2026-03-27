@@ -31,6 +31,7 @@ Módulo de Catastro Municipal - Avalúo Catastral
     ],
     'demo': [
         'demo/demo_tabla_valor.xml',
+        'demo/demo_avaluos.xml',
     ],
     'installable': True,
     'application': False,

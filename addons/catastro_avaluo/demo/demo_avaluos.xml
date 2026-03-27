@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ═══════════════════════════════════════════════════════════════════
+             DEMO — AVALÚOS CATASTRALES  (referencia: backup PARIA 2024)
+             ─────────────────────────────────────────────────────────────────
+             Predios referenciados de catastro_predio.demo_predios
+             Tablas de valores referenciadas de catastro_avaluo.demo_tabla_valor
+             ═══════════════════════════════════════════════════════════════════ -->
+
+        <!-- ══ Predio 01-0008-001  Centro · Residencial ══════════════════════
+             200 m² terreno · 120 m² construcción · estado bueno (0.85)
+             VU terreno: 320 Bs/m²  VU constr: 550 Bs/m²  →  gestión 2024
+             Valor catastral: 200×320 + 120×550×0.85 = 64.000 + 56.100 = 120.100 Bs -->
+        <record id="avaluo_010008001_2024" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_010008001"/>
+            <field name="tabla_valor_id"    ref="tv_centro_residencial_2024"/>
+            <field name="gestion">2024</field>
+            <field name="superficie_terreno">200.00</field>
+            <field name="superficie_construida">120.00</field>
+            <field name="valor_unitario_terreno">320.00</field>
+            <field name="valor_unitario_construccion">550.00</field>
+            <field name="factor_estado">0.85</field>
+            <field name="state">historico</field>
+            <field name="fecha_calculo">2024-03-15</field>
+            <field name="fecha_aprobacion">2024-03-20</field>
+            <field name="notas">Avalúo gestión 2024. Vivienda unifamiliar de dos plantas, estado bueno de conservación. Res. 045/2024.</field>
+        </record>
+
+        <!-- gestión 2025 — VIGENTE -->
+        <record id="avaluo_010008001_2025" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_010008001"/>
+            <field name="tabla_valor_id"    ref="tv_centro_residencial_2025"/>
+            <field name="gestion">2025</field>
+            <field name="superficie_terreno">200.00</field>
+            <field name="superficie_construida">120.00</field>
+            <field name="valor_unitario_terreno">350.00</field>
+            <field name="valor_unitario_construccion">595.00</field>
+            <field name="factor_estado">0.85</field>
+            <field name="state">vigente</field>
+            <field name="fecha_calculo">2025-02-10</field>
+            <field name="fecha_aprobacion">2025-02-14</field>
+            <field name="notas">Avalúo gestión 2025. Actualización anual +8%. Vigente.</field>
+        </record>
+
+        <!-- ══ Predio 01-0008-013  Centro · Comercial ════════════════════════
+             320 m² terreno · 240 m² construcción · estado muy bueno (1.0)
+             VU terreno: 400  VU constr: 600  →  gestión 2024
+             Valor catastral: 320×400 + 240×600×1.0 = 128.000 + 144.000 = 272.000 Bs -->
+        <record id="avaluo_010008013_2024" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_010008013"/>
+            <field name="tabla_valor_id"    ref="tv_centro_comercial_2024"/>
+            <field name="gestion">2024</field>
+            <field name="superficie_terreno">320.00</field>
+            <field name="superficie_construida">240.00</field>
+            <field name="valor_unitario_terreno">400.00</field>
+            <field name="valor_unitario_construccion">600.00</field>
+            <field name="factor_estado">1.0</field>
+            <field name="state">historico</field>
+            <field name="fecha_calculo">2024-03-15</field>
+            <field name="fecha_aprobacion">2024-03-20</field>
+            <field name="notas">Local comercial en Av. Camacho. Estado de conservación muy bueno. Res. 045/2024.</field>
+        </record>
+
+        <record id="avaluo_010008013_2025" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_010008013"/>
+            <field name="tabla_valor_id"    ref="tv_centro_comercial_2025"/>
+            <field name="gestion">2025</field>
+            <field name="superficie_terreno">320.00</field>
+            <field name="superficie_construida">240.00</field>
+            <field name="valor_unitario_terreno">432.00</field>
+            <field name="valor_unitario_construccion">648.00</field>
+            <field name="factor_estado">1.0</field>
+            <field name="state">vigente</field>
+            <field name="fecha_calculo">2025-02-10</field>
+            <field name="fecha_aprobacion">2025-02-14</field>
+            <field name="notas">Actualización 2025. Local comercial consolidado Av. Camacho. Res. 012/2025.</field>
+        </record>
+
+        <!-- ══ Predio 01-0016-014  Centro · Mixto ════════════════════════════
+             180 m² terreno · 200 m² construcción · estado bueno (0.85)
+             VU terreno: 360  VU constr: 570
+             Valor 2024: 180×360 + 200×570×0.85 = 64.800 + 96.900 = 161.700 Bs -->
+        <record id="avaluo_010016014_2024" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_010016014"/>
+            <field name="tabla_valor_id"    ref="tv_centro_mixto_2024"/>
+            <field name="gestion">2024</field>
+            <field name="superficie_terreno">180.00</field>
+            <field name="superficie_construida">200.00</field>
+            <field name="valor_unitario_terreno">360.00</field>
+            <field name="valor_unitario_construccion">570.00</field>
+            <field name="factor_estado">0.85</field>
+            <field name="state">historico</field>
+            <field name="fecha_calculo">2024-03-15</field>
+            <field name="fecha_aprobacion">2024-03-20</field>
+            <field name="notas">Edificio mixto PB comercial / PA residencial. Estado bueno. Res. 045/2024.</field>
+        </record>
+
+        <record id="avaluo_010016014_2025" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_010016014"/>
+            <field name="tabla_valor_id"    ref="tv_centro_mixto_2025"/>
+            <field name="gestion">2025</field>
+            <field name="superficie_terreno">180.00</field>
+            <field name="superficie_construida">200.00</field>
+            <field name="valor_unitario_terreno">390.00</field>
+            <field name="valor_unitario_construccion">615.00</field>
+            <field name="factor_estado">0.85</field>
+            <field name="state">vigente</field>
+            <field name="fecha_calculo">2025-02-10</field>
+            <field name="fecha_aprobacion">2025-02-14</field>
+            <field name="notas">Actualización anual 2025. Mixto Centro. Res. 012/2025.</field>
+        </record>
+
+        <!-- ══ Predio 01-0023-017  Norte · Residencial ═══════════════════════
+             250 m² terreno · 90 m² construcción · estado regular (0.70)
+             VU terreno: 280  VU constr: 480
+             Valor 2024: 250×280 + 90×480×0.70 = 70.000 + 30.240 = 100.240 Bs -->
+        <record id="avaluo_010023017_2024" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_010023017"/>
+            <field name="tabla_valor_id"    ref="tv_norte_residencial_2024"/>
+            <field name="gestion">2024</field>
+            <field name="superficie_terreno">250.00</field>
+            <field name="superficie_construida">90.00</field>
+            <field name="valor_unitario_terreno">280.00</field>
+            <field name="valor_unitario_construccion">480.00</field>
+            <field name="factor_estado">0.70</field>
+            <field name="state">historico</field>
+            <field name="fecha_calculo">2024-03-16</field>
+            <field name="fecha_aprobacion">2024-03-20</field>
+            <field name="notas">Vivienda zona norte. Estado regular de conservación (muros deteriorados). Res. 045/2024.</field>
+        </record>
+
+        <record id="avaluo_010023017_2025" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_010023017"/>
+            <field name="tabla_valor_id"    ref="tv_norte_residencial_2025"/>
+            <field name="gestion">2025</field>
+            <field name="superficie_terreno">250.00</field>
+            <field name="superficie_construida">90.00</field>
+            <field name="valor_unitario_terreno">302.00</field>
+            <field name="valor_unitario_construccion">518.00</field>
+            <field name="factor_estado">0.70</field>
+            <field name="state">vigente</field>
+            <field name="fecha_calculo">2025-02-10</field>
+            <field name="fecha_aprobacion">2025-02-14</field>
+            <field name="notas">Actualización 2025. Zona norte. Res. 012/2025.</field>
+        </record>
+
+        <!-- ══ Predio 01-0036-015  Sur · Residencial ═════════════════════════
+             300 m² terreno · 60 m² construcción · estado malo (0.50)
+             VU terreno: 260  VU constr: 440
+             Valor 2024: 300×260 + 60×440×0.50 = 78.000 + 13.200 = 91.200 Bs -->
+        <record id="avaluo_010036015_2024" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_010036015"/>
+            <field name="tabla_valor_id"    ref="tv_sur_residencial_2024"/>
+            <field name="gestion">2024</field>
+            <field name="superficie_terreno">300.00</field>
+            <field name="superficie_construida">60.00</field>
+            <field name="valor_unitario_terreno">260.00</field>
+            <field name="valor_unitario_construccion">440.00</field>
+            <field name="factor_estado">0.50</field>
+            <field name="state">historico</field>
+            <field name="fecha_calculo">2024-03-16</field>
+            <field name="fecha_aprobacion">2024-03-20</field>
+            <field name="notas">Predio zona sur. Construcción precaria, estado malo. Requerimiento de regularización. Res. 045/2024.</field>
+        </record>
+
+        <record id="avaluo_010036015_2025" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_010036015"/>
+            <field name="tabla_valor_id"    ref="tv_sur_residencial_2025"/>
+            <field name="gestion">2025</field>
+            <field name="superficie_terreno">300.00</field>
+            <field name="superficie_construida">60.00</field>
+            <field name="valor_unitario_terreno">281.00</field>
+            <field name="valor_unitario_construccion">475.00</field>
+            <field name="factor_estado">0.50</field>
+            <field name="state">vigente</field>
+            <field name="fecha_calculo">2025-02-10</field>
+            <field name="fecha_aprobacion">2025-02-14</field>
+            <field name="notas">Actualización 2025. Estado de conservación malo persiste. Res. 012/2025.</field>
+        </record>
+
+        <!-- ══ Predio 01-0043-014  Sur · Comercial ═══════════════════════════
+             400 m² terreno · 180 m² construcción · estado bueno (0.85)
+             VU terreno: 370  VU constr: 500  →  2024
+             Valor: 400×370 + 180×500×0.85 = 148.000 + 76.500 = 224.500 Bs -->
+        <record id="avaluo_010043014_2024" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_010043014"/>
+            <field name="tabla_valor_id"    ref="tv_sur_comercial_2024"/>
+            <field name="gestion">2024</field>
+            <field name="superficie_terreno">400.00</field>
+            <field name="superficie_construida">180.00</field>
+            <field name="valor_unitario_terreno">370.00</field>
+            <field name="valor_unitario_construccion">500.00</field>
+            <field name="factor_estado">0.85</field>
+            <field name="state">historico</field>
+            <field name="fecha_calculo">2024-03-16</field>
+            <field name="fecha_aprobacion">2024-03-20</field>
+            <field name="notas">Taller mecánico Av. Oruro. Galpón industrial ligero, buen estado. Res. 045/2024.</field>
+        </record>
+
+        <record id="avaluo_010043014_2025" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_010043014"/>
+            <field name="tabla_valor_id"    ref="tv_sur_comercial_2025"/>
+            <field name="gestion">2025</field>
+            <field name="superficie_terreno">400.00</field>
+            <field name="superficie_construida">180.00</field>
+            <field name="valor_unitario_terreno">400.00</field>
+            <field name="valor_unitario_construccion">540.00</field>
+            <field name="factor_estado">0.85</field>
+            <field name="state">vigente</field>
+            <field name="fecha_calculo">2025-02-10</field>
+            <field name="fecha_aprobacion">2025-02-14</field>
+            <field name="notas">Actualización 2025. Taller mecánico. Res. 012/2025.</field>
+        </record>
+
+        <!-- ══ Predio 01-0056-014  Periferia Norte · Residencial ═════════════
+             500 m² terreno · 40 m² construcción · estado regular (0.70)
+             VU terreno: 160  VU constr: 340  →  2025 VIGENTE
+             Valor: 500×160 + 40×340×0.70 = 80.000 + 9.520 = 89.520 Bs -->
+        <record id="avaluo_010056014_2025" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_010056014"/>
+            <field name="tabla_valor_id"    ref="tv_periferia_residencial_2025"/>
+            <field name="gestion">2025</field>
+            <field name="superficie_terreno">500.00</field>
+            <field name="superficie_construida">40.00</field>
+            <field name="valor_unitario_terreno">173.00</field>
+            <field name="valor_unitario_construccion">367.00</field>
+            <field name="factor_estado">0.70</field>
+            <field name="state">vigente</field>
+            <field name="fecha_calculo">2025-02-11</field>
+            <field name="fecha_aprobacion">2025-02-14</field>
+            <field name="notas">Predio periferia norte, primer avalúo formal. Construcción incipiente, servicios en ejecución. Res. 012/2025.</field>
+        </record>
+
+        <!-- ══ Predio 01-0125-001  Norte · Mixto ═════════════════════════════
+             220 m² terreno · 160 m² construcción · estado muy bueno (1.0)
+             VU terreno: 340  VU constr: 510  →  2024
+             Valor: 220×340 + 160×510×1.0 = 74.800 + 81.600 = 156.400 Bs -->
+        <record id="avaluo_010125001_2024" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_010125001"/>
+            <field name="tabla_valor_id"    ref="tv_norte_mixto_2024"/>
+            <field name="gestion">2024</field>
+            <field name="superficie_terreno">220.00</field>
+            <field name="superficie_construida">160.00</field>
+            <field name="valor_unitario_terreno">340.00</field>
+            <field name="valor_unitario_construccion">510.00</field>
+            <field name="factor_estado">1.0</field>
+            <field name="state">historico</field>
+            <field name="fecha_calculo">2024-03-17</field>
+            <field name="fecha_aprobacion">2024-03-20</field>
+            <field name="notas">Mixto Calle Sucre. Inmueble bien conservado. Res. 045/2024.</field>
+        </record>
+
+        <record id="avaluo_010125001_2025" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_010125001"/>
+            <field name="tabla_valor_id"    ref="tv_norte_mixto_2025"/>
+            <field name="gestion">2025</field>
+            <field name="superficie_terreno">220.00</field>
+            <field name="superficie_construida">160.00</field>
+            <field name="valor_unitario_terreno">367.00</field>
+            <field name="valor_unitario_construccion">551.00</field>
+            <field name="factor_estado">1.0</field>
+            <field name="state">vigente</field>
+            <field name="fecha_calculo">2025-02-10</field>
+            <field name="fecha_aprobacion">2025-02-14</field>
+            <field name="notas">Actualización 2025. Mixto Norte bien conservado. Res. 012/2025.</field>
+        </record>
+
+        <!-- ══ Predios rurales ═════════════════════════════════════════════════ -->
+
+        <!-- Predio 02-0574-001  Rural Agrícola · 8.500 m² · sin construcción -->
+        <record id="avaluo_020574001_2025" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_020574001"/>
+            <field name="tabla_valor_id"    ref="tv_rural_agricola_2025"/>
+            <field name="gestion">2025</field>
+            <field name="superficie_terreno">8500.00</field>
+            <field name="superficie_construida">0.00</field>
+            <field name="valor_unitario_terreno">4.86</field>
+            <field name="valor_unitario_construccion">0.00</field>
+            <field name="factor_estado">1.0</field>
+            <field name="state">vigente</field>
+            <field name="fecha_calculo">2025-02-12</field>
+            <field name="fecha_aprobacion">2025-02-14</field>
+            <field name="notas">Parcela agrícola Comunidad Llavini. Cultivo de quinua y papa. Sin construcción. Res. 012/2025.</field>
+        </record>
+
+        <!-- Predio 02-0709-006  Rural Agrícola · 12.000 m² · pequeña construcción -->
+        <record id="avaluo_020709006_2025" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_020709006"/>
+            <field name="tabla_valor_id"    ref="tv_rural_agricola_2025"/>
+            <field name="gestion">2025</field>
+            <field name="superficie_terreno">12000.00</field>
+            <field name="superficie_construida">30.00</field>
+            <field name="valor_unitario_terreno">4.86</field>
+            <field name="valor_unitario_construccion">173.00</field>
+            <field name="factor_estado">0.70</field>
+            <field name="state">vigente</field>
+            <field name="fecha_calculo">2025-02-12</field>
+            <field name="fecha_aprobacion">2025-02-14</field>
+            <field name="notas">Parcela agrícola Huancaroma. Cebada y papa. Pequeño depósito precario (30m²). Res. 012/2025.</field>
+        </record>
+
+        <!-- Predio 02-0718-002  Rural Mixto · 5.200 m² · vivienda rural -->
+        <record id="avaluo_020718002_2025" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_020718002"/>
+            <field name="tabla_valor_id"    ref="tv_rural_mixto_2025"/>
+            <field name="gestion">2025</field>
+            <field name="superficie_terreno">5200.00</field>
+            <field name="superficie_construida">45.00</field>
+            <field name="valor_unitario_terreno">4.16</field>
+            <field name="valor_unitario_construccion">155.00</field>
+            <field name="factor_estado">0.70</field>
+            <field name="state">vigente</field>
+            <field name="fecha_calculo">2025-02-12</field>
+            <field name="fecha_aprobacion">2025-02-14</field>
+            <field name="notas">Predio mixto Comunidad Paria Sud. Vivienda rural + corral. Estado regular. Res. 012/2025.</field>
+        </record>
+
+        <!-- Predio 02-0754-001  Rural Mixto · en cálculo (sin aprobar) -->
+        <record id="avaluo_020754001_2025" model="catastro.avaluo">
+            <field name="predio_id"         ref="catastro_predio.predio_020754001"/>
+            <field name="tabla_valor_id"    ref="tv_rural_mixto_2025"/>
+            <field name="gestion">2025</field>
+            <field name="superficie_terreno">7800.00</field>
+            <field name="superficie_construida">60.00</field>
+            <field name="valor_unitario_terreno">4.16</field>
+            <field name="valor_unitario_construccion">155.00</field>
+            <field name="factor_estado">0.85</field>
+            <field name="state">calculado</field>
+            <field name="fecha_calculo">2025-03-01</field>
+            <field name="notas">Predio Comunidad Jilata. Avalúo inicial pendiente de aprobación. Verificación en campo requerida.</field>
+        </record>
+
+    </data>
+</odoo>

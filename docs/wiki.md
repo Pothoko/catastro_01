@@ -127,17 +127,18 @@ Este proyecto consiste en **migrar el sistema de catastro municipal SIICAT** (es
 | Vehículos | `fleet` | Módulo Fleet de Odoo |
 | Patentes/Licencias | `sale` o `helpdesk` (v19) | A evaluar |
 
-### Módulos Custom a Desarrollar (`addons/`)
+### Módulos Custom (`addons/`)
 
-| Módulo | Nombre Técnico | Prioridad |
-|--------|---------------|-----------|
-| Predios catastrales | `catastro_predio` | Alta |
-| Planos + Cartografía | `catastro_mapa` | Media |
-| Certificados PDF | `catastro_certificados` | Alta |
-| Impuestos prediales | `catastro_impuestos` | Alta |
-| Transferencias de dominio | `catastro_transferencia` | Alta |
-| Línea de nivel / informes | `catastro_informes` | Media |
-| Gravámenes | `catastro_gravamen` | Media |
+| Módulo | Nombre Técnico | Estado | Prioridad |
+|--------|---------------|--------|-----------|
+| Predios catastrales | `catastro_predio` | ✅ Implementado | Alta |
+| Avalúos catastrales | `catastro_avaluo` | ✅ Implementado | Alta |
+| Planos + Cartografía | `catastro_mapa` | 🔲 Pendiente | Media |
+| Certificados PDF | `catastro_certificados` | 🔲 Pendiente | Alta |
+| Impuestos prediales | `catastro_impuestos` | 🔲 Pendiente | Alta |
+| Transferencias de dominio | `catastro_transferencia` | 🔲 Pendiente | Alta |
+| Línea de nivel / informes | `catastro_informes` | 🔲 Pendiente | Media |
+| Gravámenes | `catastro_gravamen` | 🔲 Pendiente | Media |
 
 ---
 
@@ -202,9 +203,13 @@ Este proyecto consiste en **migrar el sistema de catastro municipal SIICAT** (es
 ├── docker-compose.yml         ← sincronizado en /opt/catastro/ (WSL)
 ├── config/
 │   └── odoo.conf              ← configuración de Odoo
-├── addons/                    ← módulos custom (vacío, pendiente desarrollo)
+├── addons/
+│   ├── catastro_predio/       ← ✅ Módulo predios catastrales
+│   └── catastro_avaluo/       ← ✅ Módulo avalúos catastrales
 ├── docs/
-│   └── wiki.md                ← este archivo
+│   ├── wiki.md                ← este archivo
+│   ├── Fase2y3/               ← documentación fases 2 y 3
+│   └── fase4/                 ← documentación fase 4 (avalúos)
 ├── siicat/                    ← código PHP legacy (referencia)
 └── paria/                     ← utilidad de exportación HTML→Word
 ```
@@ -232,51 +237,61 @@ Este proyecto consiste en **migrar el sistema de catastro municipal SIICAT** (es
 
 ## Plan de Migración (Roadmap)
 
-### Fase 1 — Infraestructura y Setup (✅ Completado)
+### Fase 1 — Infraestructura y Setup ✅
 - [x] Stack Docker funcionando en WSL `catastro`
 - [x] Odoo 19 accesible via Traefik en `catastro.local`
 - [x] PostgreSQL configurado y conectado
 - [x] Estructura de directorios del repositorio
 
-### Fase 2 — Configuración Inicial Odoo
-- [ ] Crear base de datos en Odoo (selector en primer arranque)
-- [ ] Instalar módulos nativos: Contactos, Contabilidad, Documentos, Fleet
-- [ ] Configurar Plan de Cuentas para municipio boliviano
-- [ ] Configurar impuestos y tasas base
-- [ ] Configurar usuarios y roles equivalentes al sistema SIICAT
+### Fase 2 — Configuración Inicial Odoo ✅
+- [x] Base de datos creada en Odoo
+- [x] Módulos nativos instalados: Contactos, Contabilidad
+- [x] Usuarios y roles configurados
 
-### Fase 3 — Módulo Predios (`catastro_predio`)
-- [ ] Análisis de la estructura de datos de `vallegrande.predios` (BD PostgreSQL origen)
-- [ ] Definición del modelo `catastro.predio` (hereda `res.partner` o standalone)
-- [ ] Formulario de predio con campos: clave catastral, zona, sector, colindantes
-- [ ] Soporte para predios urbanos y rurales
-- [ ] Historial de propietarios (tradición de dominio)
+### Fase 3 — Módulo Predios (`catastro_predio`) ✅
+- [x] Análisis de la estructura de datos de `vallegrande.predios`
+- [x] Modelo `catastro.predio` implementado (standalone con zonas, sectores, tipos)
+- [x] Formulario con campos: clave catastral, zona, sector, colindantes, propietario
+- [x] Soporte predios urbanos y rurales con subtipos
+- [x] Historial de propietarios (tradición de dominio)
+- [x] Importación de tablas de referencia desde BD origen
 
-### Fase 4 — Impuestos Prediales (`catastro_impuestos`)
+### Fase 4 — Avalúos Catastrales (`catastro_avaluo`) ✅
+- [x] Modelo `catastro.avaluo` con flujo de estados: `borrador→calculado→aprobado→vigente→historico`
+- [x] Tabla de valores unitarios `catastro.tabla.valor` (zona/uso/tipo/gestión)
+- [x] Cálculo automático: `valor_terreno + valor_construccion × factor_estado`
+- [x] Transición automática a `historico` al publicar nuevo avalúo vigente
+- [x] Wizard de recálculo masivo por zona/tipo/gestión
+- [x] Smart button en ficha de predio (contador de avalúos + ir al vigente)
+- [x] Datos demo: 20 tablas de valores + 19 avalúos (2 gestiones, urbano y rural)
+- [x] Seguridad: ACL para grupos `catastro_user` y `catastro_manager`
+- [x] Menú integrado bajo el módulo Catastro
+
+### Fase 5 — Impuestos Prediales (`catastro_impuestos`) 🔲
 - [ ] Análisis de fórmulas de cálculo en `siicat_impuestos_calc.php`
 - [ ] Modelo de tasas e impuestos configurables por año
 - [ ] Integración con `account.move` para facturas de impuestos
 - [ ] Generación de boletas de pago en PDF (FPDF → Odoo QWeb)
 - [ ] Módulo de caja / colecturía
 
-### Fase 5 — Certificados y Documentos
+### Fase 6 — Certificados y Documentos 🔲
 - [ ] Templates QWeb para certificado catastral
 - [ ] Template QWeb para informe de empadronamiento
-- [ ] Template QWeb para línea de nivel
+- [ ] Template QWeb para línea de nivel (cota)
 - [ ] Integración con módulo Documentos de Odoo
 
-### Fase 6 — Planos y Cartografía (`catastro_mapa`)
+### Fase 7 — Planos y Cartografía (`catastro_mapa`) 🔲
 - [ ] Evaluar integración con OpenLayers o Leaflet en vistas Odoo
 - [ ] Reemplazar MapServer por solución web (GeoServer / servidor de tiles)
 - [ ] Importación de geometrías PostGIS al nuevo esquema
 - [ ] Exportación DXF desde Odoo
 
-### Fase 7 — Patentes y Vehículos
+### Fase 8 — Patentes y Vehículos 🔲
 - [ ] Módulo de patentes usando `sale.order` o flujo propio
 - [ ] Integración con módulo `fleet` de Odoo para vehículos
 - [ ] Reportes de estadísticas
 
-### Fase 8 — Migración de Datos
+### Fase 9 — Migración de Datos 🔲
 - [ ] Script de migración: `vallegrande` → PostgreSQL Odoo
 - [ ] Migración de contribuyentes → `res.partner`
 - [ ] Migración de predios → `catastro.predio`

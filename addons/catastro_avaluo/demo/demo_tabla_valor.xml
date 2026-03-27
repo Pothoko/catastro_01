@@ -1,36 +1,247 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Tabla de valores demo: Zona Centro, Gestión 2025 -->
-    <record id="demo_tabla_valor_centro" model="catastro.tabla.valor">
-        <field name="zona">Centro</field>
-        <field name="uso_suelo">residencial</field>
-        <field name="tipo_predio">urbano</field>
-        <field name="gestion">2025</field>
-        <field name="valor_terreno">850.00</field>
-        <field name="valor_construccion">620.00</field>
-        <field name="activo">True</field>
-        <field name="notas">Tabla aprobada por Resolución Municipal N° 001/2025</field>
-    </record>
+    <data>
+        <!-- ═══════════════════════════════════════════════════════════════
+             TABLAS DE VALORES UNITARIOS CATASTRALES — MUNICIPIO DE PARIA
+             Fuente: Sistema legacy PARIA / Resoluciones Municipales
+             ─────────────────────────────────────────────────────────────
+             Gestión 2024 (histórico) — valores en Bs/m²
+             ═══════════════════════════════════════════════════════════════ -->
 
-    <record id="demo_tabla_valor_periferica" model="catastro.tabla.valor">
-        <field name="zona">Periferia Norte</field>
-        <field name="uso_suelo">residencial</field>
-        <field name="tipo_predio">urbano</field>
-        <field name="gestion">2025</field>
-        <field name="valor_terreno">420.00</field>
-        <field name="valor_construccion">380.00</field>
-        <field name="activo">True</field>
-        <field name="notas">Tabla aprobada por Resolución Municipal N° 002/2025</field>
-    </record>
+        <!-- ── ZONA CENTRO ── gestión 2024 ─────────────────────────────── -->
+        <record id="tv_centro_residencial_2024" model="catastro.tabla.valor">
+            <field name="zona">Centro</field>
+            <field name="uso_suelo">residencial</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2024</field>
+            <field name="valor_terreno">320.00</field>
+            <field name="valor_construccion">550.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 045/2024. Zona céntrica consolidada.</field>
+        </record>
 
-    <record id="demo_tabla_valor_rural" model="catastro.tabla.valor">
-        <field name="zona">Área Rural</field>
-        <field name="uso_suelo">agricola</field>
-        <field name="tipo_predio">rural</field>
-        <field name="gestion">2025</field>
-        <field name="valor_terreno">45.00</field>
-        <field name="valor_construccion">180.00</field>
-        <field name="activo">True</field>
-        <field name="notas">Tabla para zona rural agrícola gestión 2025</field>
-    </record>
+        <record id="tv_centro_comercial_2024" model="catastro.tabla.valor">
+            <field name="zona">Centro</field>
+            <field name="uso_suelo">comercial</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2024</field>
+            <field name="valor_terreno">400.00</field>
+            <field name="valor_construccion">600.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 045/2024. Uso comercial en planta baja.</field>
+        </record>
+
+        <record id="tv_centro_mixto_2024" model="catastro.tabla.valor">
+            <field name="zona">Centro</field>
+            <field name="uso_suelo">mixto</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2024</field>
+            <field name="valor_terreno">360.00</field>
+            <field name="valor_construccion">570.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 045/2024. Planta baja comercial / alta residencial.</field>
+        </record>
+
+        <!-- ── ZONA NORTE ── gestión 2024 ──────────────────────────────── -->
+        <record id="tv_norte_residencial_2024" model="catastro.tabla.valor">
+            <field name="zona">Norte</field>
+            <field name="uso_suelo">residencial</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2024</field>
+            <field name="valor_terreno">280.00</field>
+            <field name="valor_construccion">480.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 045/2024. Zona norte semi-consolidada.</field>
+        </record>
+
+        <record id="tv_norte_mixto_2024" model="catastro.tabla.valor">
+            <field name="zona">Norte</field>
+            <field name="uso_suelo">mixto</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2024</field>
+            <field name="valor_terreno">340.00</field>
+            <field name="valor_construccion">510.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 045/2024.</field>
+        </record>
+
+        <!-- ── ZONA SUR ── gestión 2024 ────────────────────────────────── -->
+        <record id="tv_sur_residencial_2024" model="catastro.tabla.valor">
+            <field name="zona">Sur</field>
+            <field name="uso_suelo">residencial</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2024</field>
+            <field name="valor_terreno">260.00</field>
+            <field name="valor_construccion">440.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 045/2024. Zona sur, menor densidad.</field>
+        </record>
+
+        <record id="tv_sur_comercial_2024" model="catastro.tabla.valor">
+            <field name="zona">Sur</field>
+            <field name="uso_suelo">comercial</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2024</field>
+            <field name="valor_terreno">370.00</field>
+            <field name="valor_construccion">500.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 045/2024. Uso industrial ligero / comercial.</field>
+        </record>
+
+        <!-- ── ZONA PERIFERIA NORTE ── gestión 2024 ─────────────────────── -->
+        <record id="tv_periferia_residencial_2024" model="catastro.tabla.valor">
+            <field name="zona">Periferia Norte</field>
+            <field name="uso_suelo">residencial</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2024</field>
+            <field name="valor_terreno">160.00</field>
+            <field name="valor_construccion">340.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 045/2024. Zona de expansión, servicios en ejecución.</field>
+        </record>
+
+        <!-- ── RURAL AGRÍCOLA ── gestión 2024 ───────────────────────────── -->
+        <record id="tv_rural_agricola_2024" model="catastro.tabla.valor">
+            <field name="zona">Área Rural</field>
+            <field name="uso_suelo">agricola</field>
+            <field name="tipo_predio">rural</field>
+            <field name="gestion">2024</field>
+            <field name="valor_terreno">4.50</field>
+            <field name="valor_construccion">160.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 045/2024. Parcelas agrícolas — quinua, papa, cebada.</field>
+        </record>
+
+        <record id="tv_rural_industrial_2024" model="catastro.tabla.valor">
+            <field name="zona">Área Rural</field>
+            <field name="uso_suelo">industrial</field>
+            <field name="tipo_predio">rural</field>
+            <field name="gestion">2024</field>
+            <field name="valor_terreno">3.20</field>
+            <field name="valor_construccion">140.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 045/2024. Uso industrial/extractivo rural — minería artesanal, ladrilleras.</field>
+        </record>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             Gestión 2025 (vigente) — incremento aprox. 8% sobre 2024
+             Resolución Municipal N° 012/2025
+             ═══════════════════════════════════════════════════════════════ -->
+
+        <!-- ── ZONA CENTRO ── gestión 2025 ─────────────────────────────── -->
+        <record id="tv_centro_residencial_2025" model="catastro.tabla.valor">
+            <field name="zona">Centro</field>
+            <field name="uso_suelo">residencial</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2025</field>
+            <field name="valor_terreno">350.00</field>
+            <field name="valor_construccion">595.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 012/2025. Actualización anual +8%. Zona céntrica consolidada.</field>
+        </record>
+
+        <record id="tv_centro_comercial_2025" model="catastro.tabla.valor">
+            <field name="zona">Centro</field>
+            <field name="uso_suelo">comercial</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2025</field>
+            <field name="valor_terreno">432.00</field>
+            <field name="valor_construccion">648.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 012/2025. Uso comercial planta baja — Av. Camacho.</field>
+        </record>
+
+        <record id="tv_centro_mixto_2025" model="catastro.tabla.valor">
+            <field name="zona">Centro</field>
+            <field name="uso_suelo">mixto</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2025</field>
+            <field name="valor_terreno">390.00</field>
+            <field name="valor_construccion">615.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 012/2025.</field>
+        </record>
+
+        <!-- ── ZONA NORTE ── gestión 2025 ──────────────────────────────── -->
+        <record id="tv_norte_residencial_2025" model="catastro.tabla.valor">
+            <field name="zona">Norte</field>
+            <field name="uso_suelo">residencial</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2025</field>
+            <field name="valor_terreno">302.00</field>
+            <field name="valor_construccion">518.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 012/2025. Calle 6 de Agosto / Zona Norte.</field>
+        </record>
+
+        <record id="tv_norte_mixto_2025" model="catastro.tabla.valor">
+            <field name="zona">Norte</field>
+            <field name="uso_suelo">mixto</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2025</field>
+            <field name="valor_terreno">367.00</field>
+            <field name="valor_construccion">551.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 012/2025. Mixto Norte — Calle Sucre.</field>
+        </record>
+
+        <!-- ── ZONA SUR ── gestión 2025 ────────────────────────────────── -->
+        <record id="tv_sur_residencial_2025" model="catastro.tabla.valor">
+            <field name="zona">Sur</field>
+            <field name="uso_suelo">residencial</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2025</field>
+            <field name="valor_terreno">281.00</field>
+            <field name="valor_construccion">475.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 012/2025. Zona Sur — Calle Murillo.</field>
+        </record>
+
+        <record id="tv_sur_comercial_2025" model="catastro.tabla.valor">
+            <field name="zona">Sur</field>
+            <field name="uso_suelo">comercial</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2025</field>
+            <field name="valor_terreno">400.00</field>
+            <field name="valor_construccion">540.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 012/2025. Taller mecánico / industrial ligero — Av. Oruro.</field>
+        </record>
+
+        <!-- ── ZONA PERIFERIA NORTE ── gestión 2025 ─────────────────────── -->
+        <record id="tv_periferia_residencial_2025" model="catastro.tabla.valor">
+            <field name="zona">Periferia Norte</field>
+            <field name="uso_suelo">residencial</field>
+            <field name="tipo_predio">urbano</field>
+            <field name="gestion">2025</field>
+            <field name="valor_terreno">173.00</field>
+            <field name="valor_construccion">367.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 012/2025. Zona de expansión — Calle Potosí.</field>
+        </record>
+
+        <!-- ── RURAL ── gestión 2025 ─────────────────────────────────────── -->
+        <record id="tv_rural_agricola_2025" model="catastro.tabla.valor">
+            <field name="zona">Área Rural</field>
+            <field name="uso_suelo">agricola</field>
+            <field name="tipo_predio">rural</field>
+            <field name="gestion">2025</field>
+            <field name="valor_terreno">4.86</field>
+            <field name="valor_construccion">173.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 012/2025. Parcelas agrícolas — quinua, papa. Comunidades Llavini, Huancaroma.</field>
+        </record>
+
+        <record id="tv_rural_mixto_2025" model="catastro.tabla.valor">
+            <field name="zona">Área Rural</field>
+            <field name="uso_suelo">mixto</field>
+            <field name="tipo_predio">rural</field>
+            <field name="gestion">2025</field>
+            <field name="valor_terreno">4.16</field>
+            <field name="valor_construccion">155.00</field>
+            <field name="active">True</field>
+            <field name="notas">Resolución Municipal N° 012/2025. Rural mixto agropecuario — Comunidad Paria Sud, Jilata.</field>
+        </record>
+
+    </data>
 </odoo>
