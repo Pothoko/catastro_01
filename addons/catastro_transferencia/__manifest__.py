@@ -18,6 +18,7 @@ asegurando consistencia jurídica del predio.
         'base',
         'catastro_predio',
         'catastro_impuestos',
+        'mail',
     ],
     'data': [
         'security/ir.model.access.csv',

@@ -382,4 +382,31 @@ Tu municipio ahora cuenta con:
 - 🗺️ **Cartografía en Vuelo:** Pegando coordenadas (GeoJSON), el sistema dibuja dinámicamente tu predio con algoritmos satelitales (`Leaflet` embebido en OWL).
 - 💰 **Colecturía Nativas e Integrada:** La Fase 5 mató los cálculos SQL obsoletos. Al oprimir *"Pagar en Caja"*, se dispara un `account.move` legalmente vinculante con el libro mayor interno y un recibo hermoso.
 - 📜 **Oficina Virtual sin Papel Impreso Externo:** Los peritos y secretarios entran a exportar Certificados Catastrales y Líneas de Cota sin programar coordenadas (Todo automatizado en QWeb y PDF Responsive).
-- 🤖 **Herramientas de Migración:** El archivo ETL en `scripts/migrate_siicat_to_odoo.py` puede usarse cuantas veces plazca para chupar las tablas de `vallegrande` e inyectarlas a la vida en Odoo, mapeando *Contribuyentes a Contactos Oficiales* por XML-RPC.
+- 🤖 **Herramientas de Migración:** El archivo ETL en `scripts/migrate_siicat_to_odoo.py` puede usarse cuantas veces plazca para chupar las tablas de `vallegrande` o `paria` e inyectarlas a la vida en Odoo, mapeando *Contribuyentes a Contactos Oficiales* por XML-RPC.
+
+### 6. Inyección de Datos Demo de Paria y Migración Masiva
+
+#### A) Inyectar los Datos Demo Nativos al Código Fuente (Seguro para GitHub)
+Ya hemos preparado una batería limpia de `contactos_importar.csv` en la carpeta `addons/catastro_predio/demo/`. Al instalar o actualizar el módulo `catastro_predio` marcando la casilla de "Cargar Datos de Demostración" durante la creación de la Base de Datos Odoo, estos registros se cargarán de forma nativa sin tumbar el servidor.
+
+#### B) Volcar el Backup Completo (`paria.backup`) dentro de Docker
+Para migrar el resto (las miles de filas) sin acoplarlos al repositorio, primero restaura el backup invisiblemente dentro del contenedor PostgreSQL de Odoo:
+
+```bash
+# Entrar a la carpeta raíz del proyecto
+cd catastro_01
+
+# 1. Crear una base de datos temporal vacía llamada 'paria' dentro del Contenedor DB
+sudo docker exec -i catastro_01-db-1 createdb -U odoo -O odoo paria
+
+# 2. Restaurar tu archivo físico 'paria.backup' directo al contenedor
+sudo docker exec -i catastro_01-db-1 pg_restore -U odoo -d paria < ../paria.backup
+```
+
+#### C) Disparar el Script ETL para que Odoo lo absorba (XML-RPC)
+Una vez que `paria_db` está viva dentro de Docker, usamos el contenedor de Odoo (que ya tiene `psycopg2` y acceso de red interno a la base temporal) para inyectar todo a Odoo:
+
+```bash
+# Encender motor script Python de Migración (dentro del contenedor odoo)
+sudo docker exec -it catastro_01-odoo-1 python3 /mnt/extra-addons/../scripts/migrate_siicat_to_odoo.py
+```

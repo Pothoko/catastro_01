@@ -21,7 +21,7 @@ ODOO_PASS = 'catastro_admin_2026'
 
 # --- Configuración PostgreSQL Legacy SIICAT (DB Origen) ---
 PG_HOST = 'localhost'
-PG_DB = 'vallegrande'
+PG_DB = 'paria'
 PG_USER = 'postgres'
 PG_PASS = 'odoo_secret'
 
@@ -41,8 +41,9 @@ def migrate_contribuyentes():
         conn = psycopg2.connect(host=PG_HOST, dbname=PG_DB, user=PG_USER, password=PG_PASS)
         cur = conn.cursor()
 
-        logging.info("Iniciando migración de la tabla contribuyentes...")
-        cur.execute("SELECT id_contrib, nombres, apellidos, carnet, direccion, civil FROM contribuyentes")
+        logging.info("Iniciando migración de la tabla contribuyentes (Paria Schema)...")
+        # Ajustado a la estructura detectada en paria_schema.sql
+        cur.execute("SELECT id_contrib, con_nom1, con_pat, con_nit, dom_nom, dom_ciu FROM contribuyentes")
         
         migrados = 0
         for row in cur.fetchall():
@@ -53,9 +54,10 @@ def migrate_contribuyentes():
             # Mapeo a modelo de Odoo
             partner_vals = {
                 'name': f"{nombres} {apellidos}".strip(),
-                'vat': row[3],          # NIT o Carnet
-                'street': row[4],       # Dirección fiscal
-                'comment': f"Importado de SIICAT ID original: {id_legacy} - Estado Civil: {row[5]}",
+                'vat': str(row[3]) if row[3] else '',  # NIT / Carnet
+                'street': row[4] or '',                # dom_nom / Dirección
+                'city': row[5] or '',                  # dom_ciu / Ciudad
+                'comment': f"Importado de Base Paria Legacy | ID original: {id_legacy}",
                 'is_company': False,
             }
             

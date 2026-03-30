@@ -16,6 +16,7 @@ hipotecas judiciales, prendarias y gravámenes bancarios de predios y contribuye
     'depends': [
         'base',
         'catastro_predio',
+        'mail',
     ],
     'data': [
         'security/ir.model.access.csv',
