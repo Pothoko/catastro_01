@@ -21,6 +21,7 @@ hipotecas judiciales, prendarias y gravámenes bancarios de predios y contribuye
     'data': [
         'security/ir.model.access.csv',
         'views/catastro_gravamen_views.xml',
+        'demo/demo_gravamen.xml',
     ],
     'installable': True,
     'application': False,

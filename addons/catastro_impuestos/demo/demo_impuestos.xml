@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Impuesto 1 - Pagado -->
+        <record id="impuesto_demo_1" model="catastro.impuesto">
+            <field name="predio_id" ref="catastro_predio.predio_010008001"/>
+            <field name="gestion">2023</field>
+            <field name="estado">pagado</field>
+        </record>
+
+        <!-- Impuesto 2 - Borrador / Deuda -->
+        <record id="impuesto_demo_2" model="catastro.impuesto">
+            <field name="predio_id" ref="catastro_predio.predio_010043014"/>
+            <field name="gestion">2024</field>
+            <field name="estado">borrador</field>
+        </record>
+        
+        <!-- Impuesto 3 - Vencido -->
+        <record id="impuesto_demo_3" model="catastro.impuesto">
+            <field name="predio_id" ref="catastro_predio.predio_020574001"/>
+            <field name="gestion">2021</field>
+            <field name="multa_mora">35.00</field>
+            <!-- No hay estado "vencido" en su modelo, debe ser borrador o liquidado -->
+            <field name="estado">borrador</field>
+        </record>
+    </data>
+</odoo>

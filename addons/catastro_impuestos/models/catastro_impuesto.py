@@ -37,9 +37,9 @@ class CatastroImpuesto(models.Model):
         for record in self:
             monto_base = 0.0
             if record.predio_id:
-                # La lógica final sumará la superficie de terreno por su valor zonal
+                # La lógica sumará la superficie de terreno por su valor zonal
                 # Más la superficie construida ajustada por la tabla de depreciación municipal.
-                area = record.predio_id.area_terreno_title or record.predio_id.area_terreno_mensura or 0.0
+                area = record.predio_id.superficie_terreno or 0.0
                 # Valor catastral teórica de 55 BOB / mt2 para emular un cálculo rápido
                 monto_base = area * 55.0  
 

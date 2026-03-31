@@ -3,9 +3,9 @@
 # Se instalan sobre la imagen base odoo:17.0
 # ─────────────────────────────────────────────────────────────────────────────
 
-# GIS / Cartografía (Fase 6)
-# shapely>=2.0.0      # Operaciones geométricas (se instala con base_geoengine)
-# pyproj>=3.6.0       # Transformaciones de coordenadas
+# GIS / Cartografía (Requeridas para compatibilidad espacial avanzada)
+shapely>=2.0.0      # Operaciones geométricas subyacentes
+pyproj>=3.6.0       # Transformaciones de coordenadas EPSG
 
 # Utilidades generales
 xlrd==1.2.0           # Importar Excel .xls (legacy, Odoo lo necesita)

@@ -23,6 +23,7 @@ asegurando consistencia jurídica del predio.
     'data': [
         'security/ir.model.access.csv',
         'views/catastro_transferencia_views.xml',
+        'demo/demo_transferencias.xml',
     ],
     'installable': True,
     'application': False,

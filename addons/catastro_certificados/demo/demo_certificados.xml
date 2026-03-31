@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Certificado 1 -->
+        <record id="certificado_demo_1" model="catastro.certificado">
+            <field name="name">CERT-DEMO-001</field>
+            <field name="predio_id" ref="catastro_predio.predio_010008001"/>
+            <field name="solicitante_id" ref="catastro_predio.partner_mamani_juan"/>
+            <field name="estado">impreso</field>
+        </record>
+    </data>
+</odoo>

@@ -42,8 +42,8 @@
                                 <p><strong>Dirección:</strong> <span t-field="doc.predio_id.direccion"/></p>
                             </div>
                             <div class="col-6 mt-2 border-start">
-                                <p><strong>Superficie de Terreno (m2):</strong> <span t-field="doc.predio_id.area_terreno_title"/></p>
-                                <p><strong>Superficie Construida (m2):</strong> <span t-field="doc.predio_id.area_construida"/></p>
+                                <p><strong>Superficie de Terreno (m2):</strong> <span t-field="doc.predio_id.superficie_terreno"/></p>
+                                <p><strong>Superficie Construida (m2):</strong> <span t-field="doc.predio_id.superficie_construida"/></p>
                                 <p><strong>Uso de Suelo:</strong> <span t-field="doc.predio_id.uso_suelo"/></p>
                             </div>
                         </div>

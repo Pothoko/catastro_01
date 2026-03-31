@@ -22,6 +22,7 @@ e historial de emisión legal de los predios.
         'security/ir.model.access.csv',
         'views/catastro_certificado_views.xml',
         'reports/certificado_report.xml',
+        'demo/demo_certificados.xml',
     ],
     'installable': True,
     'application': False,

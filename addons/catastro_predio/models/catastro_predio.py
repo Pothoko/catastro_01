@@ -154,7 +154,122 @@ class CatastroPredia(models.Model):
         string='Edificaciones',
     )
 
-    # ── Notas / Grabámenes ──────────────────────────────────────────────────
+    # ── Servicios Básicos (Legacy Paria) ────────────────────────────────────
+    servicio_alcantarillado = fields.Boolean(
+        string='Alcantarillado',
+        help='Predio cuenta con servicio de alcantarillado',
+    )
+    servicio_agua = fields.Boolean(
+        string='Agua Potable',
+        help='Predio cuenta con servicio de agua potable',
+    )
+    servicio_luz = fields.Boolean(
+        string='Energía Eléctrica',
+        help='Predio cuenta con servicio de luz eléctrica',
+    )
+    servicio_telefono = fields.Boolean(
+        string='Teléfono',
+        help='Predio cuenta con servicio de telefonía',
+    )
+
+    # ── Datos Técnicos del Terreno (Legacy Paria) ─────────────────────────
+    topografia = fields.Selection(
+        selection=[
+            ('PLA', 'Plano'),
+            ('INC', 'Inclinado'),
+            ('QUE', 'Quebrado'),
+            ('ESC', 'Escarpado'),
+        ],
+        string='Topografía',
+        help='Características topográficas del terreno',
+    )
+    uso_terreno_legacy = fields.Selection(
+        selection=[
+            ('RES', 'Residencial'),
+            ('COM', 'Comercial'),
+            ('IND', 'Industrial'),
+            ('AGR', 'Agrícola'),
+            ('BAL', 'Baldío'),
+            ('INS', 'Institucional'),
+            ('MIX', 'Mixto'),
+        ],
+        string='Uso del Terreno (Legacy)',
+        help='Código de uso del terreno según clasificación Paria',
+    )
+    valor_zona = fields.Integer(
+        string='Valor de Zona',
+        help='Factor de valor por zona cargado desde el sistema legacy',
+    )
+    material_via = fields.Selection(
+        selection=[
+            ('ASF', 'Asfalto'),
+            ('EMP', 'Empedrado'),
+            ('TIE', 'Tierra'),
+            ('RIP', 'Ripio'),
+            ('ADO', 'Adoquín'),
+        ],
+        string='Material de la Vía',
+        help='Material de la vía de acceso al predio',
+    )
+    tipo_via = fields.Selection(
+        selection=[
+            ('CAL', 'Calle'),
+            ('AVE', 'Avenida'),
+            ('PAS', 'Pasaje'),
+            ('CAM', 'Camino'),
+        ],
+        string='Tipo de Vía',
+    )
+    tipo_inmueble_legacy = fields.Selection(
+        selection=[
+            ('VIV', 'Vivienda'),
+            ('COM', 'Comercial'),
+            ('IND', 'Industrial'),
+            ('MIX', 'Mixto'),
+            ('BAL', 'Baldío'),
+            ('EDU', 'Educativo'),
+            ('SAL', 'Salud'),
+        ],
+        string='Tipo de Inmueble',
+        help='Clasificación SIICAT del tipo de inmueble',
+    )
+
+    # ── Verificación / Control ──────────────────────────────────────────────
+    verificado = fields.Boolean(string='Verificado en Campo')
+    fecha_verificacion = fields.Date(string='Fecha de Verificación')
+    tiene_informe_predio = fields.Boolean(string='Tiene Informe de Predio')
+    tiene_fotos = fields.Boolean(string='Tiene Fotografías')
+
+    # ── Medidores ───────────────────────────────────────────────────────────
+    medidor_agua = fields.Char(string='Nro. Medidor Agua')
+    medidor_luz = fields.Char(string='Nro. Medidor Luz')
+
+    # ── Códigos Legacy (Paria) ─────────────────────────────────────────────
+    legacy_id_predio = fields.Integer(
+        string='ID Predio (Legacy)',
+        help='ID original del predio en el sistema SIICAT/Paria',
+        index=True,
+    )
+    cod_uv = fields.Integer(string='Código UV', help='Código de Unidad Vecinal')
+    cod_man = fields.Integer(string='Código Manzano', help='Código numérico de manzano')
+    cod_pred = fields.Integer(string='Código Predio', help='Código numérico de predio dentro del manzano')
+    nombre_propietario_legacy = fields.Char(
+        string='Propietario (Legacy)',
+        help='Nombre del propietario tal como figuraba en Paria',
+    )
+    nombre_via = fields.Char(string='Nombre de Vía')
+    urbanizacion = fields.Char(string='Urbanización / Barrio')
+    con_pmc = fields.Integer(
+        string='PMC (Código Contribuyente)',
+        help='Código de contribuyente principal asociado en Paria',
+        index=True,
+    )
+    impuesto_pagado = fields.Integer(
+        string='Último Año Impuesto Pagado',
+        help='Último año en que se registra pago de impuesto en Paria',
+    )
+
+    # ── Notas / Gravámenes ──────────────────────────────────────────────────
     notas = fields.Text(string='Observaciones')
     tiene_gravamen = fields.Boolean(
         string='Tiene Gravamen',

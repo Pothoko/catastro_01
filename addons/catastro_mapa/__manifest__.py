@@ -25,10 +25,7 @@ Sustituye a MapServer manejando coordinadas geoespaciales
     ],
     'assets': {
         'web.assets_backend': [
-            'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
-            'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
             'catastro_mapa/static/src/js/map_widget.js',
-            'catastro_mapa/static/src/xml/map_widget.xml',
         ],
     },
     'installable': True,

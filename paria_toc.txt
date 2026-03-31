@@ -1,0 +1,1589 @@
+;
+; Archive created at 2026-03-26 15:29:23 UTC
+;     dbname: villarroel
+;     TOC Entries: 1577
+;     Compression: gzip
+;     Dump Version: 1.12-0
+;     Format: CUSTOM
+;     Integer: 4 bytes
+;     Offset: 8 bytes
+;     Dumped from database version: 9.0.4
+;     Dumped by pg_dump version: 9.0.4
+;
+;
+; Selected TOC Entries:
+;
+6; 2615 2200 SCHEMA - public postgres
+3369; 0 0 COMMENT - SCHEMA public postgres
+3370; 0 0 ACL - public postgres
+1398; 2612 11574 PROCEDURAL LANGUAGE - plpgsql postgres
+1088; 0 0 SHELL TYPE public box2d postgres
+15; 1255 12169458 FUNCTION public box2d_in(cstring) postgres
+19; 1255 12169459 FUNCTION public box2d_out(box2d) postgres
+1087; 1247 12169457 TYPE public box2d postgres
+3371; 0 0 COMMENT public TYPE box2d postgres
+1091; 0 0 SHELL TYPE public box3d postgres
+20; 1255 12169462 FUNCTION public box3d_in(cstring) postgres
+21; 1255 12169463 FUNCTION public box3d_out(box3d) postgres
+1090; 1247 12169461 TYPE public box3d postgres
+3372; 0 0 COMMENT public TYPE box3d postgres
+1094; 0 0 SHELL TYPE public box3d_extent postgres
+22; 1255 12169466 FUNCTION public box3d_extent_in(cstring) postgres
+23; 1255 12169467 FUNCTION public box3d_extent_out(box3d_extent) postgres
+1093; 1247 12169465 TYPE public box3d_extent postgres
+3373; 0 0 COMMENT public TYPE box3d_extent postgres
+1097; 0 0 SHELL TYPE public chip postgres
+24; 1255 12169470 FUNCTION public chip_in(cstring) postgres
+25; 1255 12169471 FUNCTION public chip_out(chip) postgres
+1096; 1247 12169469 TYPE public chip postgres
+1100; 0 0 SHELL TYPE public geography postgres
+26; 1255 12169474 FUNCTION public geography_analyze(internal) postgres
+27; 1255 12169475 FUNCTION public geography_in(cstring, oid, integer) postgres
+28; 1255 12169476 FUNCTION public geography_out(geography) postgres
+29; 1255 12169477 FUNCTION public geography_typmod_in(cstring[]) postgres
+30; 1255 12169478 FUNCTION public geography_typmod_out(integer) postgres
+1099; 1247 12169473 TYPE public geography postgres
+3374; 0 0 COMMENT public TYPE geography postgres
+1103; 0 0 SHELL TYPE public geometry postgres
+31; 1255 12169481 FUNCTION public geometry_analyze(internal) postgres
+32; 1255 12169482 FUNCTION public geometry_in(cstring) postgres
+33; 1255 12169483 FUNCTION public geometry_out(geometry) postgres
+34; 1255 12169484 FUNCTION public geometry_recv(internal) postgres
+35; 1255 12169485 FUNCTION public geometry_send(geometry) postgres
+1102; 1247 12169480 TYPE public geometry postgres
+3375; 0 0 COMMENT public TYPE geometry postgres
+1105; 1247 12169489 TYPE public geometry_dump postgres
+3376; 0 0 COMMENT public TYPE geometry_dump postgres
+1108; 0 0 SHELL TYPE public gidx postgres
+36; 1255 12169491 FUNCTION public gidx_in(cstring) postgres
+37; 1255 12169492 FUNCTION public gidx_out(gidx) postgres
+1107; 1247 12169490 TYPE public gidx postgres
+1111; 0 0 SHELL TYPE public pgis_abs postgres
+38; 1255 12169495 FUNCTION public pgis_abs_in(cstring) postgres
+39; 1255 12169496 FUNCTION public pgis_abs_out(pgis_abs) postgres
+1110; 1247 12169494 TYPE public pgis_abs postgres
+1114; 0 0 SHELL TYPE public spheroid postgres
+40; 1255 12169499 FUNCTION public spheroid_in(cstring) postgres
+41; 1255 12169500 FUNCTION public spheroid_out(spheroid) postgres
+1113; 1247 12169498 TYPE public spheroid postgres
+42; 1255 12169502 FUNCTION public _st_asgeojson(integer, geometry, integer, integer) postgres
+43; 1255 12169503 FUNCTION public _st_asgeojson(integer, geography, integer, integer) postgres
+44; 1255 12169504 FUNCTION public _st_asgml(integer, geometry, integer, integer) postgres
+45; 1255 12169505 FUNCTION public _st_asgml(integer, geography, integer, integer) postgres
+46; 1255 12169506 FUNCTION public _st_askml(integer, geometry, integer) postgres
+47; 1255 12169507 FUNCTION public _st_askml(integer, geography, integer) postgres
+48; 1255 12169508 FUNCTION public _st_bestsrid(geography) postgres
+49; 1255 12169509 FUNCTION public _st_bestsrid(geography, geography) postgres
+50; 1255 12169510 FUNCTION public _st_buffer(geometry, double precision, cstring) postgres
+51; 1255 12169511 FUNCTION public _st_contains(geometry, geometry) postgres
+52; 1255 12169512 FUNCTION public _st_containsproperly(geometry, geometry) postgres
+53; 1255 12169513 FUNCTION public _st_coveredby(geometry, geometry) postgres
+54; 1255 12169514 FUNCTION public _st_covers(geometry, geometry) postgres
+55; 1255 12169515 FUNCTION public _st_covers(geography, geography) postgres
+56; 1255 12169516 FUNCTION public _st_crosses(geometry, geometry) postgres
+57; 1255 12169517 FUNCTION public _st_dfullywithin(geometry, geometry, double precision) postgres
+58; 1255 12169518 FUNCTION public _st_distance(geography, geography, double precision, boolean) postgres
+59; 1255 12169519 FUNCTION public _st_dumppoints(geometry, integer[]) postgres
+60; 1255 12169520 FUNCTION public _st_dwithin(geometry, geometry, double precision) postgres
+61; 1255 12169521 FUNCTION public _st_dwithin(geography, geography, double precision, boolean) postgres
+62; 1255 12169522 FUNCTION public _st_equals(geometry, geometry) postgres
+63; 1255 12169523 FUNCTION public _st_expand(geography, double precision) postgres
+64; 1255 12169524 FUNCTION public _st_intersects(geometry, geometry) postgres
+65; 1255 12169525 FUNCTION public _st_linecrossingdirection(geometry, geometry) postgres
+66; 1255 12169526 FUNCTION public _st_longestline(geometry, geometry) postgres
+67; 1255 12169527 FUNCTION public _st_maxdistance(geometry, geometry) postgres
+68; 1255 12169528 FUNCTION public _st_orderingequals(geometry, geometry) postgres
+69; 1255 12169529 FUNCTION public _st_overlaps(geometry, geometry) postgres
+70; 1255 12169530 FUNCTION public _st_pointoutside(geography) postgres
+71; 1255 12169531 FUNCTION public _st_touches(geometry, geometry) postgres
+72; 1255 12169532 FUNCTION public _st_within(geometry, geometry) postgres
+73; 1255 12169533 FUNCTION public addauth(text) postgres
+3377; 0 0 COMMENT public FUNCTION addauth(text) postgres
+74; 1255 12169534 FUNCTION public addbbox(geometry) postgres
+75; 1255 12169535 FUNCTION public addgeometrycolumn(character varying, character varying, integer, character varying, integer) postgres
+3378; 0 0 COMMENT public FUNCTION addgeometrycolumn(character varying, character varying, integer, character varying, integer) postgres
+76; 1255 12169536 FUNCTION public addgeometrycolumn(character varying, character varying, character varying, integer, character varying, integer) postgres
+3379; 0 0 COMMENT public FUNCTION addgeometrycolumn(character varying, character varying, character varying, integer, character varying, integer) postgres
+79; 1255 12169537 FUNCTION public addgeometrycolumn(character varying, character varying, character varying, character varying, integer, character varying, integer) postgres
+3380; 0 0 COMMENT public FUNCTION addgeometrycolumn(character varying, character varying, character varying, character varying, integer, character varying, integer) postgres
+80; 1255 12169538 FUNCTION public addpoint(geometry, geometry) postgres
+81; 1255 12169539 FUNCTION public addpoint(geometry, geometry, integer) postgres
+82; 1255 12169540 FUNCTION public affine(geometry, double precision, double precision, double precision, double precision, double precision, double precision) postgres
+83; 1255 12169541 FUNCTION public affine(geometry, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision) postgres
+84; 1255 12169542 FUNCTION public area(geometry) postgres
+85; 1255 12169543 FUNCTION public area2d(geometry) postgres
+86; 1255 12169544 FUNCTION public asbinary(geometry) postgres
+87; 1255 12169545 FUNCTION public asbinary(geometry, text) postgres
+88; 1255 12169546 FUNCTION public asewkb(geometry) postgres
+89; 1255 12169547 FUNCTION public asewkb(geometry, text) postgres
+90; 1255 12169548 FUNCTION public asewkt(geometry) postgres
+91; 1255 12169549 FUNCTION public asgml(geometry) postgres
+92; 1255 12169550 FUNCTION public asgml(geometry, integer) postgres
+93; 1255 12169551 FUNCTION public ashexewkb(geometry) postgres
+94; 1255 12169552 FUNCTION public ashexewkb(geometry, text) postgres
+95; 1255 12169553 FUNCTION public askml(geometry) postgres
+96; 1255 12169554 FUNCTION public askml(geometry, integer) postgres
+97; 1255 12169555 FUNCTION public askml(integer, geometry, integer) postgres
+98; 1255 12169556 FUNCTION public assvg(geometry) postgres
+99; 1255 12169557 FUNCTION public assvg(geometry, integer) postgres
+100; 1255 12169558 FUNCTION public assvg(geometry, integer, integer) postgres
+101; 1255 12169559 FUNCTION public astext(geometry) postgres
+102; 1255 12169560 FUNCTION public azimuth(geometry, geometry) postgres
+103; 1255 12169561 FUNCTION public bdmpolyfromtext(text, integer) postgres
+104; 1255 12169562 FUNCTION public bdpolyfromtext(text, integer) postgres
+105; 1255 12169563 FUNCTION public boundary(geometry) postgres
+77; 1255 12169564 FUNCTION public box(geometry) postgres
+78; 1255 12169565 FUNCTION public box(box3d) postgres
+106; 1255 12169566 FUNCTION public box2d(box3d_extent) postgres
+107; 1255 12169567 FUNCTION public box2d(geometry) postgres
+3381; 0 0 COMMENT public FUNCTION box2d(geometry) postgres
+108; 1255 12169568 FUNCTION public box2d(box3d) postgres
+109; 1255 12169569 FUNCTION public box3d(geometry) postgres
+3382; 0 0 COMMENT public FUNCTION box3d(geometry) postgres
+110; 1255 12169570 FUNCTION public box3d(box2d) postgres
+111; 1255 12169571 FUNCTION public box3d_extent(box3d_extent) postgres
+112; 1255 12169572 FUNCTION public box3dtobox(box3d) postgres
+113; 1255 12169573 FUNCTION public buffer(geometry, double precision) postgres
+114; 1255 12169574 FUNCTION public buffer(geometry, double precision, integer) postgres
+115; 1255 12169575 FUNCTION public buildarea(geometry) postgres
+116; 1255 12169576 FUNCTION public bytea(geometry) postgres
+117; 1255 12169577 FUNCTION public centroid(geometry) postgres
+118; 1255 12169578 FUNCTION public checkauth(text, text) postgres
+3383; 0 0 COMMENT public FUNCTION checkauth(text, text) postgres
+119; 1255 12169579 FUNCTION public checkauth(text, text, text) postgres
+3384; 0 0 COMMENT public FUNCTION checkauth(text, text, text) postgres
+120; 1255 12169580 FUNCTION public checkauthtrigger() postgres
+121; 1255 12169581 FUNCTION public collect(geometry, geometry) postgres
+122; 1255 12169582 FUNCTION public combine_bbox(box2d, geometry) postgres
+123; 1255 12169583 FUNCTION public combine_bbox(box3d_extent, geometry) postgres
+124; 1255 12169584 FUNCTION public combine_bbox(box3d, geometry) postgres
+125; 1255 12169585 FUNCTION public compression(chip) postgres
+126; 1255 12169586 FUNCTION public contains(geometry, geometry) postgres
+127; 1255 12169587 FUNCTION public convexhull(geometry) postgres
+128; 1255 12169588 FUNCTION public crosses(geometry, geometry) postgres
+129; 1255 12169589 FUNCTION public datatype(chip) postgres
+130; 1255 12169590 FUNCTION public difference(geometry, geometry) postgres
+131; 1255 12169591 FUNCTION public dimension(geometry) postgres
+132; 1255 12169592 FUNCTION public disablelongtransactions() postgres
+3385; 0 0 COMMENT public FUNCTION disablelongtransactions() postgres
+133; 1255 12169593 FUNCTION public disjoint(geometry, geometry) postgres
+134; 1255 12169594 FUNCTION public distance(geometry, geometry) postgres
+135; 1255 12169595 FUNCTION public distance_sphere(geometry, geometry) postgres
+136; 1255 12169596 FUNCTION public distance_spheroid(geometry, geometry, spheroid) postgres
+137; 1255 12169597 FUNCTION public dropbbox(geometry) postgres
+139; 1255 12169598 FUNCTION public dropgeometrycolumn(character varying, character varying) postgres
+3386; 0 0 COMMENT public FUNCTION dropgeometrycolumn(character varying, character varying) postgres
+140; 1255 12169599 FUNCTION public dropgeometrycolumn(character varying, character varying, character varying) postgres
+3387; 0 0 COMMENT public FUNCTION dropgeometrycolumn(character varying, character varying, character varying) postgres
+141; 1255 12169600 FUNCTION public dropgeometrycolumn(character varying, character varying, character varying, character varying) postgres
+3388; 0 0 COMMENT public FUNCTION dropgeometrycolumn(character varying, character varying, character varying, character varying) postgres
+142; 1255 12169601 FUNCTION public dropgeometrytable(character varying) postgres
+3389; 0 0 COMMENT public FUNCTION dropgeometrytable(character varying) postgres
+143; 1255 12169602 FUNCTION public dropgeometrytable(character varying, character varying) postgres
+3390; 0 0 COMMENT public FUNCTION dropgeometrytable(character varying, character varying) postgres
+144; 1255 12169603 FUNCTION public dropgeometrytable(character varying, character varying, character varying) postgres
+3391; 0 0 COMMENT public FUNCTION dropgeometrytable(character varying, character varying, character varying) postgres
+145; 1255 12169604 FUNCTION public dump(geometry) postgres
+146; 1255 12169605 FUNCTION public dumprings(geometry) postgres
+147; 1255 12169606 FUNCTION public enablelongtransactions() postgres
+3392; 0 0 COMMENT public FUNCTION enablelongtransactions() postgres
+148; 1255 12169607 FUNCTION public endpoint(geometry) postgres
+149; 1255 12169608 FUNCTION public envelope(geometry) postgres
+150; 1255 12169609 FUNCTION public equals(geometry, geometry) postgres
+151; 1255 12169610 FUNCTION public estimated_extent(text, text) postgres
+152; 1255 12169611 FUNCTION public estimated_extent(text, text, text) postgres
+153; 1255 12169612 FUNCTION public expand(box3d, double precision) postgres
+154; 1255 12169613 FUNCTION public expand(box2d, double precision) postgres
+155; 1255 12169614 FUNCTION public expand(geometry, double precision) postgres
+156; 1255 12169615 FUNCTION public exteriorring(geometry) postgres
+157; 1255 12169616 FUNCTION public factor(chip) postgres
+158; 1255 12169617 FUNCTION public find_extent(text, text) postgres
+159; 1255 12169618 FUNCTION public find_extent(text, text, text) postgres
+160; 1255 12169619 FUNCTION public find_srid(character varying, character varying, character varying) postgres
+3393; 0 0 COMMENT public FUNCTION find_srid(character varying, character varying, character varying) postgres
+161; 1255 12169620 FUNCTION public fix_geometry_columns() postgres
+162; 1255 12169621 FUNCTION public force_2d(geometry) postgres
+163; 1255 12169622 FUNCTION public force_3d(geometry) postgres
+164; 1255 12169623 FUNCTION public force_3dm(geometry) postgres
+165; 1255 12169624 FUNCTION public force_3dz(geometry) postgres
+166; 1255 12169625 FUNCTION public force_4d(geometry) postgres
+167; 1255 12169626 FUNCTION public force_collection(geometry) postgres
+168; 1255 12169627 FUNCTION public forcerhr(geometry) postgres
+169; 1255 12169628 FUNCTION public geography(geometry) postgres
+170; 1255 12169629 FUNCTION public geography(geography, integer, boolean) postgres
+171; 1255 12169630 FUNCTION public geography_cmp(geography, geography) postgres
+172; 1255 12169631 FUNCTION public geography_eq(geography, geography) postgres
+173; 1255 12169632 FUNCTION public geography_ge(geography, geography) postgres
+174; 1255 12169633 FUNCTION public geography_gist_compress(internal) postgres
+175; 1255 12169634 FUNCTION public geography_gist_consistent(internal, geometry, integer) postgres
+176; 1255 12169635 FUNCTION public geography_gist_decompress(internal) postgres
+177; 1255 12169636 FUNCTION public geography_gist_join_selectivity(internal, oid, internal, smallint) postgres
+178; 1255 12169637 FUNCTION public geography_gist_penalty(internal, internal, internal) postgres
+179; 1255 12169638 FUNCTION public geography_gist_picksplit(internal, internal) postgres
+180; 1255 12169639 FUNCTION public geography_gist_same(box2d, box2d, internal) postgres
+181; 1255 12169640 FUNCTION public geography_gist_selectivity(internal, oid, internal, integer) postgres
+182; 1255 12169641 FUNCTION public geography_gist_union(bytea, internal) postgres
+183; 1255 12169642 FUNCTION public geography_gt(geography, geography) postgres
+184; 1255 12169643 FUNCTION public geography_le(geography, geography) postgres
+138; 1255 12169644 FUNCTION public geography_lt(geography, geography) postgres
+185; 1255 12169645 FUNCTION public geography_overlaps(geography, geography) postgres
+186; 1255 12169646 FUNCTION public geography_typmod_dims(integer) postgres
+187; 1255 12169647 FUNCTION public geography_typmod_srid(integer) postgres
+188; 1255 12169648 FUNCTION public geography_typmod_type(integer) postgres
+189; 1255 12169649 FUNCTION public geomcollfromtext(text) postgres
+190; 1255 12169650 FUNCTION public geomcollfromtext(text, integer) postgres
+191; 1255 12169651 FUNCTION public geomcollfromwkb(bytea) postgres
+192; 1255 12169652 FUNCTION public geomcollfromwkb(bytea, integer) postgres
+193; 1255 12169653 FUNCTION public geometry(box3d_extent) postgres
+194; 1255 12169654 FUNCTION public geometry(box2d) postgres
+195; 1255 12169655 FUNCTION public geometry(box3d) postgres
+196; 1255 12169656 FUNCTION public geometry(text) postgres
+197; 1255 12169657 FUNCTION public geometry(chip) postgres
+198; 1255 12169658 FUNCTION public geometry(bytea) postgres
+199; 1255 12169659 FUNCTION public geometry(geography) postgres
+200; 1255 12169660 FUNCTION public geometry_above(geometry, geometry) postgres
+201; 1255 12169661 FUNCTION public geometry_below(geometry, geometry) postgres
+202; 1255 12169662 FUNCTION public geometry_cmp(geometry, geometry) postgres
+203; 1255 12169663 FUNCTION public geometry_contain(geometry, geometry) postgres
+204; 1255 12169664 FUNCTION public geometry_contained(geometry, geometry) postgres
+205; 1255 12169665 FUNCTION public geometry_eq(geometry, geometry) postgres
+206; 1255 12169666 FUNCTION public geometry_ge(geometry, geometry) postgres
+207; 1255 12169667 FUNCTION public geometry_gist_joinsel(internal, oid, internal, smallint) postgres
+208; 1255 12169668 FUNCTION public geometry_gist_sel(internal, oid, internal, integer) postgres
+209; 1255 12169669 FUNCTION public geometry_gt(geometry, geometry) postgres
+210; 1255 12169670 FUNCTION public geometry_le(geometry, geometry) postgres
+211; 1255 12169671 FUNCTION public geometry_left(geometry, geometry) postgres
+212; 1255 12169672 FUNCTION public geometry_lt(geometry, geometry) postgres
+213; 1255 12169673 FUNCTION public geometry_overabove(geometry, geometry) postgres
+214; 1255 12169674 FUNCTION public geometry_overbelow(geometry, geometry) postgres
+215; 1255 12169675 FUNCTION public geometry_overlap(geometry, geometry) postgres
+216; 1255 12169676 FUNCTION public geometry_overleft(geometry, geometry) postgres
+217; 1255 12169677 FUNCTION public geometry_overright(geometry, geometry) postgres
+218; 1255 12169678 FUNCTION public geometry_right(geometry, geometry) postgres
+219; 1255 12169679 FUNCTION public geometry_same(geometry, geometry) postgres
+220; 1255 12169680 FUNCTION public geometry_samebox(geometry, geometry) postgres
+221; 1255 12169681 FUNCTION public geometryfromtext(text) postgres
+222; 1255 12169682 FUNCTION public geometryfromtext(text, integer) postgres
+223; 1255 12169683 FUNCTION public geometryn(geometry, integer) postgres
+224; 1255 12169684 FUNCTION public geometrytype(geometry) postgres
+3394; 0 0 COMMENT public FUNCTION geometrytype(geometry) postgres
+225; 1255 12169685 FUNCTION public geomfromewkb(bytea) postgres
+226; 1255 12169686 FUNCTION public geomfromewkt(text) postgres
+227; 1255 12169687 FUNCTION public geomfromtext(text) postgres
+228; 1255 12169688 FUNCTION public geomfromtext(text, integer) postgres
+229; 1255 12169689 FUNCTION public geomfromwkb(bytea) postgres
+230; 1255 12169690 FUNCTION public geomfromwkb(bytea, integer) postgres
+231; 1255 12169691 FUNCTION public geomunion(geometry, geometry) postgres
+232; 1255 12169692 FUNCTION public get_proj4_from_srid(integer) postgres
+233; 1255 12169693 FUNCTION public getbbox(geometry) postgres
+234; 1255 12169694 FUNCTION public getsrid(geometry) postgres
+235; 1255 12169695 FUNCTION public gettransactionid() postgres
+236; 1255 12169696 FUNCTION public hasbbox(geometry) postgres
+237; 1255 12169697 FUNCTION public height(chip) postgres
+238; 1255 12169698 FUNCTION public interiorringn(geometry, integer) postgres
+239; 1255 12169699 FUNCTION public intersection(geometry, geometry) postgres
+240; 1255 12169700 FUNCTION public intersects(geometry, geometry) postgres
+241; 1255 12169701 FUNCTION public isclosed(geometry) postgres
+242; 1255 12169702 FUNCTION public isempty(geometry) postgres
+243; 1255 12169703 FUNCTION public isring(geometry) postgres
+244; 1255 12169704 FUNCTION public issimple(geometry) postgres
+245; 1255 12169705 FUNCTION public isvalid(geometry) postgres
+246; 1255 12169706 FUNCTION public length(geometry) postgres
+247; 1255 12169707 FUNCTION public length2d(geometry) postgres
+248; 1255 12169708 FUNCTION public length2d_spheroid(geometry, spheroid) postgres
+249; 1255 12169709 FUNCTION public length3d(geometry) postgres
+250; 1255 12169710 FUNCTION public length3d_spheroid(geometry, spheroid) postgres
+251; 1255 12169711 FUNCTION public length_spheroid(geometry, spheroid) postgres
+252; 1255 12169712 FUNCTION public line_interpolate_point(geometry, double precision) postgres
+253; 1255 12169713 FUNCTION public line_locate_point(geometry, geometry) postgres
+254; 1255 12169714 FUNCTION public line_substring(geometry, double precision, double precision) postgres
+255; 1255 12169715 FUNCTION public linefrommultipoint(geometry) postgres
+256; 1255 12169716 FUNCTION public linefromtext(text) postgres
+257; 1255 12169717 FUNCTION public linefromtext(text, integer) postgres
+258; 1255 12169718 FUNCTION public linefromwkb(bytea) postgres
+259; 1255 12169719 FUNCTION public linefromwkb(bytea, integer) postgres
+260; 1255 12169720 FUNCTION public linemerge(geometry) postgres
+261; 1255 12169721 FUNCTION public linestringfromtext(text) postgres
+262; 1255 12169722 FUNCTION public linestringfromtext(text, integer) postgres
+263; 1255 12169723 FUNCTION public linestringfromwkb(bytea) postgres
+264; 1255 12169724 FUNCTION public linestringfromwkb(bytea, integer) postgres
+265; 1255 12169725 FUNCTION public locate_along_measure(geometry, double precision) postgres
+266; 1255 12169726 FUNCTION public locate_between_measures(geometry, double precision, double precision) postgres
+267; 1255 12169727 FUNCTION public lockrow(text, text, text) postgres
+3395; 0 0 COMMENT public FUNCTION lockrow(text, text, text) postgres
+268; 1255 12169728 FUNCTION public lockrow(text, text, text, text) postgres
+269; 1255 12169729 FUNCTION public lockrow(text, text, text, timestamp without time zone) postgres
+3396; 0 0 COMMENT public FUNCTION lockrow(text, text, text, timestamp without time zone) postgres
+270; 1255 12169730 FUNCTION public lockrow(text, text, text, text, timestamp without time zone) postgres
+3397; 0 0 COMMENT public FUNCTION lockrow(text, text, text, text, timestamp without time zone) postgres
+271; 1255 12169731 FUNCTION public longtransactionsenabled() postgres
+272; 1255 12169732 FUNCTION public lwgeom_gist_compress(internal) postgres
+273; 1255 12169733 FUNCTION public lwgeom_gist_consistent(internal, geometry, integer) postgres
+274; 1255 12169734 FUNCTION public lwgeom_gist_decompress(internal) postgres
+275; 1255 12169735 FUNCTION public lwgeom_gist_penalty(internal, internal, internal) postgres
+276; 1255 12169736 FUNCTION public lwgeom_gist_picksplit(internal, internal) postgres
+277; 1255 12169737 FUNCTION public lwgeom_gist_same(box2d, box2d, internal) postgres
+278; 1255 12169738 FUNCTION public lwgeom_gist_union(bytea, internal) postgres
+279; 1255 12169739 FUNCTION public m(geometry) postgres
+280; 1255 12169740 FUNCTION public makebox2d(geometry, geometry) postgres
+281; 1255 12169741 FUNCTION public makebox3d(geometry, geometry) postgres
+282; 1255 12169742 FUNCTION public makeline(geometry, geometry) postgres
+283; 1255 12169743 FUNCTION public makeline_garray(geometry[]) postgres
+284; 1255 12169744 FUNCTION public makepoint(double precision, double precision) postgres
+285; 1255 12169745 FUNCTION public makepoint(double precision, double precision, double precision) postgres
+286; 1255 12169746 FUNCTION public makepoint(double precision, double precision, double precision, double precision) postgres
+287; 1255 12169747 FUNCTION public makepointm(double precision, double precision, double precision) postgres
+288; 1255 12169748 FUNCTION public makepolygon(geometry) postgres
+289; 1255 12169749 FUNCTION public makepolygon(geometry, geometry[]) postgres
+290; 1255 12169750 FUNCTION public max_distance(geometry, geometry) postgres
+291; 1255 12169751 FUNCTION public mem_size(geometry) postgres
+292; 1255 12169752 FUNCTION public mlinefromtext(text) postgres
+293; 1255 12169753 FUNCTION public mlinefromtext(text, integer) postgres
+294; 1255 12169754 FUNCTION public mlinefromwkb(bytea) postgres
+295; 1255 12169755 FUNCTION public mlinefromwkb(bytea, integer) postgres
+296; 1255 12169756 FUNCTION public mpointfromtext(text) postgres
+297; 1255 12169757 FUNCTION public mpointfromtext(text, integer) postgres
+298; 1255 12169758 FUNCTION public mpointfromwkb(bytea) postgres
+299; 1255 12169759 FUNCTION public mpointfromwkb(bytea, integer) postgres
+300; 1255 12169760 FUNCTION public mpolyfromtext(text) postgres
+301; 1255 12169761 FUNCTION public mpolyfromtext(text, integer) postgres
+302; 1255 12169762 FUNCTION public mpolyfromwkb(bytea) postgres
+303; 1255 12169763 FUNCTION public mpolyfromwkb(bytea, integer) postgres
+304; 1255 12169764 FUNCTION public multi(geometry) postgres
+305; 1255 12169765 FUNCTION public multilinefromwkb(bytea) postgres
+306; 1255 12169766 FUNCTION public multilinefromwkb(bytea, integer) postgres
+307; 1255 12169767 FUNCTION public multilinestringfromtext(text) postgres
+308; 1255 12169768 FUNCTION public multilinestringfromtext(text, integer) postgres
+309; 1255 12169769 FUNCTION public multipointfromtext(text) postgres
+310; 1255 12169770 FUNCTION public multipointfromtext(text, integer) postgres
+311; 1255 12169771 FUNCTION public multipointfromwkb(bytea) postgres
+312; 1255 12169772 FUNCTION public multipointfromwkb(bytea, integer) postgres
+313; 1255 12169773 FUNCTION public multipolyfromwkb(bytea) postgres
+314; 1255 12169774 FUNCTION public multipolyfromwkb(bytea, integer) postgres
+315; 1255 12169775 FUNCTION public multipolygonfromtext(text) postgres
+316; 1255 12169776 FUNCTION public multipolygonfromtext(text, integer) postgres
+317; 1255 12169777 FUNCTION public ndims(geometry) postgres
+318; 1255 12169778 FUNCTION public noop(geometry) postgres
+319; 1255 12169779 FUNCTION public npoints(geometry) postgres
+320; 1255 12169780 FUNCTION public nrings(geometry) postgres
+321; 1255 12169781 FUNCTION public numgeometries(geometry) postgres
+322; 1255 12169782 FUNCTION public numinteriorring(geometry) postgres
+323; 1255 12169783 FUNCTION public numinteriorrings(geometry) postgres
+324; 1255 12169784 FUNCTION public numpoints(geometry) postgres
+325; 1255 12169785 FUNCTION public overlaps(geometry, geometry) postgres
+326; 1255 12169786 FUNCTION public perimeter(geometry) postgres
+327; 1255 12169787 FUNCTION public perimeter2d(geometry) postgres
+328; 1255 12169788 FUNCTION public perimeter3d(geometry) postgres
+329; 1255 12169789 FUNCTION public pgis_geometry_accum_finalfn(pgis_abs) postgres
+330; 1255 12169790 FUNCTION public pgis_geometry_accum_transfn(pgis_abs, geometry) postgres
+331; 1255 12169791 FUNCTION public pgis_geometry_collect_finalfn(pgis_abs) postgres
+332; 1255 12169792 FUNCTION public pgis_geometry_makeline_finalfn(pgis_abs) postgres
+333; 1255 12169793 FUNCTION public pgis_geometry_polygonize_finalfn(pgis_abs) postgres
+334; 1255 12169794 FUNCTION public pgis_geometry_union_finalfn(pgis_abs) postgres
+335; 1255 12169795 FUNCTION public point_inside_circle(geometry, double precision, double precision, double precision) postgres
+336; 1255 12169796 FUNCTION public pointfromtext(text) postgres
+337; 1255 12169797 FUNCTION public pointfromtext(text, integer) postgres
+338; 1255 12169798 FUNCTION public pointfromwkb(bytea) postgres
+339; 1255 12169799 FUNCTION public pointfromwkb(bytea, integer) postgres
+340; 1255 12169800 FUNCTION public pointn(geometry, integer) postgres
+341; 1255 12169801 FUNCTION public pointonsurface(geometry) postgres
+342; 1255 12169802 FUNCTION public polyfromtext(text) postgres
+343; 1255 12169803 FUNCTION public polyfromtext(text, integer) postgres
+344; 1255 12169804 FUNCTION public polyfromwkb(bytea) postgres
+345; 1255 12169805 FUNCTION public polyfromwkb(bytea, integer) postgres
+346; 1255 12169806 FUNCTION public polygonfromtext(text) postgres
+347; 1255 12169807 FUNCTION public polygonfromtext(text, integer) postgres
+348; 1255 12169808 FUNCTION public polygonfromwkb(bytea) postgres
+349; 1255 12169809 FUNCTION public polygonfromwkb(bytea, integer) postgres
+350; 1255 12169810 FUNCTION public polygonize_garray(geometry[]) postgres
+351; 1255 12169811 FUNCTION public populate_geometry_columns() postgres
+3398; 0 0 COMMENT public FUNCTION populate_geometry_columns() postgres
+352; 1255 12169812 FUNCTION public populate_geometry_columns(oid) postgres
+3399; 0 0 COMMENT public FUNCTION populate_geometry_columns(tbl_oid oid) postgres
+353; 1255 12169814 FUNCTION public postgis_addbbox(geometry) postgres
+3400; 0 0 COMMENT public FUNCTION postgis_addbbox(geometry) postgres
+354; 1255 12169815 FUNCTION public postgis_cache_bbox() postgres
+355; 1255 12169816 FUNCTION public postgis_dropbbox(geometry) postgres
+3401; 0 0 COMMENT public FUNCTION postgis_dropbbox(geometry) postgres
+356; 1255 12169817 FUNCTION public postgis_full_version() postgres
+3402; 0 0 COMMENT public FUNCTION postgis_full_version() postgres
+357; 1255 12169818 FUNCTION public postgis_geos_version() postgres
+3403; 0 0 COMMENT public FUNCTION postgis_geos_version() postgres
+358; 1255 12169819 FUNCTION public postgis_getbbox(geometry) postgres
+359; 1255 12169820 FUNCTION public postgis_gist_joinsel(internal, oid, internal, smallint) postgres
+360; 1255 12169821 FUNCTION public postgis_gist_sel(internal, oid, internal, integer) postgres
+361; 1255 12169822 FUNCTION public postgis_hasbbox(geometry) postgres
+3404; 0 0 COMMENT public FUNCTION postgis_hasbbox(geometry) postgres
+362; 1255 12169823 FUNCTION public postgis_lib_build_date() postgres
+3405; 0 0 COMMENT public FUNCTION postgis_lib_build_date() postgres
+363; 1255 12169824 FUNCTION public postgis_lib_version() postgres
+3406; 0 0 COMMENT public FUNCTION postgis_lib_version() postgres
+364; 1255 12169825 FUNCTION public postgis_libxml_version() postgres
+3407; 0 0 COMMENT public FUNCTION postgis_libxml_version() postgres
+365; 1255 12169826 FUNCTION public postgis_noop(geometry) postgres
+366; 1255 12169827 FUNCTION public postgis_proj_version() postgres
+3408; 0 0 COMMENT public FUNCTION postgis_proj_version() postgres
+367; 1255 12169828 FUNCTION public postgis_scripts_build_date() postgres
+3409; 0 0 COMMENT public FUNCTION postgis_scripts_build_date() postgres
+368; 1255 12169829 FUNCTION public postgis_scripts_installed() postgres
+3410; 0 0 COMMENT public FUNCTION postgis_scripts_installed() postgres
+369; 1255 12169830 FUNCTION public postgis_scripts_released() postgres
+3411; 0 0 COMMENT public FUNCTION postgis_scripts_released() postgres
+370; 1255 12169831 FUNCTION public postgis_transform_geometry(geometry, text, text, integer) postgres
+371; 1255 12169832 FUNCTION public postgis_uses_stats() postgres
+3412; 0 0 COMMENT public FUNCTION postgis_uses_stats() postgres
+372; 1255 12169833 FUNCTION public postgis_version() postgres
+3413; 0 0 COMMENT public FUNCTION postgis_version() postgres
+373; 1255 12169834 FUNCTION public probe_geometry_columns() postgres
+3414; 0 0 COMMENT public FUNCTION probe_geometry_columns() postgres
+374; 1255 12169835 FUNCTION public relate(geometry, geometry) postgres
+375; 1255 12169836 FUNCTION public relate(geometry, geometry, text) postgres
+376; 1255 12169837 FUNCTION public removepoint(geometry, integer) postgres
+377; 1255 12169838 FUNCTION public rename_geometry_table_constraints() postgres
+378; 1255 12169839 FUNCTION public reverse(geometry) postgres
+379; 1255 12169840 FUNCTION public rotate(geometry, double precision) postgres
+380; 1255 12169841 FUNCTION public rotatex(geometry, double precision) postgres
+381; 1255 12169842 FUNCTION public rotatey(geometry, double precision) postgres
+382; 1255 12169843 FUNCTION public rotatez(geometry, double precision) postgres
+383; 1255 12169844 FUNCTION public scale(geometry, double precision, double precision) postgres
+384; 1255 12169845 FUNCTION public scale(geometry, double precision, double precision, double precision) postgres
+385; 1255 12169846 FUNCTION public se_envelopesintersect(geometry, geometry) postgres
+386; 1255 12169847 FUNCTION public se_is3d(geometry) postgres
+387; 1255 12169848 FUNCTION public se_ismeasured(geometry) postgres
+388; 1255 12169849 FUNCTION public se_locatealong(geometry, double precision) postgres
+389; 1255 12169850 FUNCTION public se_locatebetween(geometry, double precision, double precision) postgres
+390; 1255 12169851 FUNCTION public se_m(geometry) postgres
+391; 1255 12169852 FUNCTION public se_z(geometry) postgres
+392; 1255 12169853 FUNCTION public segmentize(geometry, double precision) postgres
+393; 1255 12169854 FUNCTION public setfactor(chip, real) postgres
+394; 1255 12169855 FUNCTION public setpoint(geometry, integer, geometry) postgres
+395; 1255 12169856 FUNCTION public setsrid(chip, integer) postgres
+396; 1255 12169857 FUNCTION public setsrid(geometry, integer) postgres
+397; 1255 12169858 FUNCTION public shift_longitude(geometry) postgres
+398; 1255 12169859 FUNCTION public simplify(geometry, double precision) postgres
+399; 1255 12169860 FUNCTION public snaptogrid(geometry, double precision) postgres
+400; 1255 12169861 FUNCTION public snaptogrid(geometry, double precision, double precision) postgres
+401; 1255 12169862 FUNCTION public snaptogrid(geometry, double precision, double precision, double precision, double precision) postgres
+402; 1255 12169863 FUNCTION public snaptogrid(geometry, geometry, double precision, double precision, double precision, double precision) postgres
+403; 1255 12169864 FUNCTION public srid(chip) postgres
+404; 1255 12169865 FUNCTION public srid(geometry) postgres
+405; 1255 12169866 FUNCTION public st_addmeasure(geometry, double precision, double precision) postgres
+3415; 0 0 COMMENT public FUNCTION st_addmeasure(geometry, double precision, double precision) postgres
+406; 1255 12169867 FUNCTION public st_addpoint(geometry, geometry) postgres
+3416; 0 0 COMMENT public FUNCTION st_addpoint(geometry, geometry) postgres
+407; 1255 12169868 FUNCTION public st_addpoint(geometry, geometry, integer) postgres
+3417; 0 0 COMMENT public FUNCTION st_addpoint(geometry, geometry, integer) postgres
+408; 1255 12169869 FUNCTION public st_affine(geometry, double precision, double precision, double precision, double precision, double precision, double precision) postgres
+3418; 0 0 COMMENT public FUNCTION st_affine(geometry, double precision, double precision, double precision, double precision, double precision, double precision) postgres
+409; 1255 12169870 FUNCTION public st_affine(geometry, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision) postgres
+3419; 0 0 COMMENT public FUNCTION st_affine(geometry, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision, double precision) postgres
+410; 1255 12169871 FUNCTION public st_area(geometry) postgres
+3420; 0 0 COMMENT public FUNCTION st_area(geometry) postgres
+411; 1255 12169872 FUNCTION public st_area(geography) postgres
+3421; 0 0 COMMENT public FUNCTION st_area(geography) postgres
+412; 1255 12169873 FUNCTION public st_area(text) postgres
+413; 1255 12169874 FUNCTION public st_area(geography, boolean) postgres
+3422; 0 0 COMMENT public FUNCTION st_area(geography, boolean) postgres
+414; 1255 12169875 FUNCTION public st_area2d(geometry) postgres
+415; 1255 12169876 FUNCTION public st_asbinary(geometry) postgres
+3423; 0 0 COMMENT public FUNCTION st_asbinary(geometry) postgres
+416; 1255 12169877 FUNCTION public st_asbinary(geography) postgres
+3424; 0 0 COMMENT public FUNCTION st_asbinary(geography) postgres
+417; 1255 12169878 FUNCTION public st_asbinary(text) postgres
+418; 1255 12169879 FUNCTION public st_asbinary(geometry, text) postgres
+3425; 0 0 COMMENT public FUNCTION st_asbinary(geometry, text) postgres
+419; 1255 12169880 FUNCTION public st_asewkb(geometry) postgres
+3426; 0 0 COMMENT public FUNCTION st_asewkb(geometry) postgres
+420; 1255 12169881 FUNCTION public st_asewkb(geometry, text) postgres
+3427; 0 0 COMMENT public FUNCTION st_asewkb(geometry, text) postgres
+421; 1255 12169882 FUNCTION public st_asewkt(geometry) postgres
+3428; 0 0 COMMENT public FUNCTION st_asewkt(geometry) postgres
+422; 1255 12169883 FUNCTION public st_asgeojson(geometry) postgres
+3429; 0 0 COMMENT public FUNCTION st_asgeojson(geometry) postgres
+423; 1255 12169884 FUNCTION public st_asgeojson(geography) postgres
+3430; 0 0 COMMENT public FUNCTION st_asgeojson(geography) postgres
+424; 1255 12169885 FUNCTION public st_asgeojson(text) postgres
+425; 1255 12169886 FUNCTION public st_asgeojson(geometry, integer) postgres
+3431; 0 0 COMMENT public FUNCTION st_asgeojson(geometry, integer) postgres
+426; 1255 12169887 FUNCTION public st_asgeojson(integer, geometry) postgres
+3432; 0 0 COMMENT public FUNCTION st_asgeojson(integer, geometry) postgres
+427; 1255 12169888 FUNCTION public st_asgeojson(geography, integer) postgres
+3433; 0 0 COMMENT public FUNCTION st_asgeojson(geography, integer) postgres
+428; 1255 12169889 FUNCTION public st_asgeojson(integer, geography) postgres
+3434; 0 0 COMMENT public FUNCTION st_asgeojson(integer, geography) postgres
+429; 1255 12169890 FUNCTION public st_asgeojson(integer, geometry, integer) postgres
+3435; 0 0 COMMENT public FUNCTION st_asgeojson(integer, geometry, integer) postgres
+430; 1255 12169891 FUNCTION public st_asgeojson(geometry, integer, integer) postgres
+3436; 0 0 COMMENT public FUNCTION st_asgeojson(geometry, integer, integer) postgres
+431; 1255 12169892 FUNCTION public st_asgeojson(integer, geography, integer) postgres
+3437; 0 0 COMMENT public FUNCTION st_asgeojson(integer, geography, integer) postgres
+432; 1255 12169893 FUNCTION public st_asgeojson(geography, integer, integer) postgres
+3438; 0 0 COMMENT public FUNCTION st_asgeojson(geography, integer, integer) postgres
+433; 1255 12169894 FUNCTION public st_asgeojson(integer, geometry, integer, integer) postgres
+3439; 0 0 COMMENT public FUNCTION st_asgeojson(integer, geometry, integer, integer) postgres
+434; 1255 12169895 FUNCTION public st_asgeojson(integer, geography, integer, integer) postgres
+3440; 0 0 COMMENT public FUNCTION st_asgeojson(integer, geography, integer, integer) postgres
+435; 1255 12169896 FUNCTION public st_asgml(geometry) postgres
+3441; 0 0 COMMENT public FUNCTION st_asgml(geometry) postgres
+436; 1255 12169897 FUNCTION public st_asgml(geography) postgres
+3442; 0 0 COMMENT public FUNCTION st_asgml(geography) postgres
+437; 1255 12169898 FUNCTION public st_asgml(text) postgres
+438; 1255 12169899 FUNCTION public st_asgml(geometry, integer) postgres
+3443; 0 0 COMMENT public FUNCTION st_asgml(geometry, integer) postgres
+439; 1255 12169900 FUNCTION public st_asgml(integer, geometry) postgres
+3444; 0 0 COMMENT public FUNCTION st_asgml(integer, geometry) postgres
+440; 1255 12169901 FUNCTION public st_asgml(geography, integer) postgres
+3445; 0 0 COMMENT public FUNCTION st_asgml(geography, integer) postgres
+441; 1255 12169902 FUNCTION public st_asgml(integer, geography) postgres
+3446; 0 0 COMMENT public FUNCTION st_asgml(integer, geography) postgres
+442; 1255 12169903 FUNCTION public st_asgml(integer, geometry, integer) postgres
+3447; 0 0 COMMENT public FUNCTION st_asgml(integer, geometry, integer) postgres
+443; 1255 12169904 FUNCTION public st_asgml(geometry, integer, integer) postgres
+444; 1255 12169905 FUNCTION public st_asgml(integer, geography, integer) postgres
+3448; 0 0 COMMENT public FUNCTION st_asgml(integer, geography, integer) postgres
+445; 1255 12169906 FUNCTION public st_asgml(geography, integer, integer) postgres
+446; 1255 12169907 FUNCTION public st_asgml(integer, geometry, integer, integer) postgres
+3449; 0 0 COMMENT public FUNCTION st_asgml(integer, geometry, integer, integer) postgres
+447; 1255 12169908 FUNCTION public st_asgml(integer, geography, integer, integer) postgres
+3450; 0 0 COMMENT public FUNCTION st_asgml(integer, geography, integer, integer) postgres
+448; 1255 12169909 FUNCTION public st_ashexewkb(geometry) postgres
+3451; 0 0 COMMENT public FUNCTION st_ashexewkb(geometry) postgres
+449; 1255 12169910 FUNCTION public st_ashexewkb(geometry, text) postgres
+3452; 0 0 COMMENT public FUNCTION st_ashexewkb(geometry, text) postgres
+450; 1255 12169911 FUNCTION public st_askml(geometry) postgres
+3453; 0 0 COMMENT public FUNCTION st_askml(geometry) postgres
+451; 1255 12169912 FUNCTION public st_askml(geography) postgres
+3454; 0 0 COMMENT public FUNCTION st_askml(geography) postgres
+452; 1255 12169913 FUNCTION public st_askml(text) postgres
+453; 1255 12169914 FUNCTION public st_askml(geometry, integer) postgres
+3455; 0 0 COMMENT public FUNCTION st_askml(geometry, integer) postgres
+454; 1255 12169915 FUNCTION public st_askml(integer, geometry) postgres
+3456; 0 0 COMMENT public FUNCTION st_askml(integer, geometry) postgres
+455; 1255 12169916 FUNCTION public st_askml(geography, integer) postgres
+3457; 0 0 COMMENT public FUNCTION st_askml(geography, integer) postgres
+456; 1255 12169917 FUNCTION public st_askml(integer, geography) postgres
+3458; 0 0 COMMENT public FUNCTION st_askml(integer, geography) postgres
+457; 1255 12169918 FUNCTION public st_askml(integer, geometry, integer) postgres
+3459; 0 0 COMMENT public FUNCTION st_askml(integer, geometry, integer) postgres
+458; 1255 12169919 FUNCTION public st_askml(integer, geography, integer) postgres
+3460; 0 0 COMMENT public FUNCTION st_askml(integer, geography, integer) postgres
+459; 1255 12169920 FUNCTION public st_assvg(geometry) postgres
+3461; 0 0 COMMENT public FUNCTION st_assvg(geometry) postgres
+460; 1255 12169921 FUNCTION public st_assvg(geography) postgres
+3462; 0 0 COMMENT public FUNCTION st_assvg(geography) postgres
+461; 1255 12169922 FUNCTION public st_assvg(text) postgres
+462; 1255 12169923 FUNCTION public st_assvg(geometry, integer) postgres
+3463; 0 0 COMMENT public FUNCTION st_assvg(geometry, integer) postgres
+463; 1255 12169924 FUNCTION public st_assvg(geography, integer) postgres
+3464; 0 0 COMMENT public FUNCTION st_assvg(geography, integer) postgres
+464; 1255 12169925 FUNCTION public st_assvg(geometry, integer, integer) postgres
+3465; 0 0 COMMENT public FUNCTION st_assvg(geometry, integer, integer) postgres
+465; 1255 12169926 FUNCTION public st_assvg(geography, integer, integer) postgres
+3466; 0 0 COMMENT public FUNCTION st_assvg(geography, integer, integer) postgres
+466; 1255 12169927 FUNCTION public st_astext(geometry) postgres
+3467; 0 0 COMMENT public FUNCTION st_astext(geometry) postgres
+467; 1255 12169928 FUNCTION public st_astext(geography) postgres
+3468; 0 0 COMMENT public FUNCTION st_astext(geography) postgres
+468; 1255 12169929 FUNCTION public st_astext(text) postgres
+469; 1255 12169930 FUNCTION public st_azimuth(geometry, geometry) postgres
+3469; 0 0 COMMENT public FUNCTION st_azimuth(geometry, geometry) postgres
+470; 1255 12169931 FUNCTION public st_bdmpolyfromtext(text, integer) postgres
+3470; 0 0 COMMENT public FUNCTION st_bdmpolyfromtext(text, integer) postgres
+471; 1255 12169932 FUNCTION public st_bdpolyfromtext(text, integer) postgres
+3471; 0 0 COMMENT public FUNCTION st_bdpolyfromtext(text, integer) postgres
+472; 1255 12169933 FUNCTION public st_boundary(geometry) postgres
+3472; 0 0 COMMENT public FUNCTION st_boundary(geometry) postgres
+473; 1255 12169934 FUNCTION public st_box(geometry) postgres
+474; 1255 12169935 FUNCTION public st_box(box3d) postgres
+475; 1255 12169936 FUNCTION public st_box2d(geometry) postgres
+476; 1255 12169937 FUNCTION public st_box2d(box3d) postgres
+477; 1255 12169938 FUNCTION public st_box2d(box3d_extent) postgres
+478; 1255 12169939 FUNCTION public st_box2d_in(cstring) postgres
+479; 1255 12169940 FUNCTION public st_box2d_out(box2d) postgres
+480; 1255 12169941 FUNCTION public st_box3d(geometry) postgres
+481; 1255 12169942 FUNCTION public st_box3d(box2d) postgres
+482; 1255 12169943 FUNCTION public st_box3d_extent(box3d_extent) postgres
+483; 1255 12169944 FUNCTION public st_box3d_in(cstring) postgres
+484; 1255 12169945 FUNCTION public st_box3d_out(box3d) postgres
+485; 1255 12169946 FUNCTION public st_buffer(geometry, double precision) postgres
+3473; 0 0 COMMENT public FUNCTION st_buffer(geometry, double precision) postgres
+486; 1255 12169947 FUNCTION public st_buffer(geography, double precision) postgres
+3474; 0 0 COMMENT public FUNCTION st_buffer(geography, double precision) postgres
+487; 1255 12169948 FUNCTION public st_buffer(text, double precision) postgres
+488; 1255 12169949 FUNCTION public st_buffer(geometry, double precision, integer) postgres
+3475; 0 0 COMMENT public FUNCTION st_buffer(geometry, double precision, integer) postgres
+489; 1255 12169950 FUNCTION public st_buffer(geometry, double precision, text) postgres
+3476; 0 0 COMMENT public FUNCTION st_buffer(geometry, double precision, text) postgres
+490; 1255 12169951 FUNCTION public st_buildarea(geometry) postgres
+3477; 0 0 COMMENT public FUNCTION st_buildarea(geometry) postgres
+491; 1255 12169952 FUNCTION public st_bytea(geometry) postgres
+492; 1255 12169953 FUNCTION public st_centroid(geometry) postgres
+3478; 0 0 COMMENT public FUNCTION st_centroid(geometry) postgres
+493; 1255 12169954 FUNCTION public st_chip_in(cstring) postgres
+494; 1255 12169955 FUNCTION public st_chip_out(chip) postgres
+495; 1255 12169956 FUNCTION public st_closestpoint(geometry, geometry) postgres
+3479; 0 0 COMMENT public FUNCTION st_closestpoint(geometry, geometry) postgres
+496; 1255 12169957 FUNCTION public st_collect(geometry[]) postgres
+3480; 0 0 COMMENT public FUNCTION st_collect(geometry[]) postgres
+497; 1255 12169958 FUNCTION public st_collect(geometry, geometry) postgres
+3481; 0 0 COMMENT public FUNCTION st_collect(geometry, geometry) postgres
+498; 1255 12169959 FUNCTION public st_collectionextract(geometry, integer) postgres
+3482; 0 0 COMMENT public FUNCTION st_collectionextract(geometry, integer) postgres
+499; 1255 12169960 FUNCTION public st_combine_bbox(box2d, geometry) postgres
+500; 1255 12169961 FUNCTION public st_combine_bbox(box3d_extent, geometry) postgres
+501; 1255 12169962 FUNCTION public st_combine_bbox(box3d, geometry) postgres
+502; 1255 12169963 FUNCTION public st_compression(chip) postgres
+503; 1255 12169964 FUNCTION public st_contains(geometry, geometry) postgres
+3483; 0 0 COMMENT public FUNCTION st_contains(geometry, geometry) postgres
+504; 1255 12169965 FUNCTION public st_containsproperly(geometry, geometry) postgres
+3484; 0 0 COMMENT public FUNCTION st_containsproperly(geometry, geometry) postgres
+505; 1255 12169966 FUNCTION public st_convexhull(geometry) postgres
+3485; 0 0 COMMENT public FUNCTION st_convexhull(geometry) postgres
+506; 1255 12169967 FUNCTION public st_coorddim(geometry) postgres
+3486; 0 0 COMMENT public FUNCTION st_coorddim(geometry) postgres
+507; 1255 12169968 FUNCTION public st_coveredby(geometry, geometry) postgres
+3487; 0 0 COMMENT public FUNCTION st_coveredby(geometry, geometry) postgres
+508; 1255 12169969 FUNCTION public st_coveredby(geography, geography) postgres
+3488; 0 0 COMMENT public FUNCTION st_coveredby(geography, geography) postgres
+509; 1255 12169970 FUNCTION public st_coveredby(text, text) postgres
+510; 1255 12169971 FUNCTION public st_covers(geometry, geometry) postgres
+3489; 0 0 COMMENT public FUNCTION st_covers(geometry, geometry) postgres
+511; 1255 12169972 FUNCTION public st_covers(geography, geography) postgres
+3490; 0 0 COMMENT public FUNCTION st_covers(geography, geography) postgres
+512; 1255 12169973 FUNCTION public st_covers(text, text) postgres
+513; 1255 12169974 FUNCTION public st_crosses(geometry, geometry) postgres
+3491; 0 0 COMMENT public FUNCTION st_crosses(geometry, geometry) postgres
+514; 1255 12169975 FUNCTION public st_curvetoline(geometry) postgres
+3492; 0 0 COMMENT public FUNCTION st_curvetoline(geometry) postgres
+515; 1255 12169976 FUNCTION public st_curvetoline(geometry, integer) postgres
+3493; 0 0 COMMENT public FUNCTION st_curvetoline(geometry, integer) postgres
+516; 1255 12169977 FUNCTION public st_datatype(chip) postgres
+517; 1255 12169978 FUNCTION public st_dfullywithin(geometry, geometry, double precision) postgres
+3494; 0 0 COMMENT public FUNCTION st_dfullywithin(geometry, geometry, double precision) postgres
+518; 1255 12169979 FUNCTION public st_difference(geometry, geometry) postgres
+3495; 0 0 COMMENT public FUNCTION st_difference(geometry, geometry) postgres
+519; 1255 12169980 FUNCTION public st_dimension(geometry) postgres
+3496; 0 0 COMMENT public FUNCTION st_dimension(geometry) postgres
+520; 1255 12169981 FUNCTION public st_disjoint(geometry, geometry) postgres
+3497; 0 0 COMMENT public FUNCTION st_disjoint(geometry, geometry) postgres
+521; 1255 12169982 FUNCTION public st_distance(geometry, geometry) postgres
+3498; 0 0 COMMENT public FUNCTION st_distance(geometry, geometry) postgres
+522; 1255 12169983 FUNCTION public st_distance(geography, geography) postgres
+3499; 0 0 COMMENT public FUNCTION st_distance(geography, geography) postgres
+523; 1255 12169984 FUNCTION public st_distance(text, text) postgres
+524; 1255 12169985 FUNCTION public st_distance(geography, geography, boolean) postgres
+3500; 0 0 COMMENT public FUNCTION st_distance(geography, geography, boolean) postgres
+525; 1255 12169986 FUNCTION public st_distance_sphere(geometry, geometry) postgres
+3501; 0 0 COMMENT public FUNCTION st_distance_sphere(geometry, geometry) postgres
+526; 1255 12169987 FUNCTION public st_distance_spheroid(geometry, geometry, spheroid) postgres
+3502; 0 0 COMMENT public FUNCTION st_distance_spheroid(geometry, geometry, spheroid) postgres
+527; 1255 12169988 FUNCTION public st_dump(geometry) postgres
+3503; 0 0 COMMENT public FUNCTION st_dump(geometry) postgres
+528; 1255 12169989 FUNCTION public st_dumppoints(geometry) postgres
+3504; 0 0 COMMENT public FUNCTION st_dumppoints(geometry) postgres
+529; 1255 12169990 FUNCTION public st_dumprings(geometry) postgres
+3505; 0 0 COMMENT public FUNCTION st_dumprings(geometry) postgres
+530; 1255 12169991 FUNCTION public st_dwithin(geometry, geometry, double precision) postgres
+3506; 0 0 COMMENT public FUNCTION st_dwithin(geometry, geometry, double precision) postgres
+531; 1255 12169992 FUNCTION public st_dwithin(geography, geography, double precision) postgres
+3507; 0 0 COMMENT public FUNCTION st_dwithin(geography, geography, double precision) postgres
+532; 1255 12169993 FUNCTION public st_dwithin(text, text, double precision) postgres
+533; 1255 12169994 FUNCTION public st_dwithin(geography, geography, double precision, boolean) postgres
+3508; 0 0 COMMENT public FUNCTION st_dwithin(geography, geography, double precision, boolean) postgres
+534; 1255 12169995 FUNCTION public st_endpoint(geometry) postgres
+3509; 0 0 COMMENT public FUNCTION st_endpoint(geometry) postgres
+535; 1255 12169996 FUNCTION public st_envelope(geometry) postgres
+3510; 0 0 COMMENT public FUNCTION st_envelope(geometry) postgres
+536; 1255 12169997 FUNCTION public st_equals(geometry, geometry) postgres
+3511; 0 0 COMMENT public FUNCTION st_equals(geometry, geometry) postgres
+537; 1255 12169998 FUNCTION public st_estimated_extent(text, text) postgres
+3512; 0 0 COMMENT public FUNCTION st_estimated_extent(text, text) postgres
+538; 1255 12169999 FUNCTION public st_estimated_extent(text, text, text) postgres
+3513; 0 0 COMMENT public FUNCTION st_estimated_extent(text, text, text) postgres
+539; 1255 12170000 FUNCTION public st_expand(box3d, double precision) postgres
+3514; 0 0 COMMENT public FUNCTION st_expand(box3d, double precision) postgres
+540; 1255 12170001 FUNCTION public st_expand(box2d, double precision) postgres
+3515; 0 0 COMMENT public FUNCTION st_expand(box2d, double precision) postgres
+541; 1255 12170002 FUNCTION public st_expand(geometry, double precision) postgres
+3516; 0 0 COMMENT public FUNCTION st_expand(geometry, double precision) postgres
+542; 1255 12170003 FUNCTION public st_exteriorring(geometry) postgres
+3517; 0 0 COMMENT public FUNCTION st_exteriorring(geometry) postgres
+543; 1255 12170004 FUNCTION public st_factor(chip) postgres
+544; 1255 12170005 FUNCTION public st_find_extent(text, text) postgres
+545; 1255 12170006 FUNCTION public st_find_extent(text, text, text) postgres
+546; 1255 12170007 FUNCTION public st_force_2d(geometry) postgres
+3518; 0 0 COMMENT public FUNCTION st_force_2d(geometry) postgres
+547; 1255 12170008 FUNCTION public st_force_3d(geometry) postgres
+3519; 0 0 COMMENT public FUNCTION st_force_3d(geometry) postgres
+548; 1255 12170009 FUNCTION public st_force_3dm(geometry) postgres
+3520; 0 0 COMMENT public FUNCTION st_force_3dm(geometry) postgres
+549; 1255 12170010 FUNCTION public st_force_3dz(geometry) postgres
+3521; 0 0 COMMENT public FUNCTION st_force_3dz(geometry) postgres
+550; 1255 12170011 FUNCTION public st_force_4d(geometry) postgres
+3522; 0 0 COMMENT public FUNCTION st_force_4d(geometry) postgres
+551; 1255 12170012 FUNCTION public st_force_collection(geometry) postgres
+3523; 0 0 COMMENT public FUNCTION st_force_collection(geometry) postgres
+552; 1255 12170013 FUNCTION public st_forcerhr(geometry) postgres
+3524; 0 0 COMMENT public FUNCTION st_forcerhr(geometry) postgres
+553; 1255 12170014 FUNCTION public st_geogfromtext(text) postgres
+3525; 0 0 COMMENT public FUNCTION st_geogfromtext(text) postgres
+554; 1255 12170015 FUNCTION public st_geogfromwkb(bytea) postgres
+3526; 0 0 COMMENT public FUNCTION st_geogfromwkb(bytea) postgres
+555; 1255 12170016 FUNCTION public st_geographyfromtext(text) postgres
+3527; 0 0 COMMENT public FUNCTION st_geographyfromtext(text) postgres
+556; 1255 12170017 FUNCTION public st_geohash(geometry) postgres
+3528; 0 0 COMMENT public FUNCTION st_geohash(geometry) postgres
+557; 1255 12170018 FUNCTION public st_geohash(geometry, integer) postgres
+3529; 0 0 COMMENT public FUNCTION st_geohash(geometry, integer) postgres
+558; 1255 12170019 FUNCTION public st_geomcollfromtext(text) postgres
+3530; 0 0 COMMENT public FUNCTION st_geomcollfromtext(text) postgres
+559; 1255 12170020 FUNCTION public st_geomcollfromtext(text, integer) postgres
+3531; 0 0 COMMENT public FUNCTION st_geomcollfromtext(text, integer) postgres
+560; 1255 12170021 FUNCTION public st_geomcollfromwkb(bytea) postgres
+561; 1255 12170022 FUNCTION public st_geomcollfromwkb(bytea, integer) postgres
+562; 1255 12170023 FUNCTION public st_geometry(box2d) postgres
+563; 1255 12170024 FUNCTION public st_geometry(box3d) postgres
+564; 1255 12170025 FUNCTION public st_geometry(text) postgres
+565; 1255 12170026 FUNCTION public st_geometry(chip) postgres
+566; 1255 12170027 FUNCTION public st_geometry(bytea) postgres
+567; 1255 12170028 FUNCTION public st_geometry(box3d_extent) postgres
+568; 1255 12170029 FUNCTION public st_geometry_above(geometry, geometry) postgres
+569; 1255 12170030 FUNCTION public st_geometry_analyze(internal) postgres
+570; 1255 12170031 FUNCTION public st_geometry_below(geometry, geometry) postgres
+571; 1255 12170032 FUNCTION public st_geometry_cmp(geometry, geometry) postgres
+572; 1255 12170033 FUNCTION public st_geometry_contain(geometry, geometry) postgres
+573; 1255 12170034 FUNCTION public st_geometry_contained(geometry, geometry) postgres
+574; 1255 12170035 FUNCTION public st_geometry_eq(geometry, geometry) postgres
+575; 1255 12170036 FUNCTION public st_geometry_ge(geometry, geometry) postgres
+576; 1255 12170037 FUNCTION public st_geometry_gt(geometry, geometry) postgres
+577; 1255 12170038 FUNCTION public st_geometry_in(cstring) postgres
+578; 1255 12170039 FUNCTION public st_geometry_le(geometry, geometry) postgres
+579; 1255 12170040 FUNCTION public st_geometry_left(geometry, geometry) postgres
+580; 1255 12170041 FUNCTION public st_geometry_lt(geometry, geometry) postgres
+581; 1255 12170042 FUNCTION public st_geometry_out(geometry) postgres
+582; 1255 12170043 FUNCTION public st_geometry_overabove(geometry, geometry) postgres
+583; 1255 12170044 FUNCTION public st_geometry_overbelow(geometry, geometry) postgres
+584; 1255 12170045 FUNCTION public st_geometry_overlap(geometry, geometry) postgres
+585; 1255 12170046 FUNCTION public st_geometry_overleft(geometry, geometry) postgres
+586; 1255 12170047 FUNCTION public st_geometry_overright(geometry, geometry) postgres
+587; 1255 12170048 FUNCTION public st_geometry_recv(internal) postgres
+588; 1255 12170049 FUNCTION public st_geometry_right(geometry, geometry) postgres
+589; 1255 12170050 FUNCTION public st_geometry_same(geometry, geometry) postgres
+590; 1255 12170051 FUNCTION public st_geometry_send(geometry) postgres
+591; 1255 12170052 FUNCTION public st_geometryfromtext(text) postgres
+3532; 0 0 COMMENT public FUNCTION st_geometryfromtext(text) postgres
+592; 1255 12170053 FUNCTION public st_geometryfromtext(text, integer) postgres
+3533; 0 0 COMMENT public FUNCTION st_geometryfromtext(text, integer) postgres
+593; 1255 12170054 FUNCTION public st_geometryn(geometry, integer) postgres
+3534; 0 0 COMMENT public FUNCTION st_geometryn(geometry, integer) postgres
+594; 1255 12170055 FUNCTION public st_geometrytype(geometry) postgres
+3535; 0 0 COMMENT public FUNCTION st_geometrytype(geometry) postgres
+595; 1255 12170056 FUNCTION public st_geomfromewkb(bytea) postgres
+3536; 0 0 COMMENT public FUNCTION st_geomfromewkb(bytea) postgres
+596; 1255 12170057 FUNCTION public st_geomfromewkt(text) postgres
+3537; 0 0 COMMENT public FUNCTION st_geomfromewkt(text) postgres
+597; 1255 12170058 FUNCTION public st_geomfromgml(text) postgres
+3538; 0 0 COMMENT public FUNCTION st_geomfromgml(text) postgres
+598; 1255 12170059 FUNCTION public st_geomfromkml(text) postgres
+3539; 0 0 COMMENT public FUNCTION st_geomfromkml(text) postgres
+599; 1255 12170060 FUNCTION public st_geomfromtext(text) postgres
+3540; 0 0 COMMENT public FUNCTION st_geomfromtext(text) postgres
+600; 1255 12170061 FUNCTION public st_geomfromtext(text, integer) postgres
+3541; 0 0 COMMENT public FUNCTION st_geomfromtext(text, integer) postgres
+601; 1255 12170062 FUNCTION public st_geomfromwkb(bytea) postgres
+3542; 0 0 COMMENT public FUNCTION st_geomfromwkb(bytea) postgres
+602; 1255 12170063 FUNCTION public st_geomfromwkb(bytea, integer) postgres
+3543; 0 0 COMMENT public FUNCTION st_geomfromwkb(bytea, integer) postgres
+603; 1255 12170064 FUNCTION public st_gmltosql(text) postgres
+3544; 0 0 COMMENT public FUNCTION st_gmltosql(text) postgres
+604; 1255 12170065 FUNCTION public st_hasarc(geometry) postgres
+3545; 0 0 COMMENT public FUNCTION st_hasarc(geometry) postgres
+605; 1255 12170066 FUNCTION public st_hausdorffdistance(geometry, geometry) postgres
+3546; 0 0 COMMENT public FUNCTION st_hausdorffdistance(geometry, geometry) postgres
+606; 1255 12170067 FUNCTION public st_hausdorffdistance(geometry, geometry, double precision) postgres
+3547; 0 0 COMMENT public FUNCTION st_hausdorffdistance(geometry, geometry, double precision) postgres
+607; 1255 12170068 FUNCTION public st_height(chip) postgres
+608; 1255 12170069 FUNCTION public st_interiorringn(geometry, integer) postgres
+3548; 0 0 COMMENT public FUNCTION st_interiorringn(geometry, integer) postgres
+609; 1255 12170070 FUNCTION public st_intersection(geometry, geometry) postgres
+3549; 0 0 COMMENT public FUNCTION st_intersection(geometry, geometry) postgres
+610; 1255 12170071 FUNCTION public st_intersection(geography, geography) postgres
+3550; 0 0 COMMENT public FUNCTION st_intersection(geography, geography) postgres
+611; 1255 12170072 FUNCTION public st_intersection(text, text) postgres
+612; 1255 12170073 FUNCTION public st_intersects(geometry, geometry) postgres
+3551; 0 0 COMMENT public FUNCTION st_intersects(geometry, geometry) postgres
+613; 1255 12170074 FUNCTION public st_intersects(geography, geography) postgres
+3552; 0 0 COMMENT public FUNCTION st_intersects(geography, geography) postgres
+614; 1255 12170075 FUNCTION public st_intersects(text, text) postgres
+615; 1255 12170076 FUNCTION public st_isclosed(geometry) postgres
+3553; 0 0 COMMENT public FUNCTION st_isclosed(geometry) postgres
+616; 1255 12170077 FUNCTION public st_isempty(geometry) postgres
+3554; 0 0 COMMENT public FUNCTION st_isempty(geometry) postgres
+617; 1255 12170078 FUNCTION public st_isring(geometry) postgres
+3555; 0 0 COMMENT public FUNCTION st_isring(geometry) postgres
+618; 1255 12170079 FUNCTION public st_issimple(geometry) postgres
+3556; 0 0 COMMENT public FUNCTION st_issimple(geometry) postgres
+619; 1255 12170080 FUNCTION public st_isvalid(geometry) postgres
+3557; 0 0 COMMENT public FUNCTION st_isvalid(geometry) postgres
+620; 1255 12170081 FUNCTION public st_isvalidreason(geometry) postgres
+3558; 0 0 COMMENT public FUNCTION st_isvalidreason(geometry) postgres
+621; 1255 12170082 FUNCTION public st_length(geometry) postgres
+3559; 0 0 COMMENT public FUNCTION st_length(geometry) postgres
+622; 1255 12170083 FUNCTION public st_length(geography) postgres
+3560; 0 0 COMMENT public FUNCTION st_length(geography) postgres
+623; 1255 12170084 FUNCTION public st_length(text) postgres
+624; 1255 12170085 FUNCTION public st_length(geography, boolean) postgres
+3561; 0 0 COMMENT public FUNCTION st_length(geography, boolean) postgres
+625; 1255 12170086 FUNCTION public st_length2d(geometry) postgres
+3562; 0 0 COMMENT public FUNCTION st_length2d(geometry) postgres
+626; 1255 12170087 FUNCTION public st_length2d_spheroid(geometry, spheroid) postgres
+3563; 0 0 COMMENT public FUNCTION st_length2d_spheroid(geometry, spheroid) postgres
+627; 1255 12170088 FUNCTION public st_length3d(geometry) postgres
+3564; 0 0 COMMENT public FUNCTION st_length3d(geometry) postgres
+628; 1255 12170089 FUNCTION public st_length3d_spheroid(geometry, spheroid) postgres
+3565; 0 0 COMMENT public FUNCTION st_length3d_spheroid(geometry, spheroid) postgres
+629; 1255 12170090 FUNCTION public st_length_spheroid(geometry, spheroid) postgres
+3566; 0 0 COMMENT public FUNCTION st_length_spheroid(geometry, spheroid) postgres
+630; 1255 12170091 FUNCTION public st_line_interpolate_point(geometry, double precision) postgres
+3567; 0 0 COMMENT public FUNCTION st_line_interpolate_point(geometry, double precision) postgres
+631; 1255 12170092 FUNCTION public st_line_locate_point(geometry, geometry) postgres
+3568; 0 0 COMMENT public FUNCTION st_line_locate_point(geometry, geometry) postgres
+632; 1255 12170093 FUNCTION public st_line_substring(geometry, double precision, double precision) postgres
+3569; 0 0 COMMENT public FUNCTION st_line_substring(geometry, double precision, double precision) postgres
+633; 1255 12170094 FUNCTION public st_linecrossingdirection(geometry, geometry) postgres
+3570; 0 0 COMMENT public FUNCTION st_linecrossingdirection(geometry, geometry) postgres
+634; 1255 12170095 FUNCTION public st_linefrommultipoint(geometry) postgres
+3571; 0 0 COMMENT public FUNCTION st_linefrommultipoint(geometry) postgres
+635; 1255 12170096 FUNCTION public st_linefromtext(text) postgres
+3572; 0 0 COMMENT public FUNCTION st_linefromtext(text) postgres
+636; 1255 12170097 FUNCTION public st_linefromtext(text, integer) postgres
+3573; 0 0 COMMENT public FUNCTION st_linefromtext(text, integer) postgres
+637; 1255 12170098 FUNCTION public st_linefromwkb(bytea) postgres
+3574; 0 0 COMMENT public FUNCTION st_linefromwkb(bytea) postgres
+638; 1255 12170099 FUNCTION public st_linefromwkb(bytea, integer) postgres
+3575; 0 0 COMMENT public FUNCTION st_linefromwkb(bytea, integer) postgres
+639; 1255 12170100 FUNCTION public st_linemerge(geometry) postgres
+3576; 0 0 COMMENT public FUNCTION st_linemerge(geometry) postgres
+640; 1255 12170101 FUNCTION public st_linestringfromwkb(bytea) postgres
+3577; 0 0 COMMENT public FUNCTION st_linestringfromwkb(bytea) postgres
+641; 1255 12170102 FUNCTION public st_linestringfromwkb(bytea, integer) postgres
+3578; 0 0 COMMENT public FUNCTION st_linestringfromwkb(bytea, integer) postgres
+642; 1255 12170103 FUNCTION public st_linetocurve(geometry) postgres
+3579; 0 0 COMMENT public FUNCTION st_linetocurve(geometry) postgres
+643; 1255 12170104 FUNCTION public st_locate_along_measure(geometry, double precision) postgres
+3580; 0 0 COMMENT public FUNCTION st_locate_along_measure(geometry, double precision) postgres
+644; 1255 12170105 FUNCTION public st_locate_between_measures(geometry, double precision, double precision) postgres
+3581; 0 0 COMMENT public FUNCTION st_locate_between_measures(geometry, double precision, double precision) postgres
+645; 1255 12170106 FUNCTION public st_locatebetweenelevations(geometry, double precision, double precision) postgres
+3582; 0 0 COMMENT public FUNCTION st_locatebetweenelevations(geometry, double precision, double precision) postgres
+646; 1255 12170107 FUNCTION public st_longestline(geometry, geometry) postgres
+3583; 0 0 COMMENT public FUNCTION st_longestline(geometry, geometry) postgres
+647; 1255 12170108 FUNCTION public st_m(geometry) postgres
+3584; 0 0 COMMENT public FUNCTION st_m(geometry) postgres
+648; 1255 12170109 FUNCTION public st_makebox2d(geometry, geometry) postgres
+3585; 0 0 COMMENT public FUNCTION st_makebox2d(geometry, geometry) postgres
+649; 1255 12170110 FUNCTION public st_makebox3d(geometry, geometry) postgres
+3586; 0 0 COMMENT public FUNCTION st_makebox3d(geometry, geometry) postgres
+650; 1255 12170111 FUNCTION public st_makeenvelope(double precision, double precision, double precision, double precision, integer) postgres
+3587; 0 0 COMMENT public FUNCTION st_makeenvelope(double precision, double precision, double precision, double precision, integer) postgres
+651; 1255 12170112 FUNCTION public st_makeline(geometry[]) postgres
+3588; 0 0 COMMENT public FUNCTION st_makeline(geometry[]) postgres
+652; 1255 12170113 FUNCTION public st_makeline(geometry, geometry) postgres
+3589; 0 0 COMMENT public FUNCTION st_makeline(geometry, geometry) postgres
+653; 1255 12170114 FUNCTION public st_makeline_garray(geometry[]) postgres
+654; 1255 12170115 FUNCTION public st_makepoint(double precision, double precision) postgres
+3590; 0 0 COMMENT public FUNCTION st_makepoint(double precision, double precision) postgres
+655; 1255 12170116 FUNCTION public st_makepoint(double precision, double precision, double precision) postgres
+3591; 0 0 COMMENT public FUNCTION st_makepoint(double precision, double precision, double precision) postgres
+656; 1255 12170117 FUNCTION public st_makepoint(double precision, double precision, double precision, double precision) postgres
+3592; 0 0 COMMENT public FUNCTION st_makepoint(double precision, double precision, double precision, double precision) postgres
+657; 1255 12170118 FUNCTION public st_makepointm(double precision, double precision, double precision) postgres
+3593; 0 0 COMMENT public FUNCTION st_makepointm(double precision, double precision, double precision) postgres
+658; 1255 12170119 FUNCTION public st_makepolygon(geometry) postgres
+3594; 0 0 COMMENT public FUNCTION st_makepolygon(geometry) postgres
+659; 1255 12170120 FUNCTION public st_makepolygon(geometry, geometry[]) postgres
+3595; 0 0 COMMENT public FUNCTION st_makepolygon(geometry, geometry[]) postgres
+660; 1255 12170121 FUNCTION public st_maxdistance(geometry, geometry) postgres
+3596; 0 0 COMMENT public FUNCTION st_maxdistance(geometry, geometry) postgres
+661; 1255 12170122 FUNCTION public st_mem_size(geometry) postgres
+3597; 0 0 COMMENT public FUNCTION st_mem_size(geometry) postgres
+662; 1255 12170123 FUNCTION public st_minimumboundingcircle(geometry) postgres
+3598; 0 0 COMMENT public FUNCTION st_minimumboundingcircle(geometry) postgres
+663; 1255 12170124 FUNCTION public st_minimumboundingcircle(geometry, integer) postgres
+3599; 0 0 COMMENT public FUNCTION st_minimumboundingcircle(inputgeom geometry, segs_per_quarter integer) postgres
+664; 1255 12170126 FUNCTION public st_mlinefromtext(text) postgres
+3600; 0 0 COMMENT public FUNCTION st_mlinefromtext(text) postgres
+665; 1255 12170127 FUNCTION public st_mlinefromtext(text, integer) postgres
+3601; 0 0 COMMENT public FUNCTION st_mlinefromtext(text, integer) postgres
+666; 1255 12170128 FUNCTION public st_mlinefromwkb(bytea) postgres
+667; 1255 12170129 FUNCTION public st_mlinefromwkb(bytea, integer) postgres
+668; 1255 12170130 FUNCTION public st_mpointfromtext(text) postgres
+3602; 0 0 COMMENT public FUNCTION st_mpointfromtext(text) postgres
+669; 1255 12170131 FUNCTION public st_mpointfromtext(text, integer) postgres
+3603; 0 0 COMMENT public FUNCTION st_mpointfromtext(text, integer) postgres
+671; 1255 12170132 FUNCTION public st_mpointfromwkb(bytea) postgres
+672; 1255 12170133 FUNCTION public st_mpointfromwkb(bytea, integer) postgres
+673; 1255 12170134 FUNCTION public st_mpolyfromtext(text) postgres
+3604; 0 0 COMMENT public FUNCTION st_mpolyfromtext(text) postgres
+674; 1255 12170135 FUNCTION public st_mpolyfromtext(text, integer) postgres
+3605; 0 0 COMMENT public FUNCTION st_mpolyfromtext(text, integer) postgres
+675; 1255 12170136 FUNCTION public st_mpolyfromwkb(bytea) postgres
+676; 1255 12170137 FUNCTION public st_mpolyfromwkb(bytea, integer) postgres
+677; 1255 12170138 FUNCTION public st_multi(geometry) postgres
+3606; 0 0 COMMENT public FUNCTION st_multi(geometry) postgres
+678; 1255 12170139 FUNCTION public st_multilinefromwkb(bytea) postgres
+679; 1255 12170140 FUNCTION public st_multilinestringfromtext(text) postgres
+680; 1255 12170141 FUNCTION public st_multilinestringfromtext(text, integer) postgres
+681; 1255 12170142 FUNCTION public st_multipointfromtext(text) postgres
+682; 1255 12170143 FUNCTION public st_multipointfromwkb(bytea) postgres
+683; 1255 12170144 FUNCTION public st_multipointfromwkb(bytea, integer) postgres
+684; 1255 12170145 FUNCTION public st_multipolyfromwkb(bytea) postgres
+685; 1255 12170146 FUNCTION public st_multipolyfromwkb(bytea, integer) postgres
+686; 1255 12170147 FUNCTION public st_multipolygonfromtext(text) postgres
+687; 1255 12170148 FUNCTION public st_multipolygonfromtext(text, integer) postgres
+688; 1255 12170149 FUNCTION public st_ndims(geometry) postgres
+3607; 0 0 COMMENT public FUNCTION st_ndims(geometry) postgres
+689; 1255 12170150 FUNCTION public st_npoints(geometry) postgres
+3608; 0 0 COMMENT public FUNCTION st_npoints(geometry) postgres
+690; 1255 12170151 FUNCTION public st_nrings(geometry) postgres
+3609; 0 0 COMMENT public FUNCTION st_nrings(geometry) postgres
+691; 1255 12170152 FUNCTION public st_numgeometries(geometry) postgres
+3610; 0 0 COMMENT public FUNCTION st_numgeometries(geometry) postgres
+692; 1255 12170153 FUNCTION public st_numinteriorring(geometry) postgres
+3611; 0 0 COMMENT public FUNCTION st_numinteriorring(geometry) postgres
+693; 1255 12170154 FUNCTION public st_numinteriorrings(geometry) postgres
+3612; 0 0 COMMENT public FUNCTION st_numinteriorrings(geometry) postgres
+694; 1255 12170155 FUNCTION public st_numpoints(geometry) postgres
+3613; 0 0 COMMENT public FUNCTION st_numpoints(geometry) postgres
+695; 1255 12170156 FUNCTION public st_orderingequals(geometry, geometry) postgres
+3614; 0 0 COMMENT public FUNCTION st_orderingequals(geometry, geometry) postgres
+696; 1255 12170157 FUNCTION public st_overlaps(geometry, geometry) postgres
+3615; 0 0 COMMENT public FUNCTION st_overlaps(geometry, geometry) postgres
+697; 1255 12170158 FUNCTION public st_perimeter(geometry) postgres
+3616; 0 0 COMMENT public FUNCTION st_perimeter(geometry) postgres
+698; 1255 12170159 FUNCTION public st_perimeter2d(geometry) postgres
+3617; 0 0 COMMENT public FUNCTION st_perimeter2d(geometry) postgres
+699; 1255 12170160 FUNCTION public st_perimeter3d(geometry) postgres
+3618; 0 0 COMMENT public FUNCTION st_perimeter3d(geometry) postgres
+700; 1255 12170161 FUNCTION public st_point(double precision, double precision) postgres
+3619; 0 0 COMMENT public FUNCTION st_point(double precision, double precision) postgres
+701; 1255 12170162 FUNCTION public st_point_inside_circle(geometry, double precision, double precision, double precision) postgres
+3620; 0 0 COMMENT public FUNCTION st_point_inside_circle(geometry, double precision, double precision, double precision) postgres
+702; 1255 12170163 FUNCTION public st_pointfromtext(text) postgres
+3621; 0 0 COMMENT public FUNCTION st_pointfromtext(text) postgres
+703; 1255 12170164 FUNCTION public st_pointfromtext(text, integer) postgres
+3622; 0 0 COMMENT public FUNCTION st_pointfromtext(text, integer) postgres
+705; 1255 12170165 FUNCTION public st_pointfromwkb(bytea) postgres
+706; 1255 12170166 FUNCTION public st_pointfromwkb(bytea, integer) postgres
+707; 1255 12170167 FUNCTION public st_pointn(geometry, integer) postgres
+3623; 0 0 COMMENT public FUNCTION st_pointn(geometry, integer) postgres
+708; 1255 12170168 FUNCTION public st_pointonsurface(geometry) postgres
+3624; 0 0 COMMENT public FUNCTION st_pointonsurface(geometry) postgres
+709; 1255 12170169 FUNCTION public st_polyfromtext(text) postgres
+710; 1255 12170170 FUNCTION public st_polyfromtext(text, integer) postgres
+711; 1255 12170171 FUNCTION public st_polyfromwkb(bytea) postgres
+712; 1255 12170172 FUNCTION public st_polyfromwkb(bytea, integer) postgres
+713; 1255 12170173 FUNCTION public st_polygon(geometry, integer) postgres
+3625; 0 0 COMMENT public FUNCTION st_polygon(geometry, integer) postgres
+714; 1255 12170174 FUNCTION public st_polygonfromtext(text) postgres
+3626; 0 0 COMMENT public FUNCTION st_polygonfromtext(text) postgres
+715; 1255 12170175 FUNCTION public st_polygonfromtext(text, integer) postgres
+3627; 0 0 COMMENT public FUNCTION st_polygonfromtext(text, integer) postgres
+716; 1255 12170176 FUNCTION public st_polygonfromwkb(bytea) postgres
+717; 1255 12170177 FUNCTION public st_polygonfromwkb(bytea, integer) postgres
+718; 1255 12170178 FUNCTION public st_polygonize(geometry[]) postgres
+3628; 0 0 COMMENT public FUNCTION st_polygonize(geometry[]) postgres
+719; 1255 12170179 FUNCTION public st_polygonize_garray(geometry[]) postgres
+720; 1255 12170180 FUNCTION public st_postgis_gist_joinsel(internal, oid, internal, smallint) postgres
+721; 1255 12170181 FUNCTION public st_postgis_gist_sel(internal, oid, internal, integer) postgres
+722; 1255 12170182 FUNCTION public st_relate(geometry, geometry) postgres
+3629; 0 0 COMMENT public FUNCTION st_relate(geometry, geometry) postgres
+723; 1255 12170183 FUNCTION public st_relate(geometry, geometry, text) postgres
+3630; 0 0 COMMENT public FUNCTION st_relate(geometry, geometry, text) postgres
+724; 1255 12170184 FUNCTION public st_removepoint(geometry, integer) postgres
+3631; 0 0 COMMENT public FUNCTION st_removepoint(geometry, integer) postgres
+725; 1255 12170185 FUNCTION public st_reverse(geometry) postgres
+3632; 0 0 COMMENT public FUNCTION st_reverse(geometry) postgres
+726; 1255 12170186 FUNCTION public st_rotate(geometry, double precision) postgres
+3633; 0 0 COMMENT public FUNCTION st_rotate(geometry, double precision) postgres
+727; 1255 12170187 FUNCTION public st_rotatex(geometry, double precision) postgres
+3634; 0 0 COMMENT public FUNCTION st_rotatex(geometry, double precision) postgres
+728; 1255 12170188 FUNCTION public st_rotatey(geometry, double precision) postgres
+3635; 0 0 COMMENT public FUNCTION st_rotatey(geometry, double precision) postgres
+729; 1255 12170189 FUNCTION public st_rotatez(geometry, double precision) postgres
+3636; 0 0 COMMENT public FUNCTION st_rotatez(geometry, double precision) postgres
+730; 1255 12170190 FUNCTION public st_scale(geometry, double precision, double precision) postgres
+3637; 0 0 COMMENT public FUNCTION st_scale(geometry, double precision, double precision) postgres
+731; 1255 12170191 FUNCTION public st_scale(geometry, double precision, double precision, double precision) postgres
+3638; 0 0 COMMENT public FUNCTION st_scale(geometry, double precision, double precision, double precision) postgres
+732; 1255 12170192 FUNCTION public st_segmentize(geometry, double precision) postgres
+3639; 0 0 COMMENT public FUNCTION st_segmentize(geometry, double precision) postgres
+733; 1255 12170193 FUNCTION public st_setfactor(chip, real) postgres
+734; 1255 12170194 FUNCTION public st_setpoint(geometry, integer, geometry) postgres
+3640; 0 0 COMMENT public FUNCTION st_setpoint(geometry, integer, geometry) postgres
+735; 1255 12170195 FUNCTION public st_setsrid(geometry, integer) postgres
+3641; 0 0 COMMENT public FUNCTION st_setsrid(geometry, integer) postgres
+736; 1255 12170196 FUNCTION public st_shift_longitude(geometry) postgres
+3642; 0 0 COMMENT public FUNCTION st_shift_longitude(geometry) postgres
+737; 1255 12170197 FUNCTION public st_shortestline(geometry, geometry) postgres
+3643; 0 0 COMMENT public FUNCTION st_shortestline(geometry, geometry) postgres
+738; 1255 12170198 FUNCTION public st_simplify(geometry, double precision) postgres
+3644; 0 0 COMMENT public FUNCTION st_simplify(geometry, double precision) postgres
+739; 1255 12170199 FUNCTION public st_simplifypreservetopology(geometry, double precision) postgres
+3645; 0 0 COMMENT public FUNCTION st_simplifypreservetopology(geometry, double precision) postgres
+670; 1255 12170200 FUNCTION public st_snaptogrid(geometry, double precision) postgres
+3646; 0 0 COMMENT public FUNCTION st_snaptogrid(geometry, double precision) postgres
+704; 1255 12170201 FUNCTION public st_snaptogrid(geometry, double precision, double precision) postgres
+3647; 0 0 COMMENT public FUNCTION st_snaptogrid(geometry, double precision, double precision) postgres
+740; 1255 12170202 FUNCTION public st_snaptogrid(geometry, double precision, double precision, double precision, double precision) postgres
+3648; 0 0 COMMENT public FUNCTION st_snaptogrid(geometry, double precision, double precision, double precision, double precision) postgres
+741; 1255 12170203 FUNCTION public st_snaptogrid(geometry, geometry, double precision, double precision, double precision, double precision) postgres
+3649; 0 0 COMMENT public FUNCTION st_snaptogrid(geometry, geometry, double precision, double precision, double precision, double precision) postgres
+742; 1255 12170204 FUNCTION public st_spheroid_in(cstring) postgres
+743; 1255 12170205 FUNCTION public st_spheroid_out(spheroid) postgres
+744; 1255 12170206 FUNCTION public st_srid(chip) postgres
+745; 1255 12170207 FUNCTION public st_srid(geometry) postgres
+3650; 0 0 COMMENT public FUNCTION st_srid(geometry) postgres
+746; 1255 12170208 FUNCTION public st_startpoint(geometry) postgres
+3651; 0 0 COMMENT public FUNCTION st_startpoint(geometry) postgres
+747; 1255 12170209 FUNCTION public st_summary(geometry) postgres
+3652; 0 0 COMMENT public FUNCTION st_summary(geometry) postgres
+748; 1255 12170210 FUNCTION public st_symdifference(geometry, geometry) postgres
+3653; 0 0 COMMENT public FUNCTION st_symdifference(geometry, geometry) postgres
+749; 1255 12170211 FUNCTION public st_symmetricdifference(geometry, geometry) postgres
+750; 1255 12170212 FUNCTION public st_text(geometry) postgres
+751; 1255 12170213 FUNCTION public st_touches(geometry, geometry) postgres
+3654; 0 0 COMMENT public FUNCTION st_touches(geometry, geometry) postgres
+752; 1255 12170214 FUNCTION public st_transform(geometry, integer) postgres
+3655; 0 0 COMMENT public FUNCTION st_transform(geometry, integer) postgres
+753; 1255 12170215 FUNCTION public st_translate(geometry, double precision, double precision) postgres
+3656; 0 0 COMMENT public FUNCTION st_translate(geometry, double precision, double precision) postgres
+754; 1255 12170216 FUNCTION public st_translate(geometry, double precision, double precision, double precision) postgres
+3657; 0 0 COMMENT public FUNCTION st_translate(geometry, double precision, double precision, double precision) postgres
+755; 1255 12170217 FUNCTION public st_transscale(geometry, double precision, double precision, double precision, double precision) postgres
+3658; 0 0 COMMENT public FUNCTION st_transscale(geometry, double precision, double precision, double precision, double precision) postgres
+756; 1255 12170218 FUNCTION public st_union(geometry[]) postgres
+3659; 0 0 COMMENT public FUNCTION st_union(geometry[]) postgres
+757; 1255 12170219 FUNCTION public st_union(geometry, geometry) postgres
+3660; 0 0 COMMENT public FUNCTION st_union(geometry, geometry) postgres
+758; 1255 12170220 FUNCTION public st_unite_garray(geometry[]) postgres
+759; 1255 12170221 FUNCTION public st_width(chip) postgres
+760; 1255 12170222 FUNCTION public st_within(geometry, geometry) postgres
+3661; 0 0 COMMENT public FUNCTION st_within(geometry, geometry) postgres
+761; 1255 12170223 FUNCTION public st_wkbtosql(bytea) postgres
+3662; 0 0 COMMENT public FUNCTION st_wkbtosql(bytea) postgres
+762; 1255 12170224 FUNCTION public st_wkttosql(text) postgres
+3663; 0 0 COMMENT public FUNCTION st_wkttosql(text) postgres
+763; 1255 12170225 FUNCTION public st_x(geometry) postgres
+3664; 0 0 COMMENT public FUNCTION st_x(geometry) postgres
+764; 1255 12170226 FUNCTION public st_xmax(box3d) postgres
+3665; 0 0 COMMENT public FUNCTION st_xmax(box3d) postgres
+765; 1255 12170227 FUNCTION public st_xmin(box3d) postgres
+3666; 0 0 COMMENT public FUNCTION st_xmin(box3d) postgres
+766; 1255 12170228 FUNCTION public st_y(geometry) postgres
+3667; 0 0 COMMENT public FUNCTION st_y(geometry) postgres
+767; 1255 12170229 FUNCTION public st_ymax(box3d) postgres
+3668; 0 0 COMMENT public FUNCTION st_ymax(box3d) postgres
+768; 1255 12170230 FUNCTION public st_ymin(box3d) postgres
+3669; 0 0 COMMENT public FUNCTION st_ymin(box3d) postgres
+769; 1255 12170231 FUNCTION public st_z(geometry) postgres
+3670; 0 0 COMMENT public FUNCTION st_z(geometry) postgres
+770; 1255 12170232 FUNCTION public st_zmax(box3d) postgres
+3671; 0 0 COMMENT public FUNCTION st_zmax(box3d) postgres
+771; 1255 12170233 FUNCTION public st_zmflag(geometry) postgres
+3672; 0 0 COMMENT public FUNCTION st_zmflag(geometry) postgres
+772; 1255 12170234 FUNCTION public st_zmin(box3d) postgres
+3673; 0 0 COMMENT public FUNCTION st_zmin(box3d) postgres
+773; 1255 12170235 FUNCTION public startpoint(geometry) postgres
+774; 1255 12170236 FUNCTION public summary(geometry) postgres
+775; 1255 12170237 FUNCTION public symdifference(geometry, geometry) postgres
+776; 1255 12170238 FUNCTION public symmetricdifference(geometry, geometry) postgres
+777; 1255 12170239 FUNCTION public text(geometry) postgres
+778; 1255 12170240 FUNCTION public touches(geometry, geometry) postgres
+779; 1255 12170241 FUNCTION public transform(geometry, integer) postgres
+780; 1255 12170242 FUNCTION public translate(geometry, double precision, double precision) postgres
+781; 1255 12170243 FUNCTION public translate(geometry, double precision, double precision, double precision) postgres
+782; 1255 12170244 FUNCTION public transscale(geometry, double precision, double precision, double precision, double precision) postgres
+783; 1255 12170245 FUNCTION public unite_garray(geometry[]) postgres
+784; 1255 12170246 FUNCTION public unlockrows(text) postgres
+3674; 0 0 COMMENT public FUNCTION unlockrows(text) postgres
+785; 1255 12170247 FUNCTION public updategeometrysrid(character varying, character varying, integer) postgres
+3675; 0 0 COMMENT public FUNCTION updategeometrysrid(character varying, character varying, integer) postgres
+786; 1255 12170248 FUNCTION public updategeometrysrid(character varying, character varying, character varying, integer) postgres
+3676; 0 0 COMMENT public FUNCTION updategeometrysrid(character varying, character varying, character varying, integer) postgres
+787; 1255 12170249 FUNCTION public updategeometrysrid(character varying, character varying, character varying, character varying, integer) postgres
+3677; 0 0 COMMENT public FUNCTION updategeometrysrid(character varying, character varying, character varying, character varying, integer) postgres
+788; 1255 12170250 FUNCTION public width(chip) postgres
+789; 1255 12170251 FUNCTION public within(geometry, geometry) postgres
+790; 1255 12170252 FUNCTION public x(geometry) postgres
+791; 1255 12170253 FUNCTION public xmax(box3d) postgres
+792; 1255 12170254 FUNCTION public xmin(box3d) postgres
+793; 1255 12170255 FUNCTION public y(geometry) postgres
+794; 1255 12170256 FUNCTION public ymax(box3d) postgres
+795; 1255 12170257 FUNCTION public ymin(box3d) postgres
+796; 1255 12170258 FUNCTION public z(geometry) postgres
+797; 1255 12170259 FUNCTION public zmax(box3d) postgres
+798; 1255 12170260 FUNCTION public zmflag(geometry) postgres
+799; 1255 12170261 FUNCTION public zmin(box3d) postgres
+1401; 1255 12170262 AGGREGATE public accum(geometry) postgres
+1402; 1255 12170263 AGGREGATE public collect(geometry) postgres
+1403; 1255 12170264 AGGREGATE public extent(geometry) postgres
+1404; 1255 12170265 AGGREGATE public extent3d(geometry) postgres
+1405; 1255 12170266 AGGREGATE public makeline(geometry) postgres
+1406; 1255 12170267 AGGREGATE public memcollect(geometry) postgres
+1407; 1255 12170268 AGGREGATE public memgeomunion(geometry) postgres
+1408; 1255 12170269 AGGREGATE public polygonize(geometry) postgres
+1409; 1255 12170270 AGGREGATE public st_accum(geometry) postgres
+3678; 0 0 COMMENT public AGGREGATE st_accum(geometry) postgres
+1410; 1255 12170271 AGGREGATE public st_collect(geometry) postgres
+3679; 0 0 COMMENT public AGGREGATE st_collect(geometry) postgres
+1411; 1255 12170272 AGGREGATE public st_extent(geometry) postgres
+3680; 0 0 COMMENT public AGGREGATE st_extent(geometry) postgres
+1399; 1255 12170273 AGGREGATE public st_extent3d(geometry) postgres
+3681; 0 0 COMMENT public AGGREGATE st_extent3d(geometry) postgres
+1400; 1255 12170274 AGGREGATE public st_makeline(geometry) postgres
+3682; 0 0 COMMENT public AGGREGATE st_makeline(geometry) postgres
+1412; 1255 12170275 AGGREGATE public st_memcollect(geometry) postgres
+1413; 1255 12170276 AGGREGATE public st_memunion(geometry) postgres
+3683; 0 0 COMMENT public AGGREGATE st_memunion(geometry) postgres
+1414; 1255 12170277 AGGREGATE public st_polygonize(geometry) postgres
+3684; 0 0 COMMENT public AGGREGATE st_polygonize(geometry) postgres
+1415; 1255 12170278 AGGREGATE public st_union(geometry) postgres
+3685; 0 0 COMMENT public AGGREGATE st_union(geometry) postgres
+2121; 2617 12170279 OPERATOR public && postgres
+2122; 2617 12170280 OPERATOR public && postgres
+2123; 2617 12170282 OPERATOR public &< postgres
+2124; 2617 12170284 OPERATOR public &<| postgres
+2125; 2617 12170281 OPERATOR public &> postgres
+2126; 2617 12170287 OPERATOR public < postgres
+2129; 2617 12170290 OPERATOR public < postgres
+2130; 2617 12170292 OPERATOR public << postgres
+2131; 2617 12170294 OPERATOR public <<| postgres
+2132; 2617 12170295 OPERATOR public <= postgres
+2133; 2617 12170296 OPERATOR public <= postgres
+2134; 2617 12170297 OPERATOR public = postgres
+2135; 2617 12170298 OPERATOR public = postgres
+2127; 2617 12170285 OPERATOR public > postgres
+2136; 2617 12170288 OPERATOR public > postgres
+2137; 2617 12170286 OPERATOR public >= postgres
+2138; 2617 12170289 OPERATOR public >= postgres
+2139; 2617 12170291 OPERATOR public >> postgres
+2140; 2617 12170300 OPERATOR public @ postgres
+2128; 2617 12170283 OPERATOR public |&> postgres
+2141; 2617 12170293 OPERATOR public |>> postgres
+2142; 2617 12170299 OPERATOR public ~ postgres
+2143; 2617 12170301 OPERATOR public ~= postgres
+2256; 2616 12170303 OPERATOR CLASS public btree_geography_ops postgres
+2257; 2616 12170311 OPERATOR CLASS public btree_geometry_ops postgres
+2258; 2616 12170319 OPERATOR CLASS public gist_geography_ops postgres
+2259; 2616 12170329 OPERATOR CLASS public gist_geometry_ops postgres
+3034; 2605 12170349 CAST pg_catalog CAST (public.box2d AS public.box3d) 
+3035; 2605 12170350 CAST pg_catalog CAST (public.box2d AS public.geometry) 
+3036; 2605 12170351 CAST pg_catalog CAST (public.box3d AS box) 
+3037; 2605 12170352 CAST pg_catalog CAST (public.box3d AS public.box2d) 
+3038; 2605 12170353 CAST pg_catalog CAST (public.box3d AS public.geometry) 
+3039; 2605 12170354 CAST pg_catalog CAST (public.box3d_extent AS public.box2d) 
+3040; 2605 12170355 CAST pg_catalog CAST (public.box3d_extent AS public.box3d) 
+3041; 2605 12170356 CAST pg_catalog CAST (public.box3d_extent AS public.geometry) 
+2845; 2605 12170357 CAST pg_catalog CAST (bytea AS public.geometry) 
+3042; 2605 12170358 CAST pg_catalog CAST (public.chip AS public.geometry) 
+3043; 2605 12170359 CAST pg_catalog CAST (public.geography AS public.geography) 
+3044; 2605 12170360 CAST pg_catalog CAST (public.geography AS public.geometry) 
+3047; 2605 12170361 CAST pg_catalog CAST (public.geometry AS box) 
+3048; 2605 12170362 CAST pg_catalog CAST (public.geometry AS public.box2d) 
+3049; 2605 12170363 CAST pg_catalog CAST (public.geometry AS public.box3d) 
+3045; 2605 12170364 CAST pg_catalog CAST (public.geometry AS bytea) 
+3050; 2605 12170365 CAST pg_catalog CAST (public.geometry AS public.geography) 
+3046; 2605 12170366 CAST pg_catalog CAST (public.geometry AS text) 
+2911; 2605 12170367 CAST pg_catalog CAST (text AS public.geometry) 
+2639; 1259 12170368 TABLE public calles postgres
+3686; 0 0 ACL public calles postgres
+2640; 1259 12170377 VIEW public Inter postgres
+3687; 0 0 ACL public Inter postgres
+2641; 1259 12170381 TABLE public abr_tabla_predio postgres
+2642; 1259 12170387 TABLE public abreviaciones postgres
+3688; 0 0 ACL public abreviaciones postgres
+2643; 1259 12170393 TABLE public areaurbana postgres
+2644; 1259 12170402 TABLE public autoridades postgres
+3689; 0 0 ACL public autoridades postgres
+2645; 1259 12170405 TABLE public barrios postgres
+3690; 0 0 ACL public barrios postgres
+2646; 1259 12170414 TABLE public cambios postgres
+3691; 0 0 ACL public cambios postgres
+2647; 1259 12170420 SEQUENCE public cambios_id_seq postgres
+3692; 0 0 SEQUENCE OWNED BY public cambios_id_seq postgres
+3693; 0 0 SEQUENCE SET public cambios_id_seq postgres
+2648; 1259 12170422 TABLE public centropoblados postgres
+2649; 1259 12170431 TABLE public ciiu postgres
+3694; 0 0 ACL public ciiu postgres
+2650; 1259 12170437 TABLE public colindantes postgres
+3695; 0 0 ACL public colindantes postgres
+2651; 1259 12170443 TABLE public config postgres
+3696; 0 0 ACL public config postgres
+2652; 1259 12170449 TABLE public contrib_mod postgres
+3697; 0 0 ACL public contrib_mod postgres
+2653; 1259 12170455 TABLE public contribuyentes postgres
+3698; 0 0 ACL public contribuyentes postgres
+2654; 1259 12170461 TABLE public control_doc postgres
+2655; 1259 12170464 TABLE public departamento postgres
+2656; 1259 12170467 TABLE public distritos postgres
+3699; 0 0 COMMENT public COLUMN distritos.area postgres
+3700; 0 0 ACL public distritos postgres
+2657; 1259 12170476 TABLE public docu_control postgres
+2658; 1259 12170482 TABLE public docu_escaneados postgres
+2659; 1259 12170490 SEQUENCE public docu_escaneados_id_documento_seq postgres
+3701; 0 0 SEQUENCE OWNED BY public docu_escaneados_id_documento_seq postgres
+3702; 0 0 SEQUENCE SET public docu_escaneados_id_documento_seq postgres
+2660; 1259 12170492 TABLE public docu_items postgres
+2661; 1259 12170495 TABLE public docu_tipos postgres
+2662; 1259 12170501 SEQUENCE public docu_tipos_id_tipo_documento_seq postgres
+3703; 0 0 SEQUENCE OWNED BY public docu_tipos_id_tipo_documento_seq postgres
+3704; 0 0 SEQUENCE SET public docu_tipos_id_tipo_documento_seq postgres
+2663; 1259 12170503 TABLE public documentos postgres
+3705; 0 0 ACL public documentos postgres
+2664; 1259 12170506 TABLE public edificacion_bas postgres
+3706; 0 0 ACL public edificacion_bas postgres
+2665; 1259 12170515 TABLE public edificaciones postgres
+3707; 0 0 ACL public edificaciones postgres
+2666; 1259 12170524 SEQUENCE public edificaciones_id_edif_seq postgres
+3708; 0 0 SEQUENCE OWNED BY public edificaciones_id_edif_seq postgres
+3709; 0 0 SEQUENCE SET public edificaciones_id_edif_seq postgres
+2667; 1259 12170526 TABLE public foto postgres
+3710; 0 0 ACL public foto postgres
+2668; 1259 12170532 SEQUENCE public foto_id_seq postgres
+3711; 0 0 SEQUENCE OWNED BY public foto_id_seq postgres
+3712; 0 0 SEQUENCE SET public foto_id_seq postgres
+2669; 1259 12170534 VIEW public geography_columns postgres
+3713; 0 0 ACL public geography_columns postgres
+2670; 1259 12170539 TABLE public geometry_columns postgres
+3714; 0 0 ACL public geometry_columns postgres
+2671; 1259 12170545 SEQUENCE public gravamen_id postgres
+3715; 0 0 SEQUENCE SET public gravamen_id postgres
+2672; 1259 12170547 TABLE public gravamen postgres
+3716; 0 0 ACL public gravamen postgres
+2673; 1259 12170554 TABLE public grilla postgres
+3717; 0 0 ACL public grilla postgres
+2674; 1259 12170563 TABLE public imp_bancos postgres
+2675; 1259 12170569 TABLE public imp_base postgres
+3718; 0 0 ACL public imp_base postgres
+2676; 1259 12170575 TABLE public imp_condonaciones postgres
+2677; 1259 12170581 TABLE public imp_control postgres
+3719; 0 0 ACL public imp_control postgres
+2678; 1259 12170587 TABLE public imp_control_banco postgres
+2679; 1259 12170593 SEQUENCE public imp_control_banco_id_seq postgres
+3720; 0 0 SEQUENCE OWNED BY public imp_control_banco_id_seq postgres
+3721; 0 0 SEQUENCE SET public imp_control_banco_id_seq postgres
+2680; 1259 12170595 TABLE public imp_cotizaciones postgres
+3722; 0 0 ACL public imp_cotizaciones postgres
+2681; 1259 12170598 TABLE public imp_documentos postgres
+3723; 0 0 ACL public imp_documentos postgres
+2682; 1259 12170604 TABLE public imp_escala_imp postgres
+3724; 0 0 ACL public imp_escala_imp postgres
+2683; 1259 12170607 TABLE public imp_exenciones postgres
+3725; 0 0 ACL public imp_exenciones postgres
+2684; 1259 12170610 TABLE public imp_fact_deprec postgres
+3726; 0 0 ACL public imp_fact_deprec postgres
+2685; 1259 12170613 TABLE public imp_fact_inclinacion postgres
+3727; 0 0 ACL public imp_fact_inclinacion postgres
+2686; 1259 12170616 TABLE public imp_fact_servicios postgres
+3728; 0 0 ACL public imp_fact_servicios postgres
+2687; 1259 12170619 TABLE public imp_fact_zona postgres
+3729; 0 0 ACL public imp_fact_zona postgres
+2688; 1259 12170622 TABLE public imp_fecha_venc postgres
+3730; 0 0 ACL public imp_fecha_venc postgres
+2689; 1259 12170625 TABLE public imp_forma_ter postgres
+2690; 1259 12170628 TABLE public imp_pagados postgres
+3731; 0 0 ACL public imp_pagados postgres
+2691; 1259 12170634 TABLE public imp_plan_de_pago postgres
+3732; 0 0 ACL public imp_plan_de_pago postgres
+2692; 1259 12170640 TABLE public imp_tip_via postgres
+3733; 0 0 ACL public imp_tip_via postgres
+2693; 1259 12170644 TABLE public imp_transfer postgres
+2694; 1259 12170650 TABLE public imp_ubicacion postgres
+2695; 1259 12170653 TABLE public imp_valua_viv_materiales postgres
+3734; 0 0 ACL public imp_valua_viv_materiales postgres
+2696; 1259 12170656 TABLE public imp_valua_viv_ph postgres
+3735; 0 0 ACL public imp_valua_viv_ph postgres
+2697; 1259 12170659 TABLE public imp_valua_viv_vf postgres
+3736; 0 0 ACL public imp_valua_viv_vf postgres
+2698; 1259 12170662 TABLE public imp_whatsapp postgres
+2699; 1259 12170668 TABLE public info_edif postgres
+3737; 0 0 ACL public info_edif postgres
+2700; 1259 12170674 TABLE public info_inmu postgres
+3738; 0 0 ACL public info_inmu postgres
+2701; 1259 12170682 TABLE public info_permitido postgres
+3739; 0 0 ACL public info_permitido postgres
+2702; 1259 12170688 TABLE public info_predio postgres
+3740; 0 0 ACL public info_predio postgres
+2703; 1259 12170694 SEQUENCE public info_predio_id_predio_seq postgres
+3741; 0 0 SEQUENCE OWNED BY public info_predio_id_predio_seq postgres
+3742; 0 0 SEQUENCE SET public info_predio_id_predio_seq postgres
+2704; 1259 12170696 TABLE public info_predio_rural postgres
+3743; 0 0 ACL public info_predio_rural postgres
+2705; 1259 12170702 SEQUENCE public info_predio_rural_id_predio_rural_seq postgres
+3744; 0 0 SEQUENCE OWNED BY public info_predio_rural_id_predio_rural_seq postgres
+3745; 0 0 SEQUENCE SET public info_predio_rural_id_predio_rural_seq postgres
+2706; 1259 12170704 TABLE public info_socioeco postgres
+3746; 0 0 ACL public info_socioeco postgres
+2707; 1259 12170710 TABLE public info_uso_de_suelo postgres
+3747; 0 0 ACL public info_uso_de_suelo postgres
+2708; 1259 12170716 TABLE public manchaurbana postgres
+3748; 0 0 ACL public manchaurbana postgres
+2709; 1259 12170725 TABLE public manzana_perfiladas postgres
+2710; 1259 12170734 SEQUENCE public manzana_perfiladas_id_seq postgres
+3749; 0 0 SEQUENCE OWNED BY public manzana_perfiladas_id_seq postgres
+3750; 0 0 SEQUENCE SET public manzana_perfiladas_id_seq postgres
+2711; 1259 12170736 TABLE public manzanos postgres
+3751; 0 0 ACL public manzanos postgres
+2712; 1259 12170745 TABLE public material_de_via postgres
+3752; 0 0 ACL public material_de_via postgres
+2713; 1259 12170754 TABLE public municipios postgres
+2714; 1259 12170757 TABLE public objetos postgres
+3753; 0 0 ACL public objetos postgres
+2715; 1259 12170766 TABLE public objetos_linea postgres
+3754; 0 0 ACL public objetos_linea postgres
+2716; 1259 12170775 TABLE public ochaves_linea postgres
+3755; 0 0 ACL public ochaves_linea postgres
+2717; 1259 12170784 TABLE public patentes postgres
+3756; 0 0 ACL public patentes postgres
+2718; 1259 12170790 TABLE public patentes_rubro postgres
+3757; 0 0 ACL public patentes_rubro postgres
+2719; 1259 12170796 TABLE public patentes_rubro_imp postgres
+3758; 0 0 ACL public patentes_rubro_imp postgres
+2720; 1259 12170799 TABLE public plano_cat_zoom postgres
+3759; 0 0 ACL public plano_cat_zoom postgres
+2721; 1259 12170805 TABLE public predios postgres
+3760; 0 0 COMMENT public COLUMN predios.verificado postgres
+3761; 0 0 ACL public predios postgres
+2722; 1259 12170815 SEQUENCE public predios_id_predio_seq postgres
+3762; 0 0 SEQUENCE OWNED BY public predios_id_predio_seq postgres
+3763; 0 0 SEQUENCE SET public predios_id_predio_seq postgres
+2723; 1259 12170817 TABLE public predios_ocha postgres
+3764; 0 0 ACL public predios_ocha postgres
+2724; 1259 12170826 SEQUENCE public predios_ocha_id_predio_seq postgres
+3765; 0 0 SEQUENCE OWNED BY public predios_ocha_id_predio_seq postgres
+3766; 0 0 SEQUENCE SET public predios_ocha_id_predio_seq postgres
+2725; 1259 12170828 TABLE public predios_ocha_orig postgres
+3767; 0 0 ACL public predios_ocha_orig postgres
+2726; 1259 12170837 TABLE public provincias postgres
+2727; 1259 12170840 TABLE public prueba postgres
+3768; 0 0 ACL public prueba postgres
+2728; 1259 12170849 SEQUENCE public prueba_gid_seq postgres
+3769; 0 0 SEQUENCE OWNED BY public prueba_gid_seq postgres
+3770; 0 0 SEQUENCE SET public prueba_gid_seq postgres
+2729; 1259 12170851 TABLE public recursos postgres
+2752; 1259 12250027 TABLE public registro postgres
+3771; 0 0 ACL public registro postgres
+2751; 1259 12250025 SEQUENCE public registro_id_seq postgres
+3772; 0 0 SEQUENCE OWNED BY public registro_id_seq postgres
+3773; 0 0 SEQUENCE SET public registro_id_seq postgres
+2730; 1259 12170860 TABLE public satinmus postgres
+3774; 0 0 ACL public satinmus postgres
+2731; 1259 12170863 TABLE public satliqin postgres
+3775; 0 0 ACL public satliqin postgres
+2732; 1259 12170866 TABLE public satnombr postgres
+3776; 0 0 ACL public satnombr postgres
+2733; 1259 12170869 TABLE public siim_selected postgres
+3777; 0 0 ACL public siim_selected postgres
+2734; 1259 12170875 TABLE public spatial_ref_sys postgres
+3778; 0 0 ACL public spatial_ref_sys postgres
+2735; 1259 12170881 TABLE public tabla_resumen_inmu postgres
+2736; 1259 12170887 TABLE public tasas postgres
+3779; 0 0 ACL public tasas postgres
+2737; 1259 12170893 TABLE public temp_line postgres
+3780; 0 0 ACL public temp_line postgres
+2738; 1259 12170903 TABLE public temp_point postgres
+3781; 0 0 ACL public temp_point postgres
+2739; 1259 12170913 TABLE public temp_poly postgres
+3782; 0 0 ACL public temp_poly postgres
+2740; 1259 12170923 TABLE public tramite_div postgres
+3783; 0 0 ACL public tramite_div postgres
+2741; 1259 12170932 TABLE public transfer postgres
+2742; 1259 12170938 SEQUENCE public transfer_id_seq postgres
+3784; 0 0 SEQUENCE OWNED BY public transfer_id_seq postgres
+3785; 0 0 SEQUENCE SET public transfer_id_seq postgres
+2743; 1259 12170940 TABLE public urbanizacion postgres
+2744; 1259 12170949 TABLE public uso_de_suelo postgres
+3786; 0 0 ACL public uso_de_suelo postgres
+2745; 1259 12170958 TABLE public usuarios postgres
+3787; 0 0 ACL public usuarios postgres
+2746; 1259 12170964 TABLE public uv postgres
+3788; 0 0 ACL public uv postgres
+2747; 1259 12170973 SEQUENCE public uv_gid_seq postgres
+3789; 0 0 SEQUENCE OWNED BY public uv_gid_seq postgres
+3790; 0 0 SEQUENCE SET public uv_gid_seq postgres
+2748; 1259 12170975 TABLE public vehic postgres
+3791; 0 0 ACL public vehic postgres
+2749; 1259 12170981 TABLE public vehic_clase postgres
+3792; 0 0 ACL public vehic_clase postgres
+2750; 1259 12170987 TABLE public zonas postgres
+3793; 0 0 ACL public zonas postgres
+3060; 2604 12170996 DEFAULT public id postgres
+3069; 2604 12170997 DEFAULT public id_documento postgres
+3070; 2604 12170998 DEFAULT public id_tipo_documento postgres
+3074; 2604 12170999 DEFAULT public id_edif postgres
+3078; 2604 12171000 DEFAULT public id postgres
+3083; 2604 12171001 DEFAULT public id postgres
+3087; 2604 12171002 DEFAULT public id_predio postgres
+3088; 2604 12171003 DEFAULT public id_predio_rural postgres
+3092; 2604 12171004 DEFAULT public id postgres
+3112; 2604 12171005 DEFAULT public id_predio postgres
+3116; 2604 12171006 DEFAULT public id_predio postgres
+3123; 2604 12171007 DEFAULT public gid postgres
+3156; 2604 12250030 DEFAULT public id postgres
+3142; 2604 12171008 DEFAULT public id postgres
+3149; 2604 12171009 DEFAULT public gid postgres
+3271; 0 12170381 TABLE DATA public abr_tabla_predio postgres
+3272; 0 12170387 TABLE DATA public abreviaciones postgres
+3273; 0 12170393 TABLE DATA public areaurbana postgres
+3274; 0 12170402 TABLE DATA public autoridades postgres
+3275; 0 12170405 TABLE DATA public barrios postgres
+3270; 0 12170368 TABLE DATA public calles postgres
+3276; 0 12170414 TABLE DATA public cambios postgres
+3277; 0 12170422 TABLE DATA public centropoblados postgres
+3278; 0 12170431 TABLE DATA public ciiu postgres
+3279; 0 12170437 TABLE DATA public colindantes postgres
+3280; 0 12170443 TABLE DATA public config postgres
+3281; 0 12170449 TABLE DATA public contrib_mod postgres
+3282; 0 12170455 TABLE DATA public contribuyentes postgres
+3283; 0 12170461 TABLE DATA public control_doc postgres
+3284; 0 12170464 TABLE DATA public departamento postgres
+3285; 0 12170467 TABLE DATA public distritos postgres
+3286; 0 12170476 TABLE DATA public docu_control postgres
+3287; 0 12170482 TABLE DATA public docu_escaneados postgres
+3288; 0 12170492 TABLE DATA public docu_items postgres
+3289; 0 12170495 TABLE DATA public docu_tipos postgres
+3290; 0 12170503 TABLE DATA public documentos postgres
+3291; 0 12170506 TABLE DATA public edificacion_bas postgres
+3292; 0 12170515 TABLE DATA public edificaciones postgres
+3293; 0 12170526 TABLE DATA public foto postgres
+3294; 0 12170539 TABLE DATA public geometry_columns postgres
+3295; 0 12170547 TABLE DATA public gravamen postgres
+3296; 0 12170554 TABLE DATA public grilla postgres
+3297; 0 12170563 TABLE DATA public imp_bancos postgres
+3298; 0 12170569 TABLE DATA public imp_base postgres
+3299; 0 12170575 TABLE DATA public imp_condonaciones postgres
+3300; 0 12170581 TABLE DATA public imp_control postgres
+3301; 0 12170587 TABLE DATA public imp_control_banco postgres
+3302; 0 12170595 TABLE DATA public imp_cotizaciones postgres
+3303; 0 12170598 TABLE DATA public imp_documentos postgres
+3304; 0 12170604 TABLE DATA public imp_escala_imp postgres
+3305; 0 12170607 TABLE DATA public imp_exenciones postgres
+3306; 0 12170610 TABLE DATA public imp_fact_deprec postgres
+3307; 0 12170613 TABLE DATA public imp_fact_inclinacion postgres
+3308; 0 12170616 TABLE DATA public imp_fact_servicios postgres
+3309; 0 12170619 TABLE DATA public imp_fact_zona postgres
+3310; 0 12170622 TABLE DATA public imp_fecha_venc postgres
+3311; 0 12170625 TABLE DATA public imp_forma_ter postgres
+3312; 0 12170628 TABLE DATA public imp_pagados postgres
+3313; 0 12170634 TABLE DATA public imp_plan_de_pago postgres
+3314; 0 12170640 TABLE DATA public imp_tip_via postgres
+3315; 0 12170644 TABLE DATA public imp_transfer postgres
+3316; 0 12170650 TABLE DATA public imp_ubicacion postgres
+3317; 0 12170653 TABLE DATA public imp_valua_viv_materiales postgres
+3318; 0 12170656 TABLE DATA public imp_valua_viv_ph postgres
+3319; 0 12170659 TABLE DATA public imp_valua_viv_vf postgres
+3320; 0 12170662 TABLE DATA public imp_whatsapp postgres
+3321; 0 12170668 TABLE DATA public info_edif postgres
+3322; 0 12170674 TABLE DATA public info_inmu postgres
+3323; 0 12170682 TABLE DATA public info_permitido postgres
+3324; 0 12170688 TABLE DATA public info_predio postgres
+3325; 0 12170696 TABLE DATA public info_predio_rural postgres
+3326; 0 12170704 TABLE DATA public info_socioeco postgres
+3327; 0 12170710 TABLE DATA public info_uso_de_suelo postgres
+3328; 0 12170716 TABLE DATA public manchaurbana postgres
+3329; 0 12170725 TABLE DATA public manzana_perfiladas postgres
+3330; 0 12170736 TABLE DATA public manzanos postgres
+3331; 0 12170745 TABLE DATA public material_de_via postgres
+3332; 0 12170754 TABLE DATA public municipios postgres
+3333; 0 12170757 TABLE DATA public objetos postgres
+3334; 0 12170766 TABLE DATA public objetos_linea postgres
+3335; 0 12170775 TABLE DATA public ochaves_linea postgres
+3336; 0 12170784 TABLE DATA public patentes postgres
+3337; 0 12170790 TABLE DATA public patentes_rubro postgres
+3338; 0 12170796 TABLE DATA public patentes_rubro_imp postgres
+3339; 0 12170799 TABLE DATA public plano_cat_zoom postgres
+3340; 0 12170805 TABLE DATA public predios postgres
+3341; 0 12170817 TABLE DATA public predios_ocha postgres
+3342; 0 12170828 TABLE DATA public predios_ocha_orig postgres
+3343; 0 12170837 TABLE DATA public provincias postgres
+3344; 0 12170840 TABLE DATA public prueba postgres
+3345; 0 12170851 TABLE DATA public recursos postgres
+3365; 0 12250027 TABLE DATA public registro postgres
+3346; 0 12170860 TABLE DATA public satinmus postgres
+3347; 0 12170863 TABLE DATA public satliqin postgres
+3348; 0 12170866 TABLE DATA public satnombr postgres
+3349; 0 12170869 TABLE DATA public siim_selected postgres
+3350; 0 12170875 TABLE DATA public spatial_ref_sys postgres
+3351; 0 12170881 TABLE DATA public tabla_resumen_inmu postgres
+3352; 0 12170887 TABLE DATA public tasas postgres
+3353; 0 12170893 TABLE DATA public temp_line postgres
+3354; 0 12170903 TABLE DATA public temp_point postgres
+3355; 0 12170913 TABLE DATA public temp_poly postgres
+3356; 0 12170923 TABLE DATA public tramite_div postgres
+3357; 0 12170932 TABLE DATA public transfer postgres
+3358; 0 12170940 TABLE DATA public urbanizacion postgres
+3359; 0 12170949 TABLE DATA public uso_de_suelo postgres
+3360; 0 12170958 TABLE DATA public usuarios postgres
+3361; 0 12170964 TABLE DATA public uv postgres
+3362; 0 12170975 TABLE DATA public vehic postgres
+3363; 0 12170981 TABLE DATA public vehic_clase postgres
+3364; 0 12170987 TABLE DATA public zonas postgres
+3159; 2606 12228685 CONSTRAINT public ciiu_id_key postgres
+3161; 2606 12228687 CONSTRAINT public colindantes_id_predio_key postgres
+3163; 2606 12228689 CONSTRAINT public config_pkey postgres
+3165; 2606 12228691 CONSTRAINT public contribuyentes_con_pat_con_mat_con_nom1_con_nom2_key postgres
+3167; 2606 12228693 CONSTRAINT public contribuyentes_con_pmc_key postgres
+3169; 2606 12228695 CONSTRAINT public contribuyentes_pkey postgres
+3171; 2606 12228697 CONSTRAINT public docu_escaneados_pkey postgres
+3173; 2606 12228699 CONSTRAINT public docu_tipos_nombre_documento_key postgres
+3175; 2606 12228701 CONSTRAINT public docu_tipos_pkey postgres
+3178; 2606 12228703 CONSTRAINT public edificacion_bas_pkey postgres
+3180; 2606 12228705 CONSTRAINT public edificaciones_cod_geo_cod_uv_cod_man_cod_pred_edi_num_edi_p_key postgres
+3182; 2606 12228707 CONSTRAINT public edificaciones_pkey postgres
+3184; 2606 12228709 CONSTRAINT public geometry_columns_pk postgres
+3186; 2606 12228711 CONSTRAINT public imp_bancos_pkey postgres
+3188; 2606 12228713 CONSTRAINT public imp_condonaciones_pkey postgres
+3190; 2606 12228715 CONSTRAINT public imp_control_banco_concepto_folio_key postgres
+3192; 2606 12228717 CONSTRAINT public imp_control_banco_pkey postgres
+3194; 2606 12228719 CONSTRAINT public imp_fact_zona_gestion_zona_key postgres
+3196; 2606 12228721 CONSTRAINT public imp_pagados_cod_geo_id_inmu_gestion_key postgres
+3198; 2606 12228723 CONSTRAINT public imp_plan_de_pago_cod_geo_id_inmu_gestion_key postgres
+3200; 2606 12228725 CONSTRAINT public imp_transfer_pkey postgres
+3202; 2606 12228727 CONSTRAINT public imp_whatsapp_cod_geo_id_inmu_gestion_key postgres
+3204; 2606 12228729 CONSTRAINT public info_edif_cod_geo_cod_uv_cod_man_cod_pred_edi_num_edi_piso_key postgres
+3206; 2606 12228731 CONSTRAINT public info_inmu_cod_geo_cod_uv_cod_man_cod_pred_cod_blq_cod_piso__key postgres
+3208; 2606 12228733 CONSTRAINT public info_inmu_pkey postgres
+3210; 2606 12228735 CONSTRAINT public info_predio_cod_geo_cod_uv_cod_man_cod_pred_key postgres
+3212; 2606 12228737 CONSTRAINT public info_predio_pkey postgres
+3214; 2606 12228739 CONSTRAINT public info_predio_rural_cod_geo_cod_poly_cod_predio_key postgres
+3216; 2606 12228741 CONSTRAINT public info_predio_rural_pkey postgres
+3218; 2606 12228743 CONSTRAINT public info_socioeco_cod_geo_id_inmu_soe_anio_key postgres
+3220; 2606 12228745 CONSTRAINT public info_uso_de_suelo_pkey postgres
+3222; 2606 12228747 CONSTRAINT public manchaurbana_cod_geo_cod_uv_key postgres
+3224; 2606 12228749 CONSTRAINT public manzana_perfiladas_pkey postgres
+3226; 2606 12228751 CONSTRAINT public manzanos_cod_geo_cod_uv_cod_man_key postgres
+3228; 2606 12228753 CONSTRAINT public patentes_act_pat_key postgres
+3230; 2606 12228755 CONSTRAINT public patentes_act_raz_key postgres
+3232; 2606 12228757 CONSTRAINT public patentes_pkey postgres
+3236; 2606 12228759 CONSTRAINT public patentes_rubro_imp_id_rubro_gestion_key postgres
+3234; 2606 12228761 CONSTRAINT public patentes_rubro_pkey postgres
+3238; 2606 12228763 CONSTRAINT public plano_cat_zoom_pkey postgres
+3240; 2606 12228765 CONSTRAINT public predios_cod_geo_cod_uv_cod_man_cod_pred_key postgres
+3244; 2606 12228767 CONSTRAINT public predios_ocha_cod_geo_cod_uv_cod_man_cod_pred_key postgres
+3248; 2606 12228769 CONSTRAINT public predios_ocha_orig_cod_geo_cod_uv_cod_man_cod_pred_key postgres
+3246; 2606 12228771 CONSTRAINT public predios_ocha_pkey postgres
+3242; 2606 12228773 CONSTRAINT public predios_pkey postgres
+3250; 2606 12228775 CONSTRAINT public prueba_pkey postgres
+3268; 2606 12250036 CONSTRAINT public registro_pkey postgres
+3253; 2606 12228777 CONSTRAINT public siim_selected_cod_geo_id_inmu_key postgres
+3255; 2606 12228779 CONSTRAINT public spatial_ref_sys_pkey postgres
+3257; 2606 12228781 CONSTRAINT public tasas_id_tasa_key postgres
+3259; 2606 12228783 CONSTRAINT public tramite_div_pkey postgres
+3261; 2606 12228785 CONSTRAINT public transfer_cod_geo_id_inmu_tan_fech_ini_tan_fech_fin_key postgres
+3263; 2606 12228787 CONSTRAINT public uv_pkey postgres
+3266; 2606 12228789 CONSTRAINT public vehic_clase_veh_cls_key postgres
+3176; 1259 12228790 INDEX public codigocat postgres
+3251; 1259 12228791 INDEX public prueba_the_geom_gist postgres
+3264; 1259 12228792 INDEX public uv_the_geom_gist postgres
+3269; 2606 12228793 FK CONSTRAINT public fk_docu_tipos postgres

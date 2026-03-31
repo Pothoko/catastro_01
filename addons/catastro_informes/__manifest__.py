@@ -18,6 +18,7 @@ antes de ser emitido.
     'depends': [
         'base',
         'catastro_predio',
+        'mail',
     ],
     'data': [
         'security/ir.model.access.csv',

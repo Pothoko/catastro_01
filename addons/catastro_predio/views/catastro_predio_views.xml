@@ -112,6 +112,75 @@
                         <page string="Notas" name="notas">
                             <field name="notas" placeholder="Observaciones generales del predio..."/>
                         </page>
+
+                        <!-- Pestaña 6: Servicios Básicos -->
+                        <page string="Servicios Básicos" name="servicios">
+                            <group>
+                                <group string="Servicios Públicos">
+                                    <field name="servicio_alcantarillado"/>
+                                    <field name="servicio_agua"/>
+                                    <field name="servicio_luz"/>
+                                    <field name="servicio_telefono"/>
+                                </group>
+                                <group string="Medidores">
+                                    <field name="medidor_agua"/>
+                                    <field name="medidor_luz"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Pestaña 7: Datos Técnicos del Terreno -->
+                        <page string="Datos Técnicos" name="datos_tecnicos">
+                            <group>
+                                <group string="Características del Terreno">
+                                    <field name="topografia"/>
+                                    <field name="uso_terreno_legacy"/>
+                                    <field name="valor_zona"/>
+                                    <field name="tipo_inmueble_legacy"/>
+                                </group>
+                                <group string="Vía de Acceso">
+                                    <field name="tipo_via"/>
+                                    <field name="material_via"/>
+                                    <field name="nombre_via"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Pestaña 8: Verificación -->
+                        <page string="Verificación" name="verificacion">
+                            <group>
+                                <group string="Estado de Verificación">
+                                    <field name="verificado"/>
+                                    <field name="fecha_verificacion"/>
+                                    <field name="tiene_informe_predio"/>
+                                    <field name="tiene_fotos"/>
+                                </group>
+                                <group string="Impuestos">
+                                    <field name="impuesto_pagado"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Pestaña 9: Datos Legacy Paria -->
+                        <page string="Datos Legacy (Paria)" name="legacy">
+                            <div class="alert alert-info" role="alert">
+                                <strong>ℹ️ Información Histórica:</strong> Estos campos fueron importados
+                                automáticamente del sistema SIICAT/Paria y se conservan para trazabilidad.
+                            </div>
+                            <group>
+                                <group string="Identificadores Paria">
+                                    <field name="legacy_id_predio"/>
+                                    <field name="con_pmc"/>
+                                    <field name="cod_uv"/>
+                                    <field name="cod_man"/>
+                                    <field name="cod_pred"/>
+                                </group>
+                                <group string="Datos Originales">
+                                    <field name="nombre_propietario_legacy"/>
+                                    <field name="urbanizacion"/>
+                                </group>
+                            </group>
+                        </page>
                     </notebook>
                 </sheet>
 
@@ -162,6 +231,8 @@
                 <field name="sector" string="Sector"/>
                 <field name="manzano" string="Manzano"/>
                 <separator/>
+                <filter name="busqueda_blanco" string="Esperando búsqueda..." domain="[('id', '=', 0)]"/>
+                <separator/>
                 <filter name="filter_urbano" string="Urbanos"
                         domain="[('tipo','=','urbano')]"/>
                 <filter name="filter_rural" string="Rurales"
@@ -200,7 +271,7 @@
         <field name="res_model">catastro.predio</field>
         <field name="view_mode">list,form</field>
         <field name="search_view_id" ref="view_catastro_predio_search"/>
-        <field name="context">{}</field>
+        <field name="context">{'search_default_busqueda_blanco': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Registre el primer predio catastral

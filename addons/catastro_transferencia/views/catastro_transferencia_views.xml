@@ -14,11 +14,25 @@
             </tree>
         </field>
     </record>
+    <record id="view_catastro_transferencia_search" model="ir.ui.view">
+        <field name="name">catastro.transferencia.search</field>
+        <field name="model">catastro.transferencia</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Transferencias">
+                <field name="name"/>
+                <field name="predio_id"/>
+                <separator/>
+                <filter name="busqueda_blanco" string="Esperando búsqueda..." domain="[('id', '=', 0)]"/>
+            </search>
+        </field>
+    </record>
 
     <record id="action_catastro_transferencias" model="ir.actions.act_window">
         <field name="name">Transferencias de Dominio</field>
         <field name="res_model">catastro.transferencia</field>
         <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_catastro_transferencia_search"/>
+        <field name="context">{'search_default_busqueda_blanco': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Iniciar un trámite de transferencia de dominio

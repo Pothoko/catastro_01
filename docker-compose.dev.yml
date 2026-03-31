@@ -11,7 +11,7 @@
 
 services:
   db:
-    image: postgres:16
+    image: postgis/postgis:16-3.4
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo_secret
@@ -23,6 +23,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    ports:
+      - "5432:5432"
     restart: unless-stopped
 
   odoo:
@@ -44,6 +46,17 @@ services:
       - odoo-web-dev:/var/lib/odoo
       - ./addons:/mnt/extra-addons      # hot-reload de módulos
       - ./config/odoo.conf:/etc/odoo/odoo.conf
+    restart: unless-stopped
+
+  qgis-server:
+    image: camptocamp/qgis-server:3.28
+    environment:
+      - QGIS_PROJECT_FILE=/io/data/workspace.qgz
+      - QGIS_SERVER_LOG_LEVEL=0
+    volumes:
+      - ./qgis_data:/io/data
+    ports:
+      - "8081:80"
     restart: unless-stopped
 
 volumes:

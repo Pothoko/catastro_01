@@ -16,12 +16,15 @@ generar pre-liquidaciones y boletas de pago integrándose con Odoo Accounting.
     'depends': [
         'base',
         'catastro_predio',
+        'catastro_avaluo',
         'account',
+        'mail',
     ],
     'data': [
         'security/ir.model.access.csv',
         'views/catastro_impuesto_views.xml',
         'reports/boleta_pago_report.xml',
+        'demo/demo_impuestos.xml',
     ],
     'installable': True,
     'application': False,

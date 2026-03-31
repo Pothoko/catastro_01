@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Trámite de Transferencia 1 - En Borrador -->
+        <record id="transferencia_demo_1" model="catastro.transferencia">
+            <field name="predio_id" ref="catastro_predio.predio_010008001"/>
+            <field name="vendedor_id" ref="catastro_predio.partner_mamani_juan"/>
+            <field name="comprador_id" ref="catastro_predio.partner_lopez_ana"/>
+            <field name="fecha_solicitud">2026-03-01</field>
+            <field name="monto_transferencia">250000.00</field>
+            <field name="estado">borrador</field>
+        </record>
+
+        <!-- Trámite de Transferencia 2 - Aprobado -->
+        <record id="transferencia_demo_2" model="catastro.transferencia">
+            <field name="predio_id" ref="catastro_predio.predio_010043014"/>
+            <field name="vendedor_id" ref="catastro_predio.partner_flores_carmen"/>
+            <field name="comprador_id" ref="catastro_predio.partner_choque_felix"/>
+            <field name="fecha_solicitud">2026-03-15</field>
+            <field name="monto_transferencia">185000.00</field>
+            <field name="estado">aprobado</field>
+        </record>
+    </data>
+</odoo>

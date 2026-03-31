@@ -28,10 +28,10 @@ Módulo de Catastro Municipal - Avalúo Catastral
         'views/catastro_predio_avaluo_views.xml',
         'wizard/wizard_recalculo_masivo_views.xml',
         'views/menu_views.xml',
-    ],
-    'demo': [
         'demo/demo_tabla_valor.xml',
         'demo/demo_avaluos.xml',
+    ],
+    'demo': [
     ],
     'installable': True,
     'application': False,

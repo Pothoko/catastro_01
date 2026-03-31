@@ -60,6 +60,28 @@ services:
       - "traefik.http.routers.odoo-catastro-ws.service=odoo-catastro-ws-svc"
       - "traefik.http.routers.odoo-catastro-ws.middlewares=odoo-catastro-headers"
       - "traefik.http.services.odoo-catastro-ws-svc.loadbalancer.server.port=8072"
+  qgis-server:
+    image: camptocamp/qgis-server:latest
+    environment:
+      - QGIS_PROJECT_FILE=/data/workspace.qgz
+      - QGIS_SERVER_LOG_LEVEL=1
+    volumes:
+      - ./qgis_data:/data
+    restart: always
+    expose:
+      - "80"
+    networks:
+      - default
+      - web-proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web-proxy"
+      - "traefik.http.routers.qgis-server.rule=Host(`catastro.local`) && PathPrefix(`/qgisserver`)"
+      - "traefik.http.routers.qgis-server.entrypoints=web"
+      - "traefik.http.routers.qgis-server.service=qgis-server-svc"
+      - "traefik.http.services.qgis-server-svc.loadbalancer.server.port=80"
+      - "traefik.http.middlewares.qgis-strip.stripprefix.prefixes=/qgisserver"
+      - "traefik.http.routers.qgis-server.middlewares=qgis-strip"
 
   traefik:
     image: traefik:latest
