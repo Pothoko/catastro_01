@@ -55,6 +55,8 @@ PG_PASS = 'odoo_secret'
 # HELPERS
 # ==========================================
 
+import re
+
 def safe_str(val, strip=True):
     """Convierte un valor a string limpio o retorna False (null de Odoo)."""
     if val is None:
@@ -62,8 +64,9 @@ def safe_str(val, strip=True):
     s = str(val)
     if strip:
         s = s.strip()
+    # Remover caracteres de control inválidos en XML (evita ExpatError)
+    s = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', '', s)
     return s if s else False
-
 
 def safe_float(val):
     """Convierte a float o retorna 0.0."""
@@ -162,7 +165,7 @@ def main():
             ODOO_DB, uid, ODOO_PASSWORD,
             'res.partner', 'search_read',
             [[['ref', '!=', False]]],
-            {'fields': ['id', 'ref'], 'limit': 0}
+            {'fields': ['id', 'ref']}
         )
         for ex in existing:
             if ex['ref']:
@@ -172,8 +175,9 @@ def main():
                     pass
         if pmc_to_partner:
             print(f"   ℹ {len(pmc_to_partner)} contribuyentes ya existen en Odoo, se omitirán.")
-    except Exception:
-        pass  # Si falla, simplemente intentará crear todos
+    except Exception as e:
+        print(f"Error cargando existentes: {e}")
+
 
     try:
         pg_cursor.execute("""
@@ -276,6 +280,7 @@ def main():
                 print(f"   ⚠ Error en contribuyente #{p['id_contrib']}: {e}")
 
     except psycopg2.Error as e:
+        pg_conn.rollback()
         print(f"   ❌ Error leyendo tabla 'contribuyentes': {e}")
 
     print(f"\n   ✓ Contribuyentes migrados: {contribuyentes_ok}")
@@ -298,7 +303,7 @@ def main():
     if HAS_POSTGIS:
         # SRID=-1 en Paria. Intentamos transformar a 4326 si es posible,
         # sino exportamos tal cual (Leaflet puede manejar coordenadas locales).
-        geom_col = ", ST_AsGeoJSON(ST_SetSRID(the_geom, 32720)) as geojson_geom"
+        geom_col = ", ST_AsGeoJSON(ST_SetSRID(the_geom::geometry, 32720)::geometry) as geojson_geom"
 
     try:
         pg_cursor.execute(f"""
@@ -464,6 +469,7 @@ def main():
                 print(f"   ⚠ Error en predio #{pr['id_predio']}: {e}")
 
     except psycopg2.Error as e:
+        pg_conn.rollback()
         print(f"   ❌ Error leyendo tabla 'predios': {e}")
         traceback.print_exc()
 
@@ -539,6 +545,7 @@ def main():
                 pass
 
     except psycopg2.Error as e:
+        pg_conn.rollback()
         print(f"   ⚠ Error leyendo colindantes: {e}")
 
     print(f"   ✓ Colindantes migrados: {colindantes_ok}")
